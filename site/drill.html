@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻雀 何切るトレーナー</title>
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --panel2:#273549; --text:#e2e8f0; --sub:#94a3b8;
+    --accent:#38bdf8; --good:#4ade80; --ok:#facc15; --bad:#f87171;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--text);font-family:"Hiragino Sans","Noto Sans JP",sans-serif;min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto;padding:16px}
+  header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  h1{font-size:18px;letter-spacing:.02em}
+  h1 .sub{font-size:11px;color:var(--sub);font-weight:400;margin-left:6px}
+  .navlink{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid #2b4a5e;border-radius:8px;padding:6px 10px}
+  select{background:var(--panel);color:var(--text);border:1px solid #334155;border-radius:8px;padding:6px 10px;font-size:13px}
+  .stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .chip{background:var(--panel);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--sub)}
+  .chip b{color:var(--text);font-size:14px;margin-left:4px}
+  .board{background:linear-gradient(160deg,#14532d,#166534);border-radius:16px;padding:18px 14px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .prompt{font-size:13px;color:#dcfce7;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+  .prompt .shanten-tag{background:rgba(0,0,0,.3);border-radius:6px;padding:3px 8px;font-size:12px}
+  .hand{display:flex;align-items:flex-end;gap:3px;flex-wrap:wrap}
+  .hand .tsumo{margin-left:14px}
+  .tile{width:clamp(30px,5.8vw,43px);aspect-ratio:3/4.3;background:linear-gradient(#fffdf4,#efe6d0);border-radius:5px;
+    border:1px solid #d6cdb6;box-shadow:0 3px 0 #b8ae93,0 4px 6px rgba(0,0,0,.35);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;user-select:none;
+    transition:transform .08s}
+  .tile:hover{transform:translateY(-5px)}
+  .tile.disabled{cursor:default;pointer-events:none}
+  .tile.picked{outline:3px solid var(--accent);transform:translateY(-6px)}
+  .tile.bestmark{outline:3px solid var(--good);transform:translateY(-6px)}
+  .tile svg{width:88%;height:auto;pointer-events:none;display:block}
+  .result{background:var(--panel);border-radius:16px;padding:16px;margin-top:14px;display:none}
+  .result.show{display:block;animation:pop .18s ease-out}
+  @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+  .grade-line{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .grade{font-size:34px;font-weight:900;line-height:1}
+  .g-best{color:var(--good)}.g-ok{color:var(--ok)}.g-sub{color:#fb923c}.g-bad{color:var(--bad)}
+  .grade-label{font-size:15px;font-weight:700}
+  .explain{font-size:13.5px;line-height:1.8;color:#cbd5e1;margin-bottom:12px}
+  .explain b{color:var(--text)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{color:var(--sub);font-weight:600;text-align:left;padding:6px 6px;border-bottom:1px solid #334155;white-space:nowrap}
+  td{padding:7px 6px;border-bottom:1px solid #2b3a52;vertical-align:middle}
+  tr.hl-best td{background:rgba(74,222,128,.08)}
+  tr.hl-mine td{background:rgba(56,189,248,.10)}
+  .mini{display:inline-flex;align-items:center;justify-content:center;width:27px;height:36px;
+    background:linear-gradient(#fffdf4,#efe6d0);border-radius:3px;border:1px solid #d6cdb6;vertical-align:middle}
+  .mini svg{width:22px;height:auto;display:block}
+  .uke{color:var(--sub)}
+  .uke span{margin-right:5px;white-space:nowrap;font-weight:600}
+  .tag{font-size:10.5px;border-radius:4px;padding:2px 5px;white-space:nowrap}
+  .tag.best{background:rgba(74,222,128,.18);color:var(--good)}
+  .tag.mine{background:rgba(56,189,248,.18);color:var(--accent)}
+  .btnrow{display:flex;gap:10px;margin-top:14px}
+  button{background:var(--accent);color:#0c2231;font-weight:700;border:none;border-radius:10px;padding:10px 22px;font-size:14px;cursor:pointer}
+  button:hover{filter:brightness(1.1)}
+  footer{margin-top:16px;font-size:11px;color:#64748b;line-height:1.7}
+  .tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🀄 何切るトレーナー<span class="sub">v2 ドリルモード</span></h1>
+    <div style="display:flex;gap:8px;align-items:center">
+      <select id="mode">
+        <option value="1" selected>1向聴（テンパイ目前）</option>
+        <option value="2">2向聴（中盤）</option>
+        <option value="0">聴牌形（待ち選択）</option>
+      </select>
+      <a class="navlink" href="index.html">実戦モード →</a>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="chip">出題<b id="st-total">0</b></div>
+    <div class="chip">最善率<b id="st-rate">-</b></div>
+    <div class="chip">連続正解<b id="st-streak">0</b></div>
+    <div class="chip" style="cursor:pointer" id="st-reset" title="成績リセット">↺</div>
+  </div>
+
+  <div class="board">
+    <div class="prompt">
+      <span>受け入れが最大になる1牌を切ってください</span>
+      <span class="shanten-tag" id="shanten-tag"></span>
+    </div>
+    <div class="hand" id="hand"></div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="grade-line">
+      <span class="grade" id="grade"></span>
+      <span class="grade-label" id="grade-label"></span>
+    </div>
+    <div class="explain" id="explain"></div>
+    <div class="tablewrap"><table id="ranking"></table></div>
+    <div class="btnrow">
+      <button id="next">次の問題 →</button>
+    </div>
+  </div>
+
+  <footer>
+    ※ ドリルモードは牌効率（向聴数・受け入れ枚数）のみで採点。点数状況・河を考慮した練習は「実戦モード」へ。<br>
+    ※ 評価エンジンは自前実装（一般手・七対子・国士無双の向聴数＋有効牌枚数）。完全ローカル動作・通信なし。<br>
+    <a href="rules/">🔰 麻雀のいろは</a> ／ <a href="privacy.html">プライバシーポリシー</a> ／ <a href="disclaimer.html">免責事項</a> ／ <a href="about.html">運営者情報</a> ／ <a href="contact.html">お問い合わせ</a>
+  </footer>
+</div>
+
+<script src="engine.js"></script>
+<script>
+"use strict";
+/* ================= 問題生成 ================= */
+function makeWall(){
+  const w = [];
+  for (let i=0;i<34;i++) for (let j=0;j<4;j++) w.push(i);
+  for (let i=w.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [w[i],w[j]]=[w[j],w[i]]; }
+  return w;
+}
+// ランダム配牌から貪欲にツモ切りシミュして目標向聴の実戦的な手を作る
+function newProblem(target){
+  for (let attempt=0; attempt<30; attempt++){
+    const wall = makeWall();
+    const c = new Array(34).fill(0);
+    for (let i=0;i<13;i++) c[wall.pop()]++;
+    let guard = 0;
+    while (shanten(c) > target && wall.length > 16 && guard++ < 110){
+      c[wall.pop()]++;
+      const ev = evaluateAll(c);
+      c[ev[0].d]--;
+    }
+    if (shanten(c) !== target) continue;
+    while (wall.length > 0){
+      const t = wall.pop();
+      if (c[t] >= 4) continue;
+      c[t]++;
+      const agari = (shanten(c) === -1) || evaluateAll(c)[0].shanten < 0;
+      if (!agari){
+        c[t]--;
+        return { counts13: c, tsumo: t };
+      }
+      c[t]--;
+    }
+  }
+  return null;
+}
+
+/* ================= 採点・解説 ================= */
+function judge(rows, pick){
+  const best = rows[0];
+  const mine = rows.find(r => r.d === pick);
+  let grade;
+  if (mine.shanten > best.shanten) grade = "bad";
+  else if (mine.count === best.count) grade = "best";
+  else if (mine.count >= best.count * 0.85) grade = "ok";
+  else grade = "sub";
+  return { grade, best, mine };
+}
+function ukeStr(tiles){
+  return tiles.map(([k,n]) => `${tileJp(k)}×${n}`).join(" ");
+}
+function buildExplain(g){
+  const { grade, best, mine } = g;
+  const bestName = tileJp(best.d), mineName = tileJp(mine.d);
+  const shLabel = s => s === 0 ? "聴牌" : `${s}向聴`;
+  if (grade === "bad"){
+    return `打<b>${mineName}</b>は<b>向聴戻し</b>です（${shLabel(mine.shanten)}に後退）。` +
+      `最善は打<b>${bestName}</b>で${shLabel(best.shanten)}を維持し、有効牌は<b>${best.kinds}種${best.count}枚</b>（${ukeStr(best.tiles)}）。` +
+      `手が進む牌を残す意識を持ちましょう。`;
+  }
+  if (grade === "best"){
+    const alt = mine.d !== best.d ? `（打${bestName}と同等の最善手です）` : "";
+    return `打<b>${mineName}</b>が受け入れ最大の<b>${mine.kinds}種${mine.count}枚</b>${alt}。` +
+      `有効牌: ${ukeStr(mine.tiles)}。この形をパターンとして覚えましょう。`;
+  }
+  const loss = best.count - mine.count;
+  const mineSet = new Set(mine.tiles.map(t=>t[0]));
+  const missed = best.tiles.filter(t => !mineSet.has(t[0]));
+  const missedStr = missed.length ? `逃した有効牌: <b>${ukeStr(missed)}</b>。` : "";
+  const head = grade === "ok" ? "惜しい！ほぼ最善です。" : "受け入れロスが大きい一打です。";
+  return `${head}打<b>${mineName}</b>は${mine.kinds}種${mine.count}枚、` +
+    `最善の打<b>${bestName}</b>は<b>${best.kinds}種${best.count}枚</b>で<b>${loss}枚</b>の差。${missedStr}`;
+}
+const GRADE_VIEW = {
+  best: { mark:"◎", cls:"g-best", label:"最善！" },
+  ok:   { mark:"○", cls:"g-ok",   label:"ほぼ最善" },
+  sub:  { mark:"△", cls:"g-sub",  label:"ロスあり" },
+  bad:  { mark:"✕", cls:"g-bad",  label:"向聴戻し" },
+};
+
+/* ================= UI ================= */
+const $ = id => document.getElementById(id);
+let problem = null, rows = null, answered = false;
+let stats = JSON.parse(localStorage.getItem("mjt_stats") || '{"total":0,"best":0,"streak":0}');
+
+function saveStats(){ localStorage.setItem("mjt_stats", JSON.stringify(stats)); renderStats(); }
+function renderStats(){
+  $("st-total").textContent = stats.total;
+  $("st-rate").textContent = stats.total ? Math.round(stats.best/stats.total*100) + "%" : "-";
+  $("st-streak").textContent = stats.streak;
+}
+
+function tileEl(id, cls){
+  const div = document.createElement("div");
+  div.className = cls;
+  div.innerHTML = faceSvg(id);
+  return div;
+}
+function miniTile(id){
+  return `<span class="mini">${faceSvg(id)}</span>`;
+}
+
+function render(){
+  const handDiv = $("hand");
+  handDiv.innerHTML = "";
+  const list = [];
+  problem.counts13.forEach((n,i)=>{ for(let j=0;j<n;j++) list.push(i); });
+  list.forEach(id => {
+    const el = tileEl(id, "tile");
+    el.dataset.tile = id;
+    el.onclick = () => answer(id, el);
+    handDiv.appendChild(el);
+  });
+  const ts = tileEl(problem.tsumo, "tile tsumo");
+  ts.dataset.tile = problem.tsumo;
+  ts.onclick = () => answer(problem.tsumo, ts);
+  handDiv.appendChild(ts);
+
+  const c14 = problem.counts13.slice(); c14[problem.tsumo]++;
+  rows = evaluateAll(c14);
+  $("shanten-tag").textContent = rows[0].shanten === 0 ? "聴牌チャンス" : `最善で${rows[0].shanten}向聴`;
+  $("result").classList.remove("show");
+  answered = false;
+}
+
+function answer(pick, el){
+  if (answered) return;
+  answered = true;
+  const g = judge(rows, pick);
+  document.querySelectorAll(".tile").forEach(t => {
+    t.classList.add("disabled");
+    if (Number(t.dataset.tile) === g.best.d) t.classList.add("bestmark");
+  });
+  el.classList.add("picked");
+
+  const view = GRADE_VIEW[g.grade];
+  $("grade").textContent = view.mark;
+  $("grade").className = "grade " + view.cls;
+  $("grade-label").textContent = view.label;
+  $("explain").innerHTML = buildExplain(g);
+  renderRanking(g);
+  $("result").classList.add("show");
+  $("result").scrollIntoView({behavior:"smooth", block:"nearest"});
+
+  stats.total++;
+  if (g.grade === "best") stats.best++;
+  stats.streak = (g.grade === "best" || g.grade === "ok") ? stats.streak+1 : 0;
+  saveStats();
+}
+
+function renderRanking(g){
+  const shown = rows.slice(0,5);
+  if (!shown.some(r => r.d === g.mine.d)) shown.push(g.mine);
+  let html = "<tr><th>打牌</th><th>向聴</th><th>受け入れ</th><th>有効牌</th><th></th></tr>";
+  for (const r of shown){
+    const tags = [];
+    if (r.d === g.best.d) tags.push('<span class="tag best">最善</span>');
+    if (r.d === g.mine.d) tags.push('<span class="tag mine">あなた</span>');
+    const cls = r.d === g.mine.d ? "hl-mine" : (r.d === g.best.d ? "hl-best" : "");
+    const uke = r.tiles.map(([k,n])=>`<span>${tileJp(k)}×${n}</span>`).join("");
+    html += `<tr class="${cls}"><td>${miniTile(r.d)}</td><td>${r.shanten===0?"聴牌":r.shanten}</td>` +
+      `<td><b>${r.kinds}種${r.count}枚</b></td><td class="uke">${uke}</td><td>${tags.join(" ")}</td></tr>`;
+  }
+  $("ranking").innerHTML = html;
+}
+
+function next(){
+  const target = Number($("mode").value);
+  problem = newProblem(target);
+  if (!problem){ alert("問題生成に失敗しました。再試行します"); return next(); }
+  render();
+}
+$("next").onclick = next;
+$("mode").onchange = next;
+$("st-reset").onclick = () => { if(confirm("成績をリセットしますか？")){ stats={total:0,best:0,streak:0}; saveStats(); } };
+
+renderStats();
+next();
+
+/* ================= セルフテスト（コンソール用） ================= */
+window.runTests = function(){
+  const cases = [
+    ["123m456p789s45m11z", 0, "平和形テンパイ"],
+    ["1112345678999m", 0, "純正九蓮テンパイ"],
+    ["1122334455667m", 0, "七対子/一般テンパイ"],
+    ["19m19p19s1234567z", 0, "国士13面テンパイ"],
+    ["123m456p789s55m111z", -1, "和了形(14枚)"],
+    ["1122334455m6677p", -1, "七対子和了(14枚)"],
+    ["123m456p789s45m19z", 1, "1向聴"],
+    ["147m258p369s1234z", 6, "バラバラ(6向聴)"],
+  ];
+  const out = cases.map(([h, exp, name]) => {
+    const got = shanten(parseHand(h));
+    return { name, hand: h, expected: exp, got, pass: got === exp };
+  });
+  const c = parseHand("23456m456p789s11z");
+  const u = ukeire(c, c);
+  out.push({ name:"受け入れ 3面張", expected:"3種11枚", got:`${u.kinds}種${u.count}枚`, pass: u.kinds===3 && u.count===11 });
+  return out;
+};
+</script>
+</body>
+</html>
