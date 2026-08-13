@@ -1,0 +1,1168 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀のいろは｜初心者が10課で対人デビューできる無料入門 | 雀トレ</title>
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/rules/">
+<meta name="description" content="麻雀を全く知らない人向けの無料入門。牌の種類・役・リーチ・点数まで10課のレッスンで学び、1局デモと一人麻雀・クイズで練習して雀荘デビューまで導きます。">
+<meta property="og:title" content="麻雀のいろは｜ゼロから対人デビューまで">
+<meta property="og:description" content="10課のレッスン・1局デモ・一人麻雀・クイズで、麻雀のルールをゼロから学べる無料サイト。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/rules/">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/shop.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ40EFR6C');
+</script>
+<style>
+/* ============ 麻雀のいろは — NEON EDITION ============ */
+:root{
+  --bg:#070b12; --bg2:#0b1220; --surface:#101826; --surface2:#16223a;
+  --ink:#e6f1f5; --ink-soft:#8b9bb0; --line:#1f2d42; --line-hi:#2f4468;
+  --cyan:#2ee6ff; --magenta:#ff4fd8; --green:#3df58c; --red:#ff5c7a; --amber:#ffd166;
+  --grad:linear-gradient(90deg,var(--cyan),var(--magenta));
+  --glow-cyan:0 0 14px rgba(46,230,255,.45);
+  --glow-mag:0 0 14px rgba(255,79,216,.40);
+  --glow-green:0 0 12px rgba(61,245,140,.45);
+  --tile-face:linear-gradient(180deg,#1b2740,#111a2c);
+  --tile-edge:#31466b;
+  --accent:var(--cyan); --good:var(--green); --bad:var(--red);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(900px 520px at 88% -10%, rgba(255,79,216,.13), transparent 60%),
+    radial-gradient(820px 520px at -12% 18%, rgba(46,230,255,.11), transparent 55%),
+    radial-gradient(720px 620px at 50% 112%, rgba(61,245,140,.07), transparent 60%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.8;font-size:15px;
+}
+::selection{background:rgba(46,230,255,.3)}
+h1,h2,h3{line-height:1.4;text-wrap:balance;margin:0;font-weight:700;letter-spacing:.02em}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 90px}
+/* ---- header ---- */
+header.app{position:sticky;top:0;z-index:20;background:rgba(7,11,18,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(46,230,255,.12)}
+.head-in{max-width:720px;margin:0 auto;padding:12px 16px 0}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.brand h1{font-size:21px;font-weight:800;letter-spacing:.14em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(46,230,255,.35))}
+.brand .sub{font-size:11px;color:var(--ink-soft);letter-spacing:.12em}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;margin-top:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{appearance:none;border:0;background:none;color:var(--ink-soft);font:inherit;font-size:13px;font-weight:600;letter-spacing:.06em;padding:8px 13px 11px;cursor:pointer;white-space:nowrap;position:relative}
+nav.tabs button::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2px;border-radius:2px;background:var(--grad);opacity:0;transition:opacity .2s}
+nav.tabs button[aria-selected="true"]{color:var(--cyan);text-shadow:0 0 10px rgba(46,230,255,.55)}
+nav.tabs button[aria-selected="true"]::after{opacity:1;box-shadow:var(--glow-cyan)}
+nav.tabs button:focus-visible,button:focus-visible,.tile-btn:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:4px}
+section.screen{display:none;padding-top:20px}
+section.screen.active{display:block}
+/* ---- cards & text ---- */
+.card{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.card h2{font-size:17.5px;margin-bottom:8px}
+.card h3{font-size:14.5px;margin:16px 0 6px;color:var(--cyan);letter-spacing:.05em}
+.eyebrow{font-size:11px;letter-spacing:.22em;color:var(--magenta);font-weight:700;margin-bottom:6px;text-shadow:0 0 10px rgba(255,79,216,.5)}
+p{margin:.55em 0}
+.muted{color:var(--ink-soft);font-size:13px}
+.note{background:rgba(46,230,255,.07);border:1px solid rgba(46,230,255,.22);border-left:3px solid var(--cyan);border-radius:10px;padding:11px 14px;font-size:13.5px;margin:12px 0}
+.warn{background:rgba(255,92,122,.08);border:1px solid rgba(255,92,122,.25);border-left:3px solid var(--red);border-radius:10px;padding:9px 14px;margin:10px 0}
+/* ---- tiles ---- */
+.tile{display:inline-block;width:34px;height:46px;border-radius:5px;background:linear-gradient(180deg,#fdfbf0,#ebe2cb);border:1px solid #c6bb9f;box-shadow:0 3px 0 #a3987c,0 5px 10px rgba(0,0,0,.5);padding:2px;margin:1px;vertical-align:middle;user-select:none;flex:0 0 auto}
+.tile svg{display:block;width:100%;height:100%}
+.tile.back{background:linear-gradient(135deg,#3b1e66,#16224e);border-color:#4c3b8a;box-shadow:0 3px 0 #241347,0 5px 10px rgba(0,0,0,.5)}
+.tile.rot{transform:rotate(90deg);margin:0 10px}
+.tile.hi{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 0 14px rgba(255,209,102,.55),0 3px 0 rgba(0,0,0,.45)}
+.tile.dim{opacity:.35}
+.tiles{display:flex;flex-wrap:wrap;align-items:center;gap:1px;margin:10px 0;row-gap:6px}
+.tiles .gap{width:12px}
+.tile-btn{appearance:none;border:0;background:none;padding:0;cursor:pointer;border-radius:6px;transition:transform .12s}
+.tile-btn:hover{transform:translateY(-3px)}
+.tile-btn:active{transform:translateY(-6px)}
+/* ---- buttons ---- */
+.btn{appearance:none;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line-hi);background:var(--surface2);color:var(--ink);border-radius:10px;padding:9px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .12s}
+.btn:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan)}
+.btn.primary{background:var(--grad);border:0;color:#06121a;font-weight:800;letter-spacing:.04em;box-shadow:var(--glow-cyan)}
+.btn.primary:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(46,230,255,.6)}
+.btn.ghost{background:none;border-color:var(--line)}
+.btn:disabled{opacity:.35;cursor:default;box-shadow:none;transform:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px;align-items:center}
+/* ---- quiz ---- */
+.choices{display:flex;flex-direction:column;gap:9px;margin:12px 0}
+.choices button{appearance:none;font:inherit;text-align:left;border:1px solid var(--line-hi);background:var(--surface2);color:var(--ink);border-radius:10px;padding:11px 15px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.choices button:hover:not(:disabled){border-color:var(--cyan);box-shadow:var(--glow-cyan)}
+.choices button.correct{border-color:var(--green);background:rgba(61,245,140,.1);box-shadow:var(--glow-green);font-weight:700}
+.choices button.wrong{border-color:var(--red);background:rgba(255,92,122,.07);opacity:.75}
+.choices button:disabled{cursor:default}
+.explain{display:none;margin-top:12px;padding:11px 14px;border-radius:10px;background:rgba(46,230,255,.07);border:1px solid rgba(46,230,255,.2);font-size:13.5px}
+.explain.show{display:block}
+.result-ok{color:var(--green);font-weight:800;text-shadow:0 0 10px rgba(61,245,140,.55)}
+.result-ng{color:var(--red);font-weight:800;text-shadow:0 0 10px rgba(255,92,122,.5)}
+.score-big{font-size:42px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 12px rgba(46,230,255,.4))}
+/* ---- lesson list ---- */
+.lesson-list{display:flex;flex-direction:column;gap:9px;margin:14px 0}
+.lesson-list button{appearance:none;font:inherit;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg2));color:var(--ink);border-radius:12px;padding:13px 15px;cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .12s}
+.lesson-list button:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan);transform:translateY(-1px)}
+.lnum{font-size:12px;color:var(--cyan);min-width:3.6em;font-weight:800;letter-spacing:.08em;flex:0 0 auto;text-shadow:0 0 8px rgba(46,230,255,.45)}
+.ltitle{flex:1;font-size:14px;min-width:0}
+.ldone{font-size:12px;color:var(--green);font-weight:800;flex:0 0 auto;text-shadow:0 0 8px rgba(61,245,140,.5)}
+.progressbar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:10px 0 4px}
+.progressbar>div{height:100%;background:var(--grad);width:0;transition:width .3s;box-shadow:var(--glow-cyan)}
+/* ---- demo ---- */
+.demo-caption{min-height:5.5em;font-size:14px}
+.river{display:flex;flex-wrap:wrap;align-items:center;gap:1px;row-gap:8px;margin:6px 0;min-height:50px}
+.stat{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.stat b{color:var(--ink)}
+/* ---- practice ---- */
+.shanten-box{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;font-size:14px}
+.pill{display:inline-block;border-radius:999px;padding:3px 14px;font-size:12.5px;font-weight:800;letter-spacing:.06em;border:1px solid var(--cyan);color:var(--cyan);background:rgba(46,230,255,.08);text-shadow:0 0 8px rgba(46,230,255,.45)}
+.pill.hot{border-color:var(--magenta);color:var(--magenta);background:rgba(255,79,216,.1);box-shadow:var(--glow-mag);text-shadow:0 0 8px rgba(255,79,216,.55)}
+.overlay-win{position:relative;border-radius:14px;padding:16px;margin:14px 0;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box;border:1px solid transparent;box-shadow:0 0 26px rgba(255,79,216,.28)}
+.yaku-line{display:flex;justify-content:space-between;gap:10px;font-size:14px;border-bottom:1px dashed var(--line-hi);padding:4px 0;font-variant-numeric:tabular-nums}
+.hint-list{font-size:13.5px}
+.hint-list td{padding:4px 10px 4px 0;vertical-align:middle}
+table{border-collapse:collapse}
+.tbl{width:100%;font-size:13.5px;margin:10px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left}
+.tbl th{font-size:12px;color:var(--cyan);font-weight:700;letter-spacing:.08em}
+.scroll-x{overflow-x:auto}
+/* ---- glossary / checklist ---- */
+details{border:1px solid var(--line);border-radius:10px;margin:7px 0;background:linear-gradient(180deg,var(--surface),var(--bg2))}
+details summary{padding:10px 15px;cursor:pointer;font-size:14px;font-weight:700;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";color:var(--cyan)}
+details[open] summary::before{content:"▾ "}
+details[open]{border-color:var(--line-hi)}
+details .body{padding:0 15px 11px;font-size:13.5px;color:var(--ink-soft)}
+.check{display:flex;align-items:flex-start;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line-hi);font-size:14px}
+.check input{margin-top:5px;accent-color:var(--cyan);width:17px;height:17px;flex:0 0 auto}
+/* ---- home ---- */
+.home-hero{padding:30px 0 10px}
+.home-hero h2{font-size:26px;font-weight:800;margin-bottom:8px;background:linear-gradient(90deg,var(--ink) 30%,var(--cyan) 75%,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.mode-grid button{appearance:none;font:inherit;text-align:left;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg2));color:var(--ink);border-radius:14px;padding:15px 16px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:border-color .15s,box-shadow .15s,transform .12s}
+.mode-grid button:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan);transform:translateY(-2px)}
+.mode-grid .mt{font-weight:800;font-size:15px;display:block;margin-bottom:4px;letter-spacing:.03em}
+.mode-grid .md{font-size:12px;color:var(--ink-soft);display:block;line-height:1.6}
+/* ---- responsive / motion ---- */
+/* ---- shop (affiliate) ---- */
+.shop-pr{font-size:11.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 14px;padding:8px 12px;border:1px dashed var(--line-hi);border-radius:8px}
+.shop-grid{display:flex;flex-direction:column;gap:14px}
+.shop-card{border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:linear-gradient(180deg,var(--surface),var(--bg2))}
+.shop-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+.shop-emoji{font-size:26px;line-height:1.2;flex:0 0 auto}
+.shop-name{font-weight:800;font-size:15px;line-height:1.5}
+.shop-meta{font-size:12px;color:var(--ink-soft);margin-top:3px;font-variant-numeric:tabular-nums}
+.shop-why{font-size:13.5px;margin:8px 0}
+.shop-for{font-size:12.5px;color:var(--cyan);border-left:2px solid var(--cyan);padding-left:9px;margin:10px 0}
+.shop-btns{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.shop-btn{display:inline-block;text-decoration:none;font-size:13.5px;font-weight:700;padding:9px 18px;border-radius:9px;transition:transform .12s,box-shadow .15s}
+.shop-btn:hover{transform:translateY(-1px)}
+.shop-btn.rakuten{background:#bf0000;color:#fff;box-shadow:0 0 12px rgba(191,0,0,.35)}
+.shop-btn.rakuten:hover{box-shadow:0 0 18px rgba(191,0,0,.55)}
+.shop-btn.amazon{background:#ff9900;color:#1a1206;box-shadow:0 0 12px rgba(255,153,0,.3)}
+.shop-btn.amazon:hover{box-shadow:0 0 18px rgba(255,153,0,.5)}
+.shop-inline{margin:14px 0 4px;padding:13px 15px;border:1px solid var(--line-hi);border-radius:11px;background:rgba(46,230,255,.05)}
+.shop-inline .si-t{font-size:13.5px;font-weight:700;margin-bottom:4px}
+.shop-inline .si-d{font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+.shop-inline a.si-go{display:inline-block;margin-top:9px;font-size:13px;font-weight:700;color:var(--cyan);text-decoration:none;border:1px solid var(--cyan);border-radius:8px;padding:6px 14px}
+.shop-inline a.si-go:hover{box-shadow:var(--glow-cyan)}
+.shop-article{display:block;margin-top:14px;padding:12px 15px;border:1px solid var(--line-hi);border-radius:11px;text-decoration:none;color:var(--ink);font-size:13.5px}
+.shop-article:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan)}
+.shop-article b{color:var(--cyan)}
+@media (max-width:430px){ .tile{width:29px;height:41px} .mode-grid{grid-template-columns:1fr} .brand h1{font-size:19px} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+
+</style>
+
+<header class="app"><div class="head-in">
+  <div class="brand"><h1>麻雀のいろは</h1><span class="sub">ゼロから対人デビューまで</span></div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="home" aria-selected="true">ホーム</button>
+    <button role="tab" data-tab="learn" aria-selected="false">まなぶ</button>
+    <button role="tab" data-tab="demo" aria-selected="false">みる</button>
+    <button role="tab" data-tab="practice" aria-selected="false">れんしゅう</button>
+    <button role="tab" data-tab="debut" aria-selected="false">デビュー準備</button>
+  </nav>
+</div></header>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<section class="screen active" id="scr-home">
+  <div class="home-hero">
+    <div class="eyebrow">はじめてでも、だいじょうぶ</div>
+    <h2>麻雀を、いちばんやさしい順番で。</h2>
+    <p class="muted">ルールを覚えて、動きを見て、ひとりで練習して、友だちと卓を囲む。その順番をこのページひとつでご案内します。</p>
+  </div>
+  <div class="card">
+    <h2>あなたの進み具合</h2>
+    <div class="progressbar"><div id="home-progress"></div></div>
+    <p class="muted" id="home-progress-text"></p>
+  </div>
+  <div class="mode-grid">
+    <button data-goto="learn"><span class="mt">① まなぶ</span><span class="md">10のレッスンでルールを順番に。各課に小テストつき</span></button>
+    <button data-goto="demo"><span class="mt">② みる</span><span class="md">1局の流れを実況つきデモで見学</span></button>
+    <button data-goto="practice"><span class="mt">③ れんしゅう</span><span class="md">一人麻雀とクイズで手を動かす</span></button>
+    <button data-goto="debut"><span class="mt">④ デビュー準備</span><span class="md">マナー・発声・チェックリスト・用語集</span></button>
+  </div>
+  <div class="note">おすすめの進み方：「まなぶ」を1〜5課 → 「みる」でデモ → 残りの課 → 「れんしゅう」→ チェックリストが全部つけば対人デビュー！</div>
+</section>
+
+<!-- ============ LEARN ============ -->
+<section class="screen" id="scr-learn">
+  <div id="learn-index">
+    <div class="eyebrow">レッスン</div>
+    <h2 style="font-size:20px">10課でルールをぜんぶ</h2>
+    <p class="muted">1課5分ほど。順番どおりがおすすめです。</p>
+    <div class="lesson-list" id="lesson-list"></div>
+  </div>
+  <div id="lesson-view" style="display:none">
+    <div class="btn-row"><button class="btn ghost" id="lesson-back">← レッスン一覧</button></div>
+    <div id="lesson-body"></div>
+    <div id="lesson-shop"></div>
+    <div class="btn-row" id="lesson-nav"></div>
+  </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section class="screen" id="scr-demo">
+  <div class="eyebrow">デモンストレーション</div>
+  <h2 style="font-size:20px">1局をとおして見てみよう</h2>
+  <p class="muted">あなた（下家視点）が配牌からロンあがりするまでを、実況つきで再生します。</p>
+  <div class="card">
+    <div class="stat"><span>巡目 <b id="demo-turn">—</b></span><span>ドラ表示牌 <span id="demo-dora"></span></span></div>
+    <h3>相手の捨て牌（河）</h3>
+    <div class="river" id="demo-river"></div>
+    <h3>あなたの手牌</h3>
+    <div class="tiles" id="demo-hand"></div>
+    <h3>あなたの捨て牌</h3>
+    <div class="river" id="demo-myriver"></div>
+    <div class="note demo-caption" id="demo-caption"></div>
+    <div class="btn-row">
+      <button class="btn" id="demo-prev">← 前へ</button>
+      <button class="btn primary" id="demo-next">次へ →</button>
+      <button class="btn ghost" id="demo-auto">▶ 自動再生</button>
+      <span class="muted" id="demo-step-no"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section class="screen" id="scr-practice">
+  <div id="practice-index">
+    <div class="eyebrow">れんしゅう</div>
+    <h2 style="font-size:20px">手を動かして覚える</h2>
+    <div class="lesson-list">
+      <button data-practice="solo"><span class="lnum">実 戦</span><span class="ltitle"><b>一人麻雀</b>　ツモって切ってアガリを目指す。シャンテン表示＆ヒントつき</span></button>
+      <button data-practice="qtile"><span class="lnum">クイズ</span><span class="ltitle"><b>牌フラッシュ</b>　この牌の名前は？（全10問）</span><span class="ldone" id="best-qtile"></span></button>
+      <button data-practice="qwait"><span class="lnum">クイズ</span><span class="ltitle"><b>何待ちクイズ</b>　テンパイ形の待ちを当てる（全8問）</span><span class="ldone" id="best-qwait"></span></button>
+      <button data-practice="qcut"><span class="lnum">クイズ</span><span class="ltitle"><b>何切るクイズ</b>　いらない牌はどれ？（全6問）</span><span class="ldone" id="best-qcut"></span></button>
+      <button data-practice="qyaku"><span class="lnum">クイズ</span><span class="ltitle"><b>役当てクイズ</b>　このアガリの役は？（全6問）</span><span class="ldone" id="best-qyaku"></span></button>
+    </div>
+  </div>
+  <div id="practice-view" style="display:none">
+    <div class="btn-row"><button class="btn ghost" id="practice-back">← れんしゅう一覧</button></div>
+    <div id="practice-body"></div>
+  </div>
+</section>
+
+<!-- ============ DEBUT ============ -->
+<section class="screen" id="scr-debut">
+  <div class="eyebrow">対人デビュー準備</div>
+  <h2 style="font-size:20px">卓を囲む日のために</h2>
+
+  <div class="card">
+    <h2>デビュー前チェックリスト</h2>
+    <p class="muted">全部にチェックがつけば、もう打てます。あやしい項目はレッスンへ戻ってOK。</p>
+    <div id="checklist"></div>
+    <p class="muted" id="checklist-status"></p>
+  </div>
+
+  <div class="card">
+    <h2>声に出すことば（発声）</h2>
+    <p>対人麻雀では、次の6つは<b>必ず声に出して</b>宣言します。黙ってやるとトラブルのもと。</p>
+    <div class="scroll-x"><table class="tbl">
+      <tr><th>ことば</th><th>いつ言う？</th></tr>
+      <tr><td><b>ポン</b></td><td>他の人の捨て牌で刻子（同じ牌3枚）を作るとき</td></tr>
+      <tr><td><b>チー</b></td><td>左どなりの捨て牌で順子（連番3枚）を作るとき</td></tr>
+      <tr><td><b>カン</b></td><td>同じ牌4枚をそろえて宣言するとき</td></tr>
+      <tr><td><b>リーチ</b></td><td>テンパイ宣言。1000点棒を出し、捨て牌を横向きに</td></tr>
+      <tr><td><b>ロン</b></td><td>他の人の捨て牌でアガるとき</td></tr>
+      <tr><td><b>ツモ</b></td><td>自分で引いた牌でアガるとき</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h2>当日の流れとマナー</h2>
+    <h3>ゲーム前</h3>
+    <p>席と親はサイコロなどで決めます（お店や自動卓なら案内どおりでOK）。「半荘（ハンチャン）＝東場4局＋南場4局」が一般的な1ゲームです。</p>
+    <h3>打っている間のマナー</h3>
+    <p>・捨て牌は自分の前に<b>6枚ずつ横に並べる</b>（3段くらいになる）<br>
+    ・牌は<b>強く叩きつけない</b>、そっと置く<br>
+    ・自分の番が来る前に牌を引かない（<b>先ヅモ禁止</b>）<br>
+    ・鳴いた牌・リーチ棒の置き場所がわからなければ、素直に「初心者なので教えてください」と言えば大歓迎されます<br>
+    ・長考しすぎない。迷ったらテンパイに近づく牌を残せばOK</p>
+    <h3>アガったら</h3>
+    <p>手牌を倒して役を言います。点数計算は最初はできなくて大丈夫。「リーチ、タンヤオ、ドラ1です」と役だけ言えば、まわりが点数を教えてくれます。</p>
+    <h3>点棒のはなし</h3>
+    <p>持ち点は25000点スタートが一般的。点棒は1万点・5千点・千点・百点の4種類。支払いは手渡しでOK。</p>
+  </div>
+
+  <div class="card">
+    <h2>おすすめ入門グッズ</h2>
+    <p class="muted">このサイトを一周した人が「次に買うと役に立つもの」だけを選びました。全部そろえる必要はありません。</p>
+    <div id="shop-debut"></div>
+    <a class="shop-article" href="/articles/mahjong-beginner-books.html"><b>▶ 本の選び方をもっと詳しく</b><br>初心者におすすめの本の選び方【2026年版】— 段階別に、何を何冊買えばいいかを解説しています。</a>
+  </div>
+
+  <div class="card">
+    <h2>用語集</h2>
+    <p class="muted">聞いたことのない言葉が出たら、ここで引いてください。</p>
+    <div id="glossary"></div>
+  </div>
+</section>
+
+<footer style="max-width:760px;margin:32px auto 24px;padding:16px 12px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;line-height:2;text-align:center;opacity:.75">
+  <p style="margin:0 0 8px">「麻雀のいろは」は<a href="/" style="color:inherit">雀トレ</a>（毎日ラボ）の初心者向け学習コンテンツです。麻雀のルールを学ぶための無料の学習ツールで、現金・賭け金は一切扱いません。</p>
+  <a href="/" style="color:inherit">🀄 雀トレ</a> ／
+  <a href="/drill" style="color:inherit">何切るドリル</a> ／
+  <a href="/privacy" style="color:inherit">プライバシーポリシー</a> ／
+  <a href="/disclaimer" style="color:inherit">免責事項</a> ／
+  <a href="/about" style="color:inherit">運営者情報</a> ／
+  <a href="/contact" style="color:inherit">お問い合わせ</a>
+</footer>
+
+</div>
+
+<script>
+"use strict";
+/* ================= tile utilities ================= */
+const KAN=["一","二","三","四","五","六","七","八","九"];
+const HONOR=["東","南","西","北","白","發","中"];
+const HONOR_NAME=["トン（東）","ナン（南）","シャー（西）","ペー（北）","ハク（白）","ハツ（發）","チュン（中）"];
+// tile index: 0-8 man,9-17 pin,18-26 sou,27-33 honors
+function tIdx(code){ // '5m' -> 4, '1z'..'7z'
+  const n=+code[0], s=code[1];
+  if(s==="m")return n-1; if(s==="p")return 8+n; if(s==="s")return 17+n; return 26+n;
+}
+function tCode(i){ if(i<9)return (i+1)+"m"; if(i<18)return (i-8)+"p"; if(i<27)return (i-17)+"s"; return (i-26)+"z"; }
+function tName(i){ if(i<9)return "萬子（マンズ）の"+(i+1); if(i<18)return "筒子（ピンズ）の"+(i-8); if(i<27)return "索子（ソーズ）の"+(i-17); return HONOR_NAME[i-27]; }
+/* --- realistic tile faces (SVG) --- */
+const SUIT_B="#2b4ba6",SUIT_G="#1d8f4e",SUIT_R="#c8322b",INK="#232a35",FACE="#fffdf6";
+const MINCHO="'Hiragino Mincho ProN','Yu Mincho',serif";
+const PIN_POS={1:[[30,40]],2:[[30,21],[30,59]],3:[[16,18],[30,40],[44,62]],4:[[18,21],[42,21],[18,59],[42,59]],5:[[17,19],[43,19],[30,40],[17,61],[43,61]],6:[[18,18],[42,18],[18,40],[42,40],[18,62],[42,62]],7:[[14,16],[28,22],[42,28],[18,50],[42,50],[18,68],[42,68]],8:[[18,14],[42,14],[18,32],[42,32],[18,50],[42,50],[18,68],[42,68]],9:[[16,16],[30,16],[44,16],[16,40],[30,40],[44,40],[16,64],[30,64],[44,64]]};
+const PIN_R={1:14,2:10,3:9,4:8.5,5:8,6:8,7:7,8:7,9:6.5};
+const PIN_COL={1:["r"],2:["b","g"],3:["b","r","g"],4:["b","g","g","b"],5:["b","b","r","b","b"],6:["g","g","r","r","r","r"],7:["g","g","g","r","r","r","r"],8:["b","b","b","b","b","b","b","b"],9:["b","b","b","r","r","r","g","g","g"]};
+const SOU_POS={2:[[30,20],[30,60]],3:[[30,18],[18,60],[42,60]],4:[[19,20],[41,20],[19,60],[41,60]],5:[[16,18],[44,18],[30,40],[16,62],[44,62]],6:[[16,20],[30,20],[44,20],[16,60],[30,60],[44,60]],7:[[30,15],[16,44],[30,44],[44,44],[16,68],[30,68],[44,68]],8:[[15,20],[25,20],[35,20],[45,20],[15,60],[25,60],[35,60],[45,60]],9:[[16,14],[30,14],[44,14],[16,40],[30,40],[44,40],[16,66],[30,66],[44,66]]};
+const SOU_RED={5:2,7:0,9:4};
+function souStick(x,y,h,w,c){
+  return '<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="'+(w*0.45)+'" fill="'+c+'"/>'+
+         '<rect x="'+(x-w/2-0.6)+'" y="'+(y-1.5)+'" width="'+(w+1.2)+'" height="3" rx="1.2" fill="#efe8d2" opacity=".9"/>';
+}
+function cornerIdx(n,c){ return '<text x="5" y="13" font-size="11" font-weight="700" font-family="sans-serif" fill="'+c+'" opacity=".5">'+n+'</text>'; }
+function tileSVG(i){
+  const col=c=>c==="b"?SUIT_B:c==="g"?SUIT_G:SUIT_R;
+  let g="";
+  if(i<9){
+    g='<text x="30" y="34" text-anchor="middle" font-size="29" font-weight="700" font-family="'+MINCHO+'" fill="'+INK+'">'+KAN[i]+'</text>'+
+      '<text x="30" y="71" text-anchor="middle" font-size="30" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_R+'">萬</text>';
+  }else if(i<18){
+    const n=i-8, r=PIN_R[n];
+    PIN_POS[n].forEach((p,k)=>{
+      const c=col(PIN_COL[n][k]);
+      g+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+r+'" fill="'+FACE+'" stroke="'+c+'" stroke-width="'+(r>=10?3:2.4)+'"/>'+
+         '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(r*0.42).toFixed(1)+'" fill="'+c+'"/>';
+    });
+    if(n===1)g+='<circle cx="30" cy="40" r="9" fill="none" stroke="'+SUIT_B+'" stroke-width="2"/>';
+    g+=cornerIdx(n,SUIT_B);
+  }else if(i<27){
+    const n=i-17;
+    if(n===1){
+      g='<polygon points="30,8 24,17 36,17" fill="'+SUIT_R+'"/>'+
+        '<circle cx="30" cy="22" r="8" fill="'+SUIT_G+'"/>'+
+        '<circle cx="26.8" cy="20.5" r="1.7" fill="'+FACE+'"/>'+
+        '<ellipse cx="30" cy="47" rx="12" ry="16" fill="'+SUIT_G+'"/>'+
+        '<ellipse cx="36" cy="47" rx="5" ry="12" fill="#166b3c"/>'+
+        '<path d="M24 70 l-4 8 M30 71 l0 8 M36 70 l4 8" stroke="'+SUIT_R+'" stroke-width="2.5" fill="none" stroke-linecap="round"/>';
+    }else if(n===8){
+      const pairs=[[14,24,18],[26,24,-18],[34,24,18],[46,24,-18],[14,56,-18],[26,56,18],[34,56,-18],[46,56,18]];
+      pairs.forEach(p=>{ g+='<g transform="rotate('+p[2]+' '+p[0]+' '+p[1]+')">'+souStick(p[0],p[1],20,5.5,SUIT_G)+'</g>'; });
+    }else{
+      const h=n<=6?22:18, w=6;
+      SOU_POS[n].forEach((p,k)=>{ g+=souStick(p[0],p[1],h,w,SOU_RED[n]===k?SUIT_R:SUIT_G); });
+    }
+    g+=cornerIdx(n,SUIT_G);
+  }else{
+    const h=i-27;
+    if(h<4)g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+INK+'">'+HONOR[h]+'</text>';
+    else if(h===4)g='<rect x="12" y="12" width="36" height="56" rx="4" fill="none" stroke="'+SUIT_B+'" stroke-width="4"/>';
+    else if(h===5)g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_G+'">發</text>';
+    else g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_R+'">中</text>';
+  }
+  return '<svg viewBox="0 0 60 80" aria-hidden="true">'+g+'</svg>';
+}
+function tileHTML(i,cls){
+  cls=cls||"";
+  if(i<0) return '<span class="tile back '+cls+'"></span>';
+  const kind=i<9?"man":i<18?"pin":i<27?"sou":"honor";
+  return '<span class="tile '+kind+' '+cls+'" role="img" aria-label="'+tName(i)+'">'+tileSVG(i)+'</span>';
+}
+function parseTiles(str){ // "12m3p" -> [idx...]
+  const out=[]; let digits=[];
+  for(const ch of str){
+    if(ch>="1"&&ch<="9")digits.push(+ch);
+    else if("mpsz".includes(ch)){ for(const d of digits)out.push(tIdx(""+d+ch)); digits=[]; }
+    else if(ch===" ")continue;
+  }
+  return out;
+}
+function tilesHTML(str,cls){ // string or array; "|" adds gap
+  let arr = Array.isArray(str)?str:null;
+  if(arr) return arr.map(i=>tileHTML(i,cls)).join("");
+  return str.split("|").map(seg=>parseTiles(seg).map(i=>tileHTML(i,cls)).join("")).join('<span class="gap"></span>');
+}
+function T(str){ return '<span class="tiles" style="display:inline-flex;margin:2px 4px;vertical-align:middle">'+tilesHTML(str)+'</span>'; }
+function toCounts(arr){ const c=new Array(34).fill(0); arr.forEach(i=>c[i]++); return c; }
+function sortT(arr){ return arr.slice().sort((a,b)=>a-b); }
+
+/* ================= shanten / agari engine ================= */
+function shantenChiitoi(c){ let p=0,k=0; for(let i=0;i<34;i++){ if(c[i]>0)k++; if(c[i]>=2)p++; } return 6-p+Math.max(0,7-k); }
+function shantenKokushi(c){ const t=[0,8,9,17,18,26,27,28,29,30,31,32,33]; let k=0,pr=0; t.forEach(i=>{ if(c[i]>0)k++; if(c[i]>=2)pr=1; }); return 13-k-pr; }
+function shantenStd(counts){
+  const c=counts.slice(); let best=8;
+  function leaf(m,p,pair){ if(m+p>4)p=4-m; const sh=8-2*m-p-pair; if(sh<best)best=sh; }
+  function walk(i,m,p,pair){
+    if(8-2*m-p-pair>=best&&i>=34){leaf(m,p,pair);return;}
+    while(i<34&&c[i]===0)i++;
+    if(i>=34){leaf(m,p,pair);return;}
+    if(m<4){
+      if(c[i]>=3){c[i]-=3;walk(i,m+1,p,pair);c[i]+=3;}
+      if(i<27&&i%9<=6&&c[i+1]>0&&c[i+2]>0){c[i]--;c[i+1]--;c[i+2]--;walk(i,m+1,p,pair);c[i]++;c[i+1]++;c[i+2]++;}
+    }
+    if(!pair&&c[i]>=2){c[i]-=2;walk(i,m,p,1);c[i]+=2;}
+    if(m+p<4){
+      if(c[i]>=2){c[i]-=2;walk(i,m,p+1,pair);c[i]+=2;}
+      if(i<27&&i%9<=7&&c[i+1]>0){c[i]--;c[i+1]--;walk(i,m,p+1,pair);c[i]++;c[i+1]++;}
+      if(i<27&&i%9<=6&&c[i+2]>0){c[i]--;c[i+2]--;walk(i,m,p+1,pair);c[i]++;c[i+2]++;}
+    }
+    const n=c[i]; c[i]=0; walk(i+1,m,p,pair); c[i]=n;
+  }
+  walk(0,0,0,0);
+  return best;
+}
+function shanten(c){ return Math.min(shantenStd(c),shantenChiitoi(c),shantenKokushi(c)); }
+function isAgari(c){ return shanten(c)===-1; }
+function waitsOf(hand13){ // array of 13 -> winning tile idx list
+  const c=toCounts(hand13), out=[];
+  for(let t=0;t<34;t++){ if(c[t]>=4)continue; c[t]++; if(isAgari(c))out.push(t); c[t]--; }
+  return out;
+}
+function ukeire(hand13){ // {count, tiles}
+  const c=toCounts(hand13); const base=shanten(c); let cnt=0; const tiles=[];
+  for(let t=0;t<34;t++){ if(c[t]>=4)continue; c[t]++; if(shanten(c)<base){tiles.push(t);cnt+=4-(c[t]-1);} c[t]--; }
+  return {count:cnt,tiles:tiles,base:base};
+}
+function decompose(counts){ // all standard decomps: [{pair, melds:[[type,tile]...]}]
+  const res=[]; const c=counts.slice();
+  for(let p=0;p<34;p++){
+    if(c[p]<2)continue;
+    c[p]-=2; const melds=[];
+    (function walk(i){
+      while(i<34&&c[i]===0)i++;
+      if(i>=34){ if(melds.length===4)res.push({pair:p,melds:melds.slice()}); return; }
+      if(c[i]>=3){ c[i]-=3; melds.push(["trip",i]); walk(i); melds.pop(); c[i]+=3; }
+      if(i<27&&i%9<=6&&c[i+1]>0&&c[i+2]>0){ c[i]--;c[i+1]--;c[i+2]--; melds.push(["run",i]); walk(i); melds.pop(); c[i]++;c[i+1]++;c[i+2]++; }
+    })(0);
+    c[p]+=2;
+  }
+  return res;
+}
+const YAKUHAI_SET=[27,31,32,33]; // 東(場風・自風扱い) 白發中
+function detectYaku(hand14,winTile,opts){ // opts {tsumo, riichi, dora}
+  const c=toCounts(hand14); const list=[];
+  const isChiitoi=shantenChiitoi(c)===-1;
+  const isKokushi=shantenKokushi(c)===-1;
+  const decomps=decompose(c);
+  if(isKokushi){ list.push(["国士無双（役満）",13]); return {list,han:13}; }
+  if(opts.riichi)list.push(["リーチ",1]);
+  if(opts.tsumo)list.push(["門前清自摸和（ツモ）",1]);
+  const noTermHonor=hand14.every(t=>!(t>=27||t%9===0||t%9===8));
+  if(noTermHonor)list.push(["タンヤオ",1]);
+  // yakuhai
+  for(const y of YAKUHAI_SET){ if(c[y]>=3)list.push([y===27?"役牌 東":"役牌 "+HONOR[y-27],y===27?1:1]); }
+  // pinfu (approx): some decomp all runs, pair not yakuhai, two-sided wait
+  let pinfu=false;
+  for(const d of decomps){
+    if(d.melds.every(m=>m[0]==="run")&&!YAKUHAI_SET.includes(d.pair)){
+      for(const m of d.melds){ if(m[0]!=="run")continue; const s=m[1];
+        if((winTile===s&&s%9<=5)||(winTile===s+2&&s%9>=1)){pinfu=true;} }
+    }
+  }
+  if(pinfu)list.push(["ピンフ",1]);
+  if(isChiitoi&&decomps.length===0)list.push(["七対子",2]);
+  if(decomps.some(d=>d.melds.every(m=>m[0]==="trip")))list.push(["対々和（トイトイ）",2]);
+  const suits=new Set(hand14.filter(t=>t<27).map(t=>Math.floor(t/9)));
+  const hasHonor=hand14.some(t=>t>=27);
+  if(suits.size===1)list.push(hasHonor?["ホンイツ（混一色）",3]:["チンイツ（清一色）",6]);
+  if(opts.dora>0)list.push(["ドラ "+opts.dora,opts.dora]);
+  const han=list.reduce((a,x)=>a+x[1],0);
+  return {list,han};
+}
+function roughPoints(han){
+  if(han>=11)return "三倍満 約24000点";
+  if(han>=8)return "倍満 約16000点";
+  if(han>=6)return "跳満 約12000点";
+  if(han>=5)return "満貫 約8000点";
+  return ["","約1000〜1500点","約2000〜2600点","約3900〜5200点","約7700〜8000点"][han]||"";
+}
+function nextDora(ind){ // dora = next of indicator
+  if(ind<27){ const s=Math.floor(ind/9), n=ind%9; return s*9+((n+1)%9); }
+  if(ind<31)return 27+((ind-27+1)%4); // winds
+  return 31+((ind-31+1)%3); // dragons
+}
+
+/* ================= app state / router ================= */
+const store={
+  get(){ try{return JSON.parse(localStorage.getItem("mj_iroha")||"{}");}catch(e){return{};} },
+  set(d){ try{localStorage.setItem("mj_iroha",JSON.stringify(d));}catch(e){} },
+  patch(fn){ const d=store.get(); fn(d); store.set(d); }
+};
+function $(s){ return document.querySelector(s); }
+function $all(s){ return [...document.querySelectorAll(s)]; }
+function showTab(name){
+  $all("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name?"true":"false"));
+  $all("section.screen").forEach(s=>s.classList.toggle("active",s.id==="scr-"+name));
+  window.scrollTo(0,0);
+  if(name==="home")renderHome();
+  if(name==="learn")renderLessonIndex();
+  if(name==="practice")renderPracticeIndex();
+  if(name==="debut")renderChecklistStatus();
+}
+$all("nav.tabs button").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+$all("[data-goto]").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.goto)));
+
+/* ================= lessons data ================= */
+const LESSONS=[
+{ id:1, title:"麻雀ってどんなゲーム？", cards:[
+ {h:"14枚で「4グループ＋1ペア」を作るゲーム",
+  b:`<p>麻雀は4人で遊ぶゲームです。136枚の牌（パイ）を使い、自分の手牌14枚で<br><b>「3枚グループ×4つ ＋ 同じ牌のペア×1つ」</b><br>を誰よりも早く完成させた人が勝ち（＝アガリ）です。</p>
+  <p>完成形の例：</p>${T("123m|555p|789s|678s|11z")}
+  <p class="muted">3枚グループが4つ（123萬・555筒・789索・678索）＋ 東のペア。これでアガリ！</p>`},
+ {h:"点数を取り合って、最後に多い人が優勝",
+  b:`<p>アガると相手から点数がもらえます。1回のアガリで終わりではなく、「局（きょく）」という単位を何回もくり返し、<b>最後に持ち点がいちばん多い人が優勝</b>です。</p>
+  <p>よく遊ばれる「半荘（ハンチャン）」は東場4局＋南場4局、だいたい1時間くらいのゲームです。</p>
+  <div class="note">覚えることはたくさんありますが、実は<b>「14枚で4グループ＋1ペアを作る」</b>さえ分かれば麻雀はもう始められます。残りは全部その飾りつけです。</div>`},
+],quiz:{q:"麻雀のアガリの形は？",choices:["3枚グループ×4つ＋ペア×1つ","2枚ペア×7つだけ","同じ牌を14枚集める","なんでも14枚あればいい"],a:0,ex:"基本のアガリ形は「4面子（メンツ）＋1雀頭（ジャントウ）」。例外の形（七対子など）は後で出てきます。"}},
+
+{ id:2, title:"牌の種類をおぼえよう", cards:[
+ {h:"数牌（かずはい）は3種類 × 1〜9",
+  b:`<p>まずは牌の顔ぶれ。数字の牌が3種類あります。それぞれ1〜9まであり、同じ牌が4枚ずつ入っています。</p>
+  <p><b>萬子（マンズ）</b>：漢数字＋「萬」</p>${T("123456789m")}
+  <p><b>筒子（ピンズ）</b>：丸い模様の牌。丸の数＝数字です</p>${T("123456789p")}
+  <p><b>索子（ソーズ）</b>：竹の模様の牌。竹の本数＝数字で、<b>1索だけは鳥の絵柄</b>です</p>${T("123456789s")}
+  <p class="muted">数え間違い防止に、筒子・索子の左上へ小さく数字を添えています（実物の牌にはありません）。</p>`},
+ {h:"字牌（じはい）は7種類",
+  b:`<p>数字のない牌が7種類。<b>風牌（かぜはい）</b>の東・南・西・北と、<b>三元牌（さんげんぱい）</b>の白・發・中です。</p>
+  ${T("1234z|567z")}
+  <p>読み方：トン・ナン・シャー・ペー／ハク・ハツ・チュン。白は何も書いていない真っ白な牌です。</p>
+  <div class="note">3種類×9＋字牌7種類＝34種類。それぞれ4枚ずつで<b>合計136枚</b>。これが麻雀牌のすべてです。</div>`},
+],quiz:{q:"「索子（ソーズ）」はどんな牌？",choices:["竹の模様の数牌","丸の模様の数牌","漢数字の数牌","東西南北の牌"],a:0,ex:"索子は竹の模様。丸は筒子、漢数字＋萬は萬子です。"}},
+
+{ id:3, title:"グループの作り方（面子と雀頭）", cards:[
+ {h:"順子（シュンツ）：同じ種類の連番3枚",
+  b:`<p>3枚グループのことを<b>面子（メンツ）</b>と呼びます。作り方は2通り。</p>
+  <p>1つめは<b>順子</b>。同じ種類で数字が連続する3枚です。</p>
+  ${T("234m|567p|789s")}
+  <p>注意点が2つ：</p>
+  <p class="warn">・<b>9→1はつながらない</b>。891や912は順子になりません<br>・<b>種類はまたげない</b>。8萬・9萬・1筒 はバラバラの3枚です<br>・字牌に順子はありません（東南西…はダメ）</p>`},
+ {h:"刻子（コーツ）：同じ牌3枚",
+  b:`<p>2つめは<b>刻子</b>。まったく同じ牌を3枚集めます。字牌でもOK。</p>
+  ${T("111m|999s|777z")}`},
+ {h:"雀頭（ジャントウ）：同じ牌2枚のペア",
+  b:`<p>アガリに1組だけ必要なペアが<b>雀頭</b>（アタマとも呼びます）。どの牌でも作れます。</p>
+  ${T("55p|11z")}
+  <div class="note">もう一度アガリ形：<b>順子か刻子を4つ＋雀頭1つ</b>。組み合わせは自由です（順子4つでも、刻子まぜてもOK）。</div>`},
+],quiz:{q:"順子（連番3枚）として正しいのはどれ？",choices:["4筒・5筒・6筒","8索・9索・1索","7萬・8萬・9筒","東・南・西"],a:0,ex:"9から1へはつながらず、種類またぎもダメ、字牌に順子はありません。456筒だけが正解。"}},
+
+{ id:4, title:"ゲームの流れ", cards:[
+ {h:"スタート：13枚配られる",
+  b:`<p>各プレイヤーに最初に13枚ずつ配られます（<b>配牌／ハイパイ</b>）。手牌はふだん13枚で、自分の番に1枚引いて14枚になり、1枚捨てて13枚に戻る——これのくり返しです。</p>
+  <p>山から1枚引くことを<b>ツモ</b>、捨てた牌が並ぶ場所を<b>河（ホー）</b>と呼びます。</p>`},
+ {h:"自分の番にやること",
+  b:`<p>やることはシンプル。</p>
+  <p><b>① 山から1枚ツモる（14枚になる）<br>② いらない牌を1枚、河に捨てる（13枚に戻る）</b></p>
+  <p>これを反時計回りに順番でくり返し、誰かがアガるか、山がなくなったら（＝流局）その局は終わりです。</p>
+  <div class="note">迷ったら「グループになりそうもない牌」から捨てる。孤立した字牌や、端っこの1・9あたりが定番の捨て牌です。</div>`},
+ {h:"親と局の進み方",
+  b:`<p>各局には1人の<b>親（おや）</b>がいて、残り3人が<b>子（こ）</b>。親のアガリは点数1.5倍、そのかわり誰かにツモられると多く払います。</p>
+  <p>親は東家→南家→西家→北家の順に交代し、全員が親を一回やると「東場」が終わり。<b>東場4局＋南場4局＝半荘</b>が定番の1ゲームです。</p>`},
+],quiz:{q:"手牌はふだん何枚？",choices:["13枚（ツモったときだけ14枚）","14枚ずっと","10枚","何枚でもいい"],a:0,ex:"13枚で待ち、ツモって14枚→1枚捨てて13枚。アガリの瞬間だけ14枚そろいます。"}},
+
+{ id:5, title:"アガリ！テンパイ・ロン・ツモ", cards:[
+ {h:"テンパイ＝あと1枚でアガリ",
+  b:`<p>アガリまであと1枚の状態を<b>テンパイ</b>と呼びます。そのアガリに必要な牌が<b>待ち（マチ）</b>。</p>
+  <p>例：この13枚は…</p>${T("23m|456p|789s|555s|11z")}
+  <p><b>1萬か4萬</b>が来れば「123萬」か「234萬」が完成してアガリ。これが「1萬・4萬待ちのテンパイ」です。両側で待てる形を<b>リャンメン待ち</b>といい、いちばん強い待ちです。</p>`},
+ {h:"アガリ方は2つ：ツモとロン",
+  b:`<p><b>ツモ</b>：待ち牌を自分で山から引く。→「ツモ！」と宣言。3人全員が点数を払います。</p>
+  <p><b>ロン</b>：待ち牌を誰かが捨てる。→「ロン！」と宣言。<b>捨てた人だけ</b>が全額払います。</p>
+  <div class="note">だから麻雀は「自分がアガる」と同じくらい「人のアガリ牌を捨てない」ことが大事。守りはレッスン9で。</div>`},
+],quiz:{q:"「ロン」とは？",choices:["他の人の捨て牌でアガること","自分で引いた牌でアガること","牌を交換すること","降参すること"],a:0,ex:"ロン＝他人の捨て牌でアガる。ツモ＝自分で引いてアガる。ロンされた人だけが点数を払います。"}},
+
+{ id:6, title:"役がないとアガれない", cards:[
+ {h:"アガリには「役（ヤク）」が最低1つ必要",
+  b:`<p>ここが初心者最大のつまずきポイント。形が完成しても、<b>役がひとつもないとアガれません</b>。</p>
+  <p>役とは「手牌がある条件を満たすと付くボーナス」。役の数（<b>翻／ハン</b>）が多いほど点数が上がります。</p>
+  <div class="note">役は約40種類ありますが、<b>最初は次の4つ＋リーチ（次の課）だけ</b>で十分。実戦のアガリの8割はこれでカバーできます。</div>`},
+ {h:"タンヤオ：1・9・字牌を使わない",
+  b:`<p>手牌14枚ぜんぶを<b>2〜8の数牌だけ</b>で作ると「タンヤオ」（1翻）。いちばん作りやすい定番の役です。</p>
+  ${T("234m|567m|345p|678s|55s")}`},
+ {h:"役牌（ヤクハイ）：白・發・中などの刻子",
+  b:`<p><b>白・發・中</b>のどれかを3枚集めるだけで役（1翻）。場の風（東場なら東）・自分の席の風の刻子も同じく役になります。</p>
+  ${T("555z")}＋あとは自由な形でOK。
+  <p class="muted">3枚のうち2枚あれば、他人の捨て牌を「ポン」してもOK（レッスン8）。スピード重視のときに便利。</p>`},
+ {h:"ピンフ：ぜんぶ順子＋おとなしいペア",
+  b:`<p>4つの面子をぜんぶ順子にして、雀頭を役牌以外、待ちをリャンメンにすると「ピンフ」（1翻）。</p>
+  ${T("234m|678m|345p|567s|99s")}
+  <p class="muted">条件が細かいので、最初は「順子だらけだとピンフが付くことがある」くらいの理解でOK。</p>`},
+ {h:"ホンイツ：1種類の数牌＋字牌だけ",
+  b:`<p>萬子だけ・筒子だけ・索子だけ（＋字牌はOK）に寄せると「ホンイツ」（3翻）。字牌も使わなければ「チンイツ」（6翻）で高得点！</p>
+  ${T("123s|456s|789s|22s|777z")}`},
+],quiz:{q:"タンヤオの条件は？",choices:["1・9・字牌を1枚も使わない","字牌を3枚集める","ぜんぶ同じ種類にする","連番を4つ作る"],a:0,ex:"タンヤオ＝2〜8の数牌のみ。1・9・字牌が1枚でもあると付きません。"}},
+
+{ id:7, title:"リーチとドラ", cards:[
+ {h:"リーチ：テンパイ宣言で役ゲット",
+  b:`<p><b>リーチ</b>は初心者の最強兵器。テンパイしたら「リーチ！」と宣言して1000点棒を場に出し、捨て牌を横向きに置きます。これだけで<b>役が1つ（1翻）確定</b>。</p>
+  <p>条件は3つ：<b>①テンパイしている ②鳴いていない（ポン・チーをしていない） ③1000点持っている</b>。</p>
+  <p class="warn">リーチ後は手を変えられません。ツモった牌はアガリ牌でなければそのまま捨てます（ツモ切り）。</p>
+  <div class="note">「役がわからない…」という初心者でも、<b>リーチさえかければ必ずアガれる</b>。まずは「テンパイしたらリーチ」でOKです。</div>`},
+ {h:"ドラ：持っているだけで点数アップ",
+  b:`<p>各局の最初に山の一部がめくられます（<b>ドラ表示牌</b>）。その<b>次の牌</b>がドラ。ドラを持ってアガると1枚につき+1翻。</p>
+  <p>例：表示牌が${T("4p")}なら、ドラは${T("5p")}。表示牌が9なら1に戻り、東→南→西→北、白→發→中と巡ります。</p>
+  <p class="muted">ドラ自体は役ではないので、ドラだけではアガれません。リーチやタンヤオと組み合わせて点数を伸ばします。リーチしてアガると裏ドラをめくるチャンスもあります。</p>`},
+],quiz:{q:"リーチの条件でないものは？",choices:["役牌を持っている","テンパイしている","鳴いていない","1000点持っている"],a:0,ex:"リーチにほかの役はいりません。テンパイ・門前（鳴いていない）・1000点、の3条件です。"}},
+
+{ id:8, title:"ポン・チー・カン（鳴き）", cards:[
+ {h:"他人の捨て牌をもらえる「鳴き」",
+  b:`<p>ほしい牌が捨てられたとき、声をかけてもらう技が<b>鳴き（副露／フーロ）</b>です。もらった面子は自分の右横に公開して置きます。</p>
+  <p><b>ポン</b>：同じ牌2枚持ち＋誰かの捨て牌1枚で刻子。<b>誰の捨て牌でもOK</b>。</p>
+  <p><b>チー</b>：連番のもと2枚＋捨て牌1枚で順子。<b>左どなりの人の捨て牌だけ</b>。</p>
+  <p><b>カン</b>：同じ牌4枚。当面は使わなくてOKです。</p>`},
+ {h:"鳴きの代償に注意",
+  b:`<p>鳴くと手の完成は早くなりますが、大きな代償があります。</p>
+  <p class="warn">・<b>リーチができなくなる</b>（ピンフ・門前ツモも消える）<br>・手が公開されて狙いがバレる<br>・役がないままだと<b>永遠にアガれない手</b>になる危険</p>
+  <div class="note">初心者の鉄則：<b>基本は鳴かずにリーチを目指す</b>。鳴いてよいのは「役牌をポンするとき」と「ホンイツなど役が確定しているとき」だけ、と覚えておけば安全です。</div>`},
+],quiz:{q:"チーができるのは誰の捨て牌？",choices:["左どなりの人だけ","右どなりの人だけ","誰でもOK","向かいの人だけ"],a:0,ex:"チー（順子）は左どなり＝上家（カミチャ）の捨て牌のみ。ポン（刻子）は誰からでもOKです。"}},
+
+{ id:9, title:"守りの基本（振り込まない）", cards:[
+ {h:"いちばんの失点は「振り込み」",
+  b:`<p>誰かにロンされる＝<b>振り込み（放銃）</b>。自分ひとりで全額払うので、麻雀でいちばん痛い失点です。初心者が負ける原因はほぼこれ。</p>
+  <p>合言葉は「<b>相手がリーチしたら、自分のアガリはあきらめて守る</b>」。</p>`},
+ {h:"安全牌の見つけ方：現物（げんぶつ）",
+  b:`<p>ルール上、<b>自分が捨てた牌ではロンできません</b>（フリテンといいます）。</p>
+  <p>つまり——<b>リーチした人がすでに捨てた牌と同じ牌は、100%ロンされません</b>。これを<b>現物</b>と呼びます。リーチが来たら、その人の河をよく見て現物を捨てましょう。</p>
+  <div class="note">現物がないときは、リーチ後に他の人が捨てて通った牌も安全。それもなければ字牌が比較的安全です。</div>`},
+ {h:"自分のフリテンにも注意",
+  b:`<p>フリテンは自分にも適用されます。<b>自分の待ち牌をすでに自分で捨てていると、ロンできません</b>（ツモならOK）。</p>
+  <p>テンパイしたら「待ち牌を自分の河に捨てていないか」を一度チェックする習慣をつけましょう。</p>`},
+],quiz:{q:"リーチした人に絶対ロンされない牌は？",choices:["その人がすでに捨てた牌（現物）","字牌ぜんぶ","1と9の牌","ドラ"],a:0,ex:"自分の捨てた牌ではロンできない（フリテン）ルールがあるため、リーチ者の河にある牌＝現物は100%安全です。"}},
+
+{ id:10, title:"点数ざっくり＋覚えなくていいこと", cards:[
+ {h:"点数は「翻が増えると倍々」だけ覚える",
+  b:`<p>正確な点数計算はベテランでも間違えます。<b>最初は覚えなくてOK</b>。目安だけ持っておきましょう（子のアガリ）。</p>
+  <div class="scroll-x"><table class="tbl">
+  <tr><th>翻数</th><th>だいたいの点数</th><th>イメージ</th></tr>
+  <tr><td>1翻</td><td>1000点</td><td>リーチのみ、タンヤオのみ</td></tr>
+  <tr><td>2翻</td><td>2000点</td><td>リーチ＋タンヤオ</td></tr>
+  <tr><td>3翻</td><td>3900点</td><td>リーチ＋タンヤオ＋ドラ1</td></tr>
+  <tr><td>4翻</td><td>7700点</td><td>「チッチー」と読む人も</td></tr>
+  <tr><td>5翻〜</td><td>8000点（満貫）</td><td>ここから固定。跳満12000、倍満16000…</td></tr>
+  </table></div>
+  <p class="muted">親は全部1.5倍。アガったら役だけ申告すれば、点数はまわりが数えてくれます。</p>`},
+ {h:"最初は覚えなくていいことリスト",
+  b:`<p>麻雀の入門書には情報が多すぎます。次のことは<b>デビュー後でOK</b>：</p>
+  <p>・符（フ）の計算　・カン関連の細かいルール　・レアな役（三色・一気通貫・チャンタなど）　・流局時のテンパイ料　・点棒のやりとりの厳密な作法</p>
+  <div class="note">逆に、これだけは今日から：<b>①4面子1雀頭 ②テンパイしたらリーチ ③リーチが来たら現物を捨てる</b>。この3つで、もう麻雀は打てます。おつかれさまでした！「みる」と「れんしゅう」で仕上げましょう。</div>`},
+],quiz:{q:"満貫（5翻）はだいたい何点？",choices:["約8000点","約1000点","約100点","約100万点"],a:0,ex:"満貫＝子8000点・親12000点。5翻以上はしばらく8000点で固定、と覚えればOKです。"}},
+];
+
+/* ================= lesson rendering ================= */
+function lessonDone(){ return store.get().lessons||{}; }
+function renderHome(){
+  const done=Object.keys(lessonDone()).length;
+  const pct=Math.round(done/LESSONS.length*100);
+  $("#home-progress").style.width=pct+"%";
+  $("#home-progress-text").textContent= done===0?"レッスン未着手。まずは「まなぶ」の第1課からどうぞ。":"レッスン "+done+" / "+LESSONS.length+" 課クリア"+(done===LESSONS.length?" — 全課修了！れんしゅうとデビュー準備へ！":"");
+}
+function renderLessonIndex(){
+  $("#learn-index").style.display=""; $("#lesson-view").style.display="none";
+  const d=lessonDone();
+  $("#lesson-list").innerHTML=LESSONS.map(L=>
+    '<button data-lesson="'+L.id+'"><span class="lnum">第'+L.id+'課</span><span class="ltitle">'+L.title+'</span>'+(d[L.id]?'<span class="ldone">✓ 修了</span>':"")+'</button>').join("");
+  $all("#lesson-list button").forEach(b=>b.addEventListener("click",()=>openLesson(+b.dataset.lesson)));
+}
+function openLesson(id){
+  const L=LESSONS.find(x=>x.id===id);
+  $("#learn-index").style.display="none"; $("#lesson-view").style.display="";
+  let html='<div class="eyebrow">第'+L.id+'課</div><h2 style="font-size:20px">'+L.title+'</h2>';
+  L.cards.forEach(c=>{ html+='<div class="card"><h2>'+c.h+'</h2>'+c.b+'</div>'; });
+  html+='<div class="card"><h2>小テスト</h2><p>'+L.quiz.q+'</p><div class="choices" id="lq"></div><div class="explain" id="lq-ex"></div></div>';
+  $("#lesson-body").innerHTML=html;
+  const box=$("#lq");
+  const order=L.quiz.choices.map((c,i)=>i);
+  shuffle(order);
+  order.forEach(i=>{
+    const b=document.createElement("button"); b.textContent=L.quiz.choices[i];
+    b.addEventListener("click",()=>{
+      [...box.children].forEach(x=>x.disabled=true);
+      const ok=i===L.quiz.a;
+      b.classList.add(ok?"correct":"wrong");
+      if(!ok)[...box.children].find(x=>x.textContent===L.quiz.choices[L.quiz.a]).classList.add("correct");
+      const ex=$("#lq-ex"); ex.classList.add("show");
+      ex.innerHTML=(ok?'<span class="result-ok">正解！</span> ':'<span class="result-ng">ざんねん。</span> ')+L.quiz.ex;
+      store.patch(d=>{ d.lessons=d.lessons||{}; d.lessons[L.id]=true; });
+      renderNav();
+      renderLessonShop(L.id);
+    });
+    box.appendChild(b);
+  });
+  function renderNav(){
+    const done=lessonDone();
+    let nav='';
+    if(id>1)nav+='<button class="btn" id="ln-prev">← 第'+(id-1)+'課</button>';
+    if(id<LESSONS.length)nav+='<button class="btn primary" id="ln-next">第'+(id+1)+'課へ →</button>';
+    else if(done[id])nav+='<button class="btn primary" id="ln-fin">修了！デモを見る →</button>';
+    $("#lesson-nav").innerHTML=nav;
+    const p=$("#ln-prev"),n=$("#ln-next"),f=$("#ln-fin");
+    if(p)p.addEventListener("click",()=>openLesson(id-1));
+    if(n)n.addEventListener("click",()=>openLesson(id+1));
+    if(f)f.addEventListener("click",()=>showTab("demo"));
+  }
+  renderNav();
+  renderLessonShop(id);
+  window.scrollTo(0,0);
+}
+/* 全10課を修了した人にだけ、次の一歩として入門書を1つ案内する（学習中は出さない） */
+function renderLessonShop(id){
+  const box=$("#lesson-shop"); if(!box)return;
+  box.innerHTML="";
+  if(id!==LESSONS.length)return;
+  if(!lessonDone()[LESSONS.length])return;
+  const it=window.MJ_SHOP&&MJ_SHOP.byId("book-nyumon"); if(!it)return;
+  box.innerHTML='<div class="shop-inline"><div class="si-t">📘 全10課おつかれさまでした！</div>'+
+    '<div class="si-d">紙で復習したい人には『'+it.name+'』（'+it.author+'・'+it.price+'）。ここで学んだ内容がマンガでまとまっていて、ルールを人に説明できるレベルまで上がります。'+
+    '<br><span class="muted">※広告リンクを含みます</span></div>'+
+    '<a class="si-go" href="#" id="si-more">おすすめ入門グッズを見る →</a></div>';
+  $("#si-more").addEventListener("click",e=>{
+    e.preventDefault(); showTab("debut");
+    setTimeout(()=>{ const t=$("#shop-debut"); if(t)t.scrollIntoView({behavior:"smooth",block:"center"}); },60);
+  });
+}
+$("#lesson-back").addEventListener("click",renderLessonIndex);
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* ================= demo ================= */
+// hand progression authored; waits verified by engine at load (console.assert)
+const DEMO=[
+ {hand:"2m3m7m9m1p1p6p7p3s5s8s1z7z",river:"",my:"",turn:"配牌",cap:"配牌で13枚もらいました。最初はこんなにバラバラでOK。まずは牌の種類ごとに並べ替えて（理牌）、形を見やすくします。"},
+ {hand:"2m3m7m9m1p1p6p7p3s5s8s1z7z",river:"9p",my:"",turn:1,cap:"対戦相手たちも1枚ずつツモっては捨てていきます（河に並んでいきます）。さて自分の手を観察：2・3萬は連番のもと、1筒のペアは雀頭候補、6・7筒も連番。悪くない配牌です。",hi:[0,1,4,5,6,7]},
+ {hand:"2m3m7m8m9m1p1p6p7p3s5s8s1z7z",river:"9p 1s",my:"",turn:2,cap:"8萬をツモ！ 7・9萬のあいだに入って「789萬」の順子が完成しました。14枚になったので、いちばんいらない牌を捨てます。",hi:[2,3,4]},
+ {hand:"2m3m7m8m9m1p1p6p7p3s5s8s1z",river:"9p 1s",my:"7z",turn:2,cap:"グループになりそうもない孤立した字牌「中」から捨てました。役牌（白發中）は3枚集まれば役ですが、1枚だけなら早めに手放すのが基本です。"},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s5s8s1z",river:"9p 1s 2z",my:"7z",turn:3,cap:"5筒をツモ！ 「567筒」も完成。だいぶ形が見えてきました。次にいらないのは孤立した「東」です。",hi:[7,8,9]},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s5s8s",river:"9p 1s 2z",my:"7z 1z",turn:3,cap:"東を捨てて、残りは「2・3萬」「789萬」「1筒ペア」「567筒」「3・5・8索」。あと必要なのは索子まわりの整理だけ。"},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s4s5s8s",river:"9p 1s 2z 9m",my:"7z 1z",turn:4,cap:"4索をツモ！ 「345索」が完成して、8索が浮きました。これを捨てると……",hi:[10,11,12]},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m",my:"7z 1z 8s",turn:4,cap:"テンパイ！ 「789萬」「567筒」「345索」＋「1筒ペア」まで完成、残る2・3萬に <b>1萬か4萬</b> が来ればアガリです（リャンメン待ち）。",hi:[0,1]},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m",my:"7z 1z 8s",turn:4,cap:"ここで「リーチ！」と宣言。1000点棒を場に出し、次の捨て牌を横向きに置きます。鳴いていない・テンパイ・1000点あり、条件クリア。これで役が確定しました。",riichi:true},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m 6z",my:"7z 1z 8s 9s",turn:5,cap:"リーチ後は手を変えられないので、ツモった牌（9索）はそのまま捨てます（ツモ切り）。相手の動きを待ちます……",riichi:true},
+ {hand:"2m3m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m 6z 4m",my:"7z 1z 8s 9s",turn:6,cap:"来ました！ 向かいの人が <b>4萬</b> を捨てた！ これはあなたの待ち牌。すかさず——",hi:[0,1],hiRiver:5,riichi:true},
+ {hand:"2m3m4m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m 6z 4m",my:"7z 1z 8s 9s",turn:6,cap:"「ロン！」と宣言して手牌を倒します。234萬・789萬・567筒・345索＋1筒ペアの完成形。役は<b>リーチ＋ピンフ</b>、さらにドラ（5筒）が1枚で合計3翻！",win:true,riichi:true},
+ {hand:"2m3m4m7m8m9m1p1p5p6p7p3s4s5s",river:"9p 1s 2z 9m 6z 4m",my:"7z 1z 8s 9s",turn:6,cap:"3翻＝3900点を、4萬を捨てた人からもらって局終了。これが麻雀の1局です。あとは「れんしゅう」タブで、あなた自身の手で同じことをやってみましょう！",win:true,riichi:true},
+];
+let demoStep=0, demoTimer=null;
+const DEMO_DORA_IND="4p";
+function renderDemo(){
+  const s=DEMO[demoStep];
+  $("#demo-turn").textContent=s.turn;
+  $("#demo-dora").innerHTML=tilesHTML(DEMO_DORA_IND);
+  const hand=parseTiles(s.hand);
+  const sorted=sortT(hand);
+  $("#demo-hand").innerHTML=sorted.map((t,i)=>{
+    let cls="";
+    if(s.hi){ // highlight indexes refer to sorted authored hand positions
+      if(s.hi.includes(i))cls="hi";
+    }
+    return tileHTML(t,cls);
+  }).join("");
+  $("#demo-river").innerHTML=s.river.trim()? s.river.trim().split(/\s+/).map((c,i)=>{
+    const idx=parseTiles(c)[0];
+    return tileHTML(idx,(s.hiRiver===i)?"hi":"");
+  }).join(""):'<span class="muted">まだ捨て牌はありません</span>';
+  $("#demo-myriver").innerHTML=s.my.trim()? s.my.trim().split(/\s+/).map((c,i)=>{
+    const idx=parseTiles(c)[0];
+    const rot=(s.riichi&&i===3)?"rot":"";
+    return tileHTML(idx,rot);
+  }).join(""):'<span class="muted">まだ捨て牌はありません</span>';
+  $("#demo-caption").innerHTML=(s.win?'<b style="color:var(--red)">ロン！</b> ':"")+s.cap;
+  $("#demo-step-no").textContent=(demoStep+1)+" / "+DEMO.length;
+  $("#demo-prev").disabled=demoStep===0;
+  $("#demo-next").disabled=demoStep===DEMO.length-1;
+}
+$("#demo-prev").addEventListener("click",()=>{stopAuto();demoStep=Math.max(0,demoStep-1);renderDemo();});
+$("#demo-next").addEventListener("click",()=>{stopAuto();demoStep=Math.min(DEMO.length-1,demoStep+1);renderDemo();});
+$("#demo-auto").addEventListener("click",()=>{
+  if(demoTimer){stopAuto();return;}
+  if(demoStep>=DEMO.length-1)demoStep=0;
+  $("#demo-auto").textContent="⏸ 停止";
+  demoTimer=setInterval(()=>{
+    if(demoStep>=DEMO.length-1){stopAuto();return;}
+    demoStep++;renderDemo();
+  },6000);
+  renderDemo();
+});
+function stopAuto(){ if(demoTimer){clearInterval(demoTimer);demoTimer=null;} $("#demo-auto").textContent="▶ 自動再生"; }
+renderDemo();
+
+/* ================= practice: index ================= */
+function renderPracticeIndex(){
+  $("#practice-index").style.display=""; $("#practice-view").style.display="none";
+  const best=store.get().best||{};
+  ["qtile","qwait","qcut","qyaku"].forEach(k=>{
+    const el=$("#best-"+k); if(el)el.textContent=best[k]!=null?("ベスト "+best[k]+"問正解"):"";
+  });
+}
+$all("[data-practice]").forEach(b=>b.addEventListener("click",()=>openPractice(b.dataset.practice)));
+$("#practice-back").addEventListener("click",renderPracticeIndex);
+function openPractice(kind){
+  $("#practice-index").style.display="none"; $("#practice-view").style.display="";
+  if(kind==="solo")startSolo();
+  else startQuiz(kind);
+  window.scrollTo(0,0);
+}
+
+/* ================= practice: solo mahjong ================= */
+const solo={};
+function startSolo(){
+  const wall=[]; for(let t=0;t<34;t++)for(let k=0;k<4;k++)wall.push(t);
+  shuffle(wall);
+  solo.wall=wall;
+  solo.doraInd=solo.wall.pop();
+  solo.hand=sortT(solo.wall.splice(0,13));
+  solo.draw=null; solo.riichi=false; solo.turn=0; solo.river=[]; solo.over=false;
+  $("#practice-body").innerHTML=`
+  <div class="eyebrow">一人麻雀</div>
+  <h2 style="font-size:20px">ツモ→切るをくり返してアガろう</h2>
+  <p class="muted">捨てたい牌をタップ。テンパイしたらリーチもできます。門前ツモなら必ず役が付くので、形さえ完成すればアガれます。</p>
+  <div class="card">
+    <div class="stat"><span>巡目 <b id="so-turn">1</b></span><span>残り山 <b id="so-wall"></b></span><span>ドラ表示牌 <span id="so-dora"></span></span></div>
+    <div class="shanten-box"><span class="pill" id="so-shanten"></span><span id="so-waits"></span></div>
+    <h3>手牌（タップで捨てる）</h3>
+    <div class="tiles" id="so-hand"></div>
+    <div id="so-win"></div>
+    <div class="btn-row">
+      <button class="btn primary" id="so-riichi" style="display:none">リーチ！</button>
+      <button class="btn" id="so-hint">ヒント（どれを切る？）</button>
+      <button class="btn ghost" id="so-restart">はじめから</button>
+    </div>
+    <div id="so-hintbox"></div>
+    <h3>あなたの河</h3>
+    <div class="river" id="so-river"></div>
+  </div>`;
+  $("#so-restart").addEventListener("click",startSolo);
+  $("#so-hint").addEventListener("click",soloHint);
+  $("#so-riichi").addEventListener("click",soloRiichi);
+  soloDraw();
+}
+function riichiCandidates(){ // discards (from 14 tiles) that keep tenpai
+  if(solo.draw==null||solo.over)return [];
+  const all=solo.hand.concat([solo.draw]);
+  const out=[]; const seen=new Set();
+  all.forEach(t=>{
+    if(seen.has(t))return; seen.add(t);
+    const rest=all.slice(); rest.splice(all.indexOf(t),1);
+    if(shanten(toCounts(rest))===0){
+      const ws=waitsOf(rest); const c=toCounts(rest);
+      const cnt=ws.reduce((a,w)=>a+4-c[w],0);
+      out.push({t,waits:ws,cnt});
+    }
+  });
+  out.sort((a,b)=>b.cnt-a.cnt);
+  return out;
+}
+function soloRiichi(){
+  const cands=riichiCandidates();
+  if(!cands.length)return;
+  solo.riichi=true;
+  const t=cands[0].t;
+  if(t===solo.draw)soloDiscard("draw");
+  else soloDiscard(String(solo.hand.indexOf(t)));
+}
+function soloDraw(){
+  if(solo.wall.length<=14){ soloEnd("流局…山がなくなりました。テンパイ目指して、もう一回！"); return; }
+  solo.turn++;
+  solo.draw=solo.wall.pop();
+  const c14=toCounts(solo.hand.concat([solo.draw]));
+  if(isAgari(c14)){ soloWin(); return; }
+  if(solo.riichi){ // auto tsumogiri
+    solo.river.push(solo.draw); solo.draw=null;
+    soloRender();
+    setTimeout(soloDraw, 700);
+    return;
+  }
+  soloRender();
+}
+function soloRender(){
+  if(solo.over)return;
+  $("#so-turn").textContent=solo.turn;
+  $("#so-wall").textContent=solo.wall.length-14;
+  $("#so-dora").innerHTML=tileHTML(solo.doraInd)+' <span class="muted">→ ドラは'+tName(nextDora(solo.doraInd)).replace(/（.*）/,"")+'</span>';
+  const sh=shanten(toCounts(solo.hand));
+  const waits=sh===0?waitsOf(solo.hand):[];
+  $("#so-shanten").textContent= sh===0?"テンパイ！":sh+"シャンテン";
+  $("#so-shanten").className="pill"+(sh===0?" hot":"");
+  $("#so-waits").innerHTML= sh===0?("待ち："+waits.map(t=>tileHTML(t)).join("")) : '<span class="muted">テンパイまであと'+sh+'歩</span>';
+  const canRiichi=!solo.riichi&&riichiCandidates().length>0;
+  $("#so-riichi").style.display=canRiichi?"":"none";
+  const hd=$("#so-hand");
+  let html=solo.hand.map((t,i)=>'<button class="tile-btn" data-i="'+i+'" '+(solo.riichi?"disabled":"")+'>'+tileHTML(t)+'</button>').join("");
+  if(solo.draw!=null){ html+='<span class="gap"></span><button class="tile-btn" data-i="draw" '+(solo.riichi?"disabled":"")+'>'+tileHTML(solo.draw)+'</button>'; }
+  hd.innerHTML=html;
+  if(!solo.riichi){
+    $all("#so-hand .tile-btn").forEach(b=>b.addEventListener("click",()=>soloDiscard(b.dataset.i)));
+  }
+  $("#so-river").innerHTML=solo.river.length?solo.river.map((t,i)=>tileHTML(t,(solo.riichi&&i===solo.riichiAt)?"rot":"")).join(""):'<span class="muted">まだ捨て牌はありません</span>';
+  $("#so-hintbox").innerHTML="";
+}
+function soloDiscard(which){
+  if(solo.draw==null)return;
+  if(solo.riichi&&solo.riichiAt==null)solo.riichiAt=solo.river.length;
+  let out;
+  if(which==="draw"){ out=solo.draw; }
+  else{ const i=+which; out=solo.hand[i]; solo.hand[i]=solo.draw; solo.hand=sortT(solo.hand); }
+  solo.draw=null;
+  solo.river.push(out);
+  soloRender();
+  setTimeout(soloDraw, solo.riichi?500:250);
+}
+function soloHint(){
+  if(solo.draw==null||solo.riichi)return;
+  const all=solo.hand.concat([solo.draw]);
+  const evals=[];
+  const seen=new Set();
+  all.forEach((t,i)=>{
+    if(seen.has(t))return; seen.add(t);
+    const rest=all.slice(); rest.splice(all.indexOf(t),1);
+    const u=ukeire(rest);
+    evals.push({t,sh:u.base,cnt:u.count});
+  });
+  evals.sort((a,b)=>a.sh-b.sh||b.cnt-a.cnt);
+  const top=evals.slice(0,3);
+  $("#so-hintbox").innerHTML='<div class="note"><b>おすすめの捨て牌</b><table class="hint-list">'+top.map((e,i)=>
+    '<tr><td>'+(i+1)+'位</td><td>'+tileHTML(e.t)+'</td><td>'+(e.sh===0?"テンパイ維持":e.sh+"シャンテン")+'</td><td>有効牌'+e.cnt+'枚</td></tr>').join("")+'</table><span class="muted">「有効牌」＝手が進む牌の残り枚数。多いほど早くテンパイできます。</span></div>';
+}
+function soloWin(){
+  solo.over=true;
+  const hand14=sortT(solo.hand.concat([solo.draw]));
+  const dora=nextDora(solo.doraInd);
+  const doraCnt=hand14.filter(t=>t===dora).length;
+  const yk=detectYaku(hand14,solo.draw,{tsumo:true,riichi:solo.riichi,dora:doraCnt});
+  $("#so-win").innerHTML='<div class="overlay-win"><h3 style="margin-top:0">ツモ！ あがりました 🎉</h3>'+
+   '<div class="tiles">'+hand14.map(t=>tileHTML(t)).join("")+'</div>'+
+   yk.list.map(y=>'<div class="yaku-line"><span>'+y[0]+'</span><span>'+y[1]+'翻</span></div>').join("")+
+   '<p><b>合計 '+yk.han+'翻</b>　'+roughPoints(yk.han)+'</p>'+
+   '<button class="btn primary" id="so-again">もう一局！</button></div>';
+  $("#so-hand").innerHTML=""; $("#so-riichi").style.display="none";
+  $("#so-again").addEventListener("click",startSolo);
+  store.patch(d=>{ d.soloWins=(d.soloWins||0)+1; });
+}
+function soloEnd(msg){
+  solo.over=true;
+  $("#so-win").innerHTML='<div class="note">'+msg+'</div><div class="btn-row"><button class="btn primary" id="so-again2">もう一局！</button></div>';
+  $("#so-again2").addEventListener("click",startSolo);
+}
+
+/* ================= quizzes ================= */
+// 何待ち：hands authored (13 tiles each), answers computed by engine (always correct)
+const QWAIT=[
+ "23m456p789s555s11z",
+ "456m78m22p234s678s",
+ "345m567m11p13s789s",
+ "234p567p99p345s67s",
+ "22m345m678m456p88s",
+ "111m234m55m678p99s",
+ "234m8p234s678s444z",
+ "567m111p2p345s789s",
+];
+const QCUT=[
+ {hand:"2m3m4m6m7m1p1p5p6p7p3s4s5s1z",why:"東は1枚だけの孤立字牌。切れば5萬・8萬待ちのテンパイです。孤立字牌から切るのが基本。"},
+ {hand:"1m1m2m3m9m5p6p7p2s3s4s6s7s8s",why:"9萬だけが孤立牌。切れば1萬・4萬待ちのテンパイ。端の牌はグループの相方が少ないのです。"},
+ {hand:"2m3m4m5m6m7m2p2p5s6s7s9s9s1z",why:"字牌の東が完全に孤立。切ればテンパイ（2筒と9索のシャンポン待ち）。9索はペアなので立派な戦力です。"},
+ {hand:"2m2m3m4m5p6p7p3s4s5s7s8s9s9p",why:"9筒だけが孤立。切れば2萬・5萬待ちのテンパイです。"},
+ {hand:"2m2m4m5m6m9m4p5p6p6s7s8s3z3z",why:"9萬が孤立。切ればテンパイ（2萬と西のシャンポン待ち）。ペアが2組あるときは、片方が雀頭・もう片方が刻子候補になります。"},
+ {hand:"1m1m2m3m7m8m9m4p5p6p6s7s8s1z",why:"東が孤立。切れば1萬・4萬待ちのリャンメンでテンパイです。"},
+];
+const QYAKU=[
+ {hand:"234m567m345p678s55s",cond:"鳴かずにロンあがり",choices:["タンヤオ","ホンイツ","役牌","国士無双"],a:0,ex:"1・9・字牌がひとつもない＝タンヤオ。全部順子なのでピンフも付いていそうですね。"},
+ {hand:"123s456s789s22s777z",cond:"鳴かずにツモあがり",choices:["ホンイツ","タンヤオ","チンイツ","ピンフ"],a:0,ex:"索子＋字牌だけ＝ホンイツ（3翻）。中の刻子で役牌も付き、門前ツモも加わって高得点！"},
+ {hand:"111m222p333s444z55z",cond:"ロンあがり",choices:["対々和（トイトイ）","ピンフ","タンヤオ","七対子"],a:0,ex:"面子が全部刻子＝トイトイ（2翻）。北の刻子は今回は役になりませんが形は立派です。"},
+ {hand:"11m33p55p77s99s44z66z",cond:"鳴かずにロンあがり",choices:["七対子（チートイツ）","対々和","タンヤオ","リーチ"],a:0,ex:"ペア7組だけの特別なアガリ形＝七対子（2翻）。4面子1雀頭の例外ルールです。"},
+ {hand:"234m456m567p234s99s",cond:"リーチしてツモあがり",choices:["リーチ＋門前ツモ","役なし","トイトイ","ホンイツ"],a:0,ex:"リーチ（1翻）＋門前清自摸和（1翻）。順子だらけなのでピンフのおまけも期待できます。"},
+ {hand:"345m678m22p345s555z",cond:"白をポンしてロンあがり",choices:["役牌（白）","リーチ","ピンフ","門前ツモ"],a:0,ex:"鳴くとリーチ・ピンフ・門前ツモは消えますが、白發中の刻子＝役牌は鳴いても残る心強い役です。"},
+];
+function startQuiz(kind){
+  const state={i:0,score:0,kind};
+  let problems;
+  if(kind==="qtile"){
+    problems=[]; const used=new Set();
+    while(problems.length<10){ const t=Math.floor(Math.random()*34); if(used.has(t))continue; used.add(t); problems.push(t); }
+  }else if(kind==="qwait"){ problems=QWAIT.slice(); }
+  else if(kind==="qcut"){ problems=QCUT.slice(); }
+  else{ problems=QYAKU.slice(); }
+  const total=problems.length;
+  const titles={qtile:"牌フラッシュ",qwait:"何待ちクイズ",qcut:"何切るクイズ",qyaku:"役当てクイズ"};
+  function next(){
+    if(state.i>=total){ finish(); return; }
+    const p=problems[state.i];
+    let qhtml,choices,ansIdx,explain;
+    if(kind==="qtile"){
+      qhtml='<p>この牌の名前は？</p><div class="tiles" style="justify-content:center">'+tileHTML(p)+"</div>";
+      const wrong=new Set(); ansIdx=0;
+      choices=[tName(p)];
+      while(choices.length<4){ const t=Math.floor(Math.random()*34); const nm=tName(t); if(nm!==tName(p)&&!wrong.has(nm)){wrong.add(nm);choices.push(nm);} }
+      explain="これは「"+tName(p)+"」。"+(p<27?"数牌は種類と数字をセットで覚えましょう。":"字牌は7種類だけ。読み方ごと覚えると対人戦で困りません。");
+    }else if(kind==="qwait"){
+      const hand=parseTiles(p);
+      const ws=waitsOf(hand);
+      const ansText=ws.map(t=>tName(t)).join(" と ");
+      qhtml='<p>このテンパイ、<b>何待ち</b>？</p><div class="tiles">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
+      const cands=new Set([ansText]);
+      choices=[ansText]; ansIdx=0;
+      let guard=0;
+      while(choices.length<4&&guard++<200){
+        const fake=ws.map(t=>{
+          let f=t+(Math.random()<0.5?1:-1)*(1+Math.floor(Math.random()*2));
+          if(t<27){ const s=Math.floor(t/9); f=Math.min(s*9+8,Math.max(s*9,f)); }else f=27+Math.floor(Math.random()*7);
+          return f;
+        });
+        const txt=[...new Set(fake)].map(t=>tName(t)).join(" と ");
+        if(!cands.has(txt)){cands.add(txt);choices.push(txt);}
+      }
+      explain="正解は「"+ansText+"」待ち。完成に必要な牌を探すときは「あと1枚でどのグループが完成する？」と考えます。";
+    }else if(kind==="qcut"){
+      const hand=parseTiles(p.hand);
+      // engine best discard
+      const evals=[]; const seen=new Set();
+      hand.forEach(t=>{ if(seen.has(t))return; seen.add(t);
+        const rest=hand.slice(); rest.splice(hand.indexOf(t),1);
+        const u=ukeire(rest); evals.push({t,sh:u.base,cnt:u.count}); });
+      evals.sort((a,b)=>a.sh-b.sh||b.cnt-a.cnt);
+      const best=evals[0].t;
+      qhtml='<p>14枚あります。<b>どれを切る</b>のがよい？</p><div class="tiles">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
+      const set=new Set([best]); choices=[tName(best)]; ansIdx=0;
+      for(const e of evals.slice().reverse()){ if(choices.length>=4)break; if(!set.has(e.t)){set.add(e.t);choices.push(tName(e.t));} }
+      explain="おすすめは「"+tName(best)+"」切り。"+p.why;
+    }else{
+      qhtml='<p>このアガリ（'+p.cond+'）に付く役は？</p><div class="tiles">'+sortT(parseTiles(p.hand)).map(t=>tileHTML(t)).join("")+"</div>";
+      choices=p.choices.slice(); ansIdx=p.a; explain=p.ex;
+    }
+    const order=choices.map((c,i)=>i); shuffle(order);
+    $("#practice-body").innerHTML='<div class="eyebrow">'+titles[kind]+'</div><h2 style="font-size:20px">第'+(state.i+1)+'問 <span class="muted" style="font-size:13px">/ 全'+total+'問　正解 '+state.score+'</span></h2><div class="card">'+qhtml+'<div class="choices" id="qz"></div><div class="explain" id="qz-ex"></div><div class="btn-row" id="qz-nav"></div></div>';
+    const box=$("#qz");
+    order.forEach(i=>{
+      const b=document.createElement("button"); b.textContent=choices[i];
+      b.addEventListener("click",()=>{
+        [...box.children].forEach(x=>x.disabled=true);
+        const ok=i===ansIdx;
+        if(ok)state.score++;
+        b.classList.add(ok?"correct":"wrong");
+        if(!ok)[...box.children].find(x=>x.textContent===choices[ansIdx]).classList.add("correct");
+        const ex=$("#qz-ex"); ex.classList.add("show");
+        ex.innerHTML=(ok?'<span class="result-ok">正解！</span> ':'<span class="result-ng">ざんねん。</span> ')+explain;
+        $("#qz-nav").innerHTML='<button class="btn primary" id="qz-next">'+(state.i===total-1?"結果を見る":"次の問題 →")+'</button>';
+        $("#qz-next").addEventListener("click",()=>{state.i++;next();});
+      });
+      box.appendChild(b);
+    });
+    window.scrollTo(0,0);
+  }
+  function finish(){
+    store.patch(d=>{ d.best=d.best||{}; if(!(d.best[kind]>=state.score))d.best[kind]=state.score; });
+    const rate=state.score/total;
+    const msg=rate===1?"全問正解！おみごと！":rate>=0.7?"いい調子！まちがえた所だけ復習しましょう。":"レッスンに戻って復習してから、もう一度どうぞ。";
+    $("#practice-body").innerHTML='<div class="card" style="text-align:center"><h2>'+titles[kind]+' 結果</h2><p class="score-big"><b>'+state.score+'</b> / '+total+'</p><p>'+msg+'</p><div class="btn-row" style="justify-content:center"><button class="btn primary" id="qz-retry">もう一度</button><button class="btn" id="qz-back">れんしゅう一覧へ</button></div></div>';
+    $("#qz-retry").addEventListener("click",()=>startQuiz(kind));
+    $("#qz-back").addEventListener("click",renderPracticeIndex);
+  }
+  next();
+}
+
+/* ================= debut: checklist & glossary ================= */
+const CHECKS=[
+ "牌の種類（萬子・筒子・索子・字牌）が全部わかる",
+ "順子・刻子・雀頭を説明できる",
+ "アガリ形（4面子＋1雀頭）がわかる",
+ "ツモとロンの違いがわかる",
+ "役が最低1つ必要なことを知っている",
+ "タンヤオ・役牌・リーチの条件を言える",
+ "ドラの見つけ方がわかる",
+ "ポン・チーの意味と、鳴くとリーチできなくなることを知っている",
+ "フリテンと現物（安全牌）を知っている",
+ "6つの発声（ポン・チー・カン・リーチ・ロン・ツモ）を声に出せる",
+];
+function renderChecklist(){
+  const saved=store.get().checks||{};
+  $("#checklist").innerHTML=CHECKS.map((c,i)=>'<label class="check"><input type="checkbox" data-c="'+i+'" '+(saved[i]?"checked":"")+'><span>'+c+'</span></label>').join("");
+  $all("#checklist input").forEach(inp=>inp.addEventListener("change",()=>{
+    store.patch(d=>{ d.checks=d.checks||{}; d.checks[inp.dataset.c]=inp.checked; });
+    renderChecklistStatus();
+  }));
+  renderChecklistStatus();
+}
+function renderChecklistStatus(){
+  const saved=store.get().checks||{};
+  const n=CHECKS.filter((c,i)=>saved[i]).length;
+  $("#checklist-status").innerHTML= n===CHECKS.length?'<b class="result-ok">全項目クリア！あなたはもう麻雀デビューできます 🀄</b>':n+" / "+CHECKS.length+" 項目クリア";
+}
+const GLOSSARY=[
+ ["アガリ","手牌を完成させること。ロン（他人の捨て牌）とツモ（自分で引く）の2種類。"],
+ ["配牌（ハイパイ）","局の最初に配られる13枚。"],
+ ["ツモ","山から牌を1枚引くこと。また、引いた牌でアガること。"],
+ ["河（ホー）","捨て牌を並べる場所。6枚ずつ並べるのがマナー。"],
+ ["面子（メンツ）","3枚1組のグループ。順子と刻子がある。"],
+ ["順子（シュンツ）","同じ種類の連番3枚。例：4筒5筒6筒。"],
+ ["刻子（コーツ）","同じ牌3枚。例：白白白。"],
+ ["雀頭（ジャントウ）","同じ牌2枚のペア。アタマとも。"],
+ ["テンパイ","あと1枚でアガリの状態。"],
+ ["シャンテン","テンパイまでの距離。1シャンテン＝あと1歩でテンパイ。"],
+ ["待ち（マチ）","アガリに必要な牌。リャンメン（両面）待ちが最強。"],
+ ["役（ヤク）","アガリに最低1つ必要なボーナス条件。リーチ・タンヤオなど。"],
+ ["翻（ハン）","役の点数単位。多いほど高得点。5翻で満貫。"],
+ ["ドラ","持っているだけで+1翻の牌。表示牌の「次」の牌。"],
+ ["リーチ","門前テンパイで宣言する役。1000点棒を供託。"],
+ ["門前（メンゼン）","一度も鳴いていない状態。リーチの条件。"],
+ ["鳴き（副露）","ポン・チー・カンで他人の捨て牌をもらうこと。"],
+ ["ポン","同じ牌2枚＋他人の捨て牌で刻子を作る。誰からでも可。"],
+ ["チー","連番のもと＋左どなりの捨て牌で順子を作る。"],
+ ["カン","同じ牌4枚をそろえる宣言。最初は使わなくてOK。"],
+ ["振り込み（放銃）","自分の捨て牌でロンされること。一人で全額払う。"],
+ ["フリテン","自分の捨てた牌が待ちに含まれる状態。ロンできない。"],
+ ["現物（げんぶつ）","相手がすでに捨てた牌。その人には100%ロンされない安全牌。"],
+ ["流局","誰もアガらず山がなくなること。テンパイ者に小さな点数移動。"],
+ ["親（おや）","その局の主役。アガリ1.5倍、連荘（続けて親）もある。"],
+ ["半荘（ハンチャン)","東場4局＋南場4局の標準的な1ゲーム。"],
+ ["点棒","点数のやりとりに使う棒。25000点持ちスタートが一般的。"],
+ ["理牌（リーパイ）","手牌を種類順に並べ替えること。"],
+];
+$("#glossary").innerHTML=GLOSSARY.map(g=>'<details><summary>'+g[0]+'</summary><div class="body">'+g[1]+'</div></details>').join("");
+
+/* ================= init ================= */
+renderChecklist();
+renderHome();
+renderLessonIndex();
+if(window.MJ_SHOP)MJ_SHOP.renderInto($("#shop-debut"));
+</script>
