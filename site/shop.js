@@ -5,12 +5,18 @@
    2) 何も変えなくてOK。amazon が入っている商品だけ
       「Amazonで見る」ボタンが自動で増える（併記カードになる）
    ※ PR表記はカード側で自動出力するので個別対応は不要
+
+   🔴 楽天リンクを足すときは必ず計測ID `_RTLink143604`（mahjong）を入れる。
+      形式: https://hb.afl.rakuten.co.jp/ichiba/{アフィリID}/_RTLink143604?pc={エンコード済み商品URL}&link_type=hybrid_url
+      （下の rk() を通せば自動で付く。手書きで足すときは付け忘れに注意）
+      これが無いと楽天のサイト別レポートに載らず、どのサイトの成果か分からなくなる。
+      対応表＝~/Desktop/claude/affiliate_links.md の「楽天 計測ID（site_pointback_id）」節
 */
 (function () {
   "use strict";
   var RAKUTEN_ID = "56850033.f41b8543.56850034.48ac58ba";
   function rk(url) {
-    return "https://hb.afl.rakuten.co.jp/ichiba/" + RAKUTEN_ID + "/?pc=" +
+    return "https://hb.afl.rakuten.co.jp/ichiba/" + RAKUTEN_ID + "/_RTLink143604?pc=" +
       encodeURIComponent(url) + "&link_type=hybrid_url";
   }
 
