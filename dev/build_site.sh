@@ -26,4 +26,9 @@ for f in "$OUT/index.html" "$OUT/drill.html" "$OUT/rules/index.html"; do
 done
 [ "$fail" = 0 ] || { echo "build failed" >&2; exit 1; }
 
-echo "site/ built（MUST_KEEP: GA4 / oc.js を全生成物で確認）"
+# 日付証跡（JSON-LD datePublished/dateModified・可視<time>・sitemap lastmod）を
+# git 履歴から再生成する。site/ は生成物なので、ビルドのたびにここで入れ直さないと消える。
+python3 "$HOME/Desktop/claude/tools/stamp_dates.py" --site mahjong >/dev/null || \
+  echo "warn: stamp_dates.py が走らなかった（日付証跡は未更新）" >&2
+
+echo "site/ built（MUST_KEEP: GA4 / oc.js を全生成物で確認・日付証跡も再生成）"
