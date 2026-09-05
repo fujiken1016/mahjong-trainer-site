@@ -1,14 +1,39 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>リーチする？鳴く？｜麻雀初心者が迷いやすい2つの判断の目安 | 雀トレ</title>
-<meta name="description" content="麻雀初心者がいちばん迷う「テンパイしたらリーチすべきか」「ポン・チーしていいか」の判断基準を整理。鳴いて消える役・残る役、食い下がり、鳴いてはいけない典型パターンまで、前提ルールを明示して解説します。">
+<title>麻雀「鳴く」デメリットとリーチ判断｜初心者が迷う2つの分岐 | 雀トレ</title>
+<meta name="description" content="麻雀で鳴く（ポン・チー）デメリットを4つに整理し、鳴いていい3条件をフローチャートで図解。テンパイしたらリーチすべきかの判断、食い下がりで打点がどれだけ落ちるか、鳴いてはいけない典型パターンまで、前提ルールを明示して解説します。">
 <link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-riichi-naki">
-<meta property="og:title" content="リーチする？鳴く？｜初心者が迷いやすい2つの判断">
-<meta property="og:description" content="テンパイしたらリーチか。ポン・チーしていいか。初心者が事故りやすい2つの分岐の目安。">
+<meta property="og:title" content="麻雀「鳴く」デメリットとリーチ判断｜初心者が迷う2つの分岐">
+<meta property="og:description" content="鳴くデメリットは4つ。鳴いていいのは3条件を全部満たすときだけ。テンパイ即リーチの例外もあわせて図解します。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-riichi-naki">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="/_legal_style.css">
 <link rel="stylesheet" href="/_article_style.css">
+<style>
+/* このページ限定（共通CSSには入れない） */
+figure.fig{margin:16px 0;padding:12px 12px 10px;border:1px solid var(--bd);border-radius:12px;background:rgba(255,255,255,.03)}
+figure.fig{overflow-x:auto;-webkit-overflow-scrolling:touch}
+figure.fig svg{display:block;width:100%;height:auto;min-width:320px}
+figure.fig figcaption{margin-top:8px;font-size:14px;line-height:1.8;color:#c6d2f0}
+figure.fig figcaption .tag{color:var(--cyan);font-weight:700}
+/* 375px では card の内側(267px)まで縮み、viewBox 320 の図が 0.83倍＝文字が14px未満になる。
+   card の左右パディング分だけ図を外へ出して等倍に戻す（2026-09-06 実測で 0.834→1.009） */
+@media (max-width:420px){
+  figure.fig{margin-left:-22px;margin-right:-22px;padding-left:6px;padding-right:6px}
+}
+.ansbox{border:1px solid rgba(52,229,255,.3);background:rgba(52,229,255,.07);border-radius:12px;padding:14px 16px;margin:16px 0}
+.ansbox .q{font-size:15px;font-weight:700;color:var(--cyan);margin:0 0 6px}
+.ansbox ol{margin:0;padding-left:22px}
+.ansbox li{font-size:14px;line-height:1.9;margin:2px 0}
+.ansbox li a{font-weight:700}
+.ansbox .a{font-size:14px;line-height:1.9;margin:8px 0 0;color:#c6d2f0}
+nav.toc{border:1px solid var(--bd);background:rgba(255,255,255,.04);border-radius:12px;padding:12px 14px;margin:16px 0}
+nav.toc .t{font-size:14px;font-weight:700;color:var(--text);margin:0 0 4px}
+nav.toc ol{margin:0;padding-left:22px}
+nav.toc li{font-size:14px;line-height:1.9}
+nav.toc li a{display:block;min-height:48px;padding:13px 4px;text-decoration:none}
+nav.toc li a:hover{text-decoration:underline}
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>
@@ -19,30 +44,86 @@
 </script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"リーチする？鳴く？｜麻雀初心者が迷いやすい2つの判断の目安","datePublished":"2026-08-13","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-riichi-naki","publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-08-13"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀「鳴く」デメリットとリーチ判断｜初心者が迷う2つの分岐","datePublished":"2026-08-13","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-riichi-naki","publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-09-06"}</script>
 <script src="/oc.js" defer></script>
 </head><body><div class="wrap">
 <a class="home" href="/">← 雀トレに戻る</a>
-<h1>リーチする？鳴く？｜初心者が迷いやすい2つの判断</h1>
+<h1>麻雀「鳴く」デメリットとリーチ判断｜初心者が迷う2つの分岐</h1>
 
 <div class="card">
-<p class="lead">ルールを覚えて何を切るかも分かってきたのに、まだ手が止まる場所が2つあります。<b>テンパイしたときにリーチするか</b>と、<b>相手の捨て牌を鳴くか</b>です。ここは考え方さえ決めておけば、毎回悩まずに済みます。</p>
+<p class="lead">ルールを覚えて何を切るかも分かってきたのに、まだ手が止まる場所が2つあります。テンパイしたときにリーチするかと、相手の捨て牌を鳴くかです。とくに鳴きは「速くなる」とだけ教わって、失うものを教わらないまま卓に着く人が多い。この記事は<b>鳴くデメリットを4つに分けて数え、鳴いていい条件を3つに絞る</b>ところまでやります。</p>
+
+<div class="ansbox">
+<p class="q">Q. 麻雀で「鳴く」デメリットは何ですか？</p>
+<ol>
+<li><a href="#d1">門前の役がまるごと消える</a>（リーチ・一発・裏ドラを同時に失う）</li>
+<li><a href="#d2">役の翻が下がる</a>（食い下がり。ホンイツは3翻→2翻）</li>
+<li><a href="#d3">手の内が読まれる</a>（欲しい牌が最後まで出てこなくなる）</li>
+<li><a href="#d4">守りにくくなる</a>（手牌が減り、降りる余地が消える）</li>
+</ol>
+<p class="a">鳴いていいのは<b>「役が残る・シャンテンが減る・打点が見合う」の3つを全部満たすとき</b>だけです（→<a href="#naki-ok">3つの門</a>）。1つでも欠けたら鳴きません。</p>
+</div>
 
 <div class="rulebox">
-<p><b>この記事の前提ルール</b>：日本で一般的な4人打ちのリーチ麻雀で、<b>クイタン（鳴いたタンヤオ）あり・後付けあり</b>のいわゆる「アリアリ」ルールを前提にしています。Mリーグや主要なネット麻雀もおおむねこの設定です。<b>ナシナシ</b>ルールの卓では鳴きの判断が大きく変わるので、座る前にひとこと確認してください。一発・裏ドラの有無も採用ルールによります。<br>
+<p><b>この記事の前提ルール</b>：日本で一般的な4人打ちのリーチ麻雀で、クイタン（鳴いたタンヤオ）あり・後付けありのいわゆる「アリアリ」ルールを前提にしています。Mリーグや主要なネット麻雀もおおむねこの設定です。<b>ナシナシ</b>ルールの卓では鳴きの判断が大きく変わるので、座る前にひとこと確認してください。一発・裏ドラの有無も採用ルールによります。<br>
 なお雀トレは麻雀のルールと戦術を学ぶための無料の学習ツールで、現金・賭け金は一切扱いません。</p>
 </div>
 
-<h2>第1部：リーチするかどうか</h2>
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#part1">第1部：リーチするかどうか</a></li>
+<li><a href="#demerit">第2部：鳴く（ポン・チー）デメリットは4つ</a></li>
+<li><a href="#naki-ok">鳴いていいのは3つの門を全部通ったときだけ</a></li>
+<li><a href="#rei">実例：この形なら鳴く、この形なら鳴かない</a></li>
+<li><a href="#hayami">判断の早見表</a></li>
+<li><a href="#shippai">よくある失敗と、その直し方</a></li>
+<li><a href="#matome">まとめ</a></li>
+</ol>
+</nav>
+
+<h2 id="part1">第1部：リーチするかどうか</h2>
 
 <h3>基本方針は「テンパイしたらリーチ」</h3>
 <p>初心者のうちは、これで構いません。理由は3つあります。</p>
 <ol>
-<li><b>点が伸びる</b>：リーチ1翻に加えて、一発と裏ドラのチャンスが乗る。1000点の手が、あがってみたら5200点になることが普通にあります</li>
+<li><b>点が伸びる</b>：リーチ1翻に加えて、一発と裏ドラのチャンスが乗る。1000点の手が、あがってみたら5200点になることが普通にあります（※一発・裏ドラを採用している卓の場合）</li>
 <li><b>相手が降りる</b>：リーチが入ると、他家は危険な牌を止めます。結果として自分があがりやすくなります</li>
 <li><b>迷わなくて済む</b>：リーチ後は引いた牌をそのまま捨てるだけ。判断の負荷が消えて、他家の動きを見る余裕が生まれます</li>
 </ol>
 <div class="note"><p>リーチ棒の1000点が惜しくてダマ（黙聴＝リーチせずテンパイ）にする人が多いのですが、初心者のうちは<b>リーチの得のほうが大きい</b>場面が圧倒的に多いです。まず「テンパイ＝リーチ」を体に入れて、例外を後から足していくのが順番として正しいです。</p></div>
+
+<h3>図解：リーチをやめる分かれ道は3つだけ</h3>
+
+<figure class="fig">
+<svg viewBox="0 0 320 258" role="img" aria-label="リーチ判断のフローチャート。テンパイしたあと、フリテンか、他家のリーチに安手で押すか、着順条件を満たしたかの3つを確認し、どれにも当てはまらなければリーチする。">
+<defs>
+<marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,1 L6,4 L0,7 z" fill="#9aa5c9"/></marker>
+</defs>
+<rect x="86" y="4" width="148" height="34" rx="8" fill="rgba(52,229,255,.14)" stroke="#34e5ff"/>
+<text x="160" y="26" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">テンパイした</text>
+<line x1="160" y1="38" x2="160" y2="54" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+<rect x="18" y="56" width="284" height="34" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="30" y="78" font-size="15" fill="#eef2ff">① 自分の捨て牌にアガリ牌がある？</text>
+<line x1="160" y1="90" x2="160" y2="106" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="168" y="102" font-size="14" fill="#9aa5c9">いいえ</text>
+
+<rect x="18" y="108" width="284" height="34" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="30" y="130" font-size="15" fill="#eef2ff">② 他家がリーチ済みで自分は安手？</text>
+<line x1="160" y1="142" x2="160" y2="158" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="168" y="154" font-size="14" fill="#9aa5c9">いいえ</text>
+
+<rect x="18" y="160" width="284" height="34" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="30" y="182" font-size="15" fill="#eef2ff">③ あがれば着順が確定する場面？</text>
+<line x1="160" y1="194" x2="160" y2="210" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="168" y="206" font-size="14" fill="#9aa5c9">いいえ</text>
+
+<rect x="76" y="212" width="168" height="38" rx="8" fill="rgba(52,229,255,.2)" stroke="#34e5ff" stroke-width="2"/>
+<text x="160" y="236" text-anchor="middle" font-size="16" fill="#eef2ff" font-weight="700">→ リーチする</text>
+</svg>
+<figcaption><span class="tag">図1</span>　①〜③のどれかに「はい」が付いたときだけ、リーチをやめる候補になります。逆に言えば、それ以外は全部リーチ。長考の対象は「リーチしていいか」ではなく「テンパイしたか」だけです。</figcaption>
+</figure>
 
 <h3>リーチを見送る候補になる場面</h3>
 <div class="scroll-x"><table class="cmp">
@@ -52,26 +133,96 @@
 <tr><th>他家がすでにリーチしていて<br>自分の手が安い</th><td>安手で押すと放銃のリスクが上回ることがあります。降りるという選択肢を思い出す場面です</td></tr>
 <tr><th>オーラスで着順条件を<br>満たしている</th><td>あと1000点あがれば順位が確定するような場面では、確実にあがることが優先。ここはルールというより状況判断です</td></tr>
 </table></div>
-<p>逆に言えば、それ以外は基本リーチです。「リーチしていいか」で長考するより、「テンパイしたか」だけを見ているほうが結果的に強くなります。</p>
 
-<h2>第2部：鳴く（ポン・チー）かどうか</h2>
+<h3>ダマにするなら「何を待つか」を先に決める</h3>
+<p>ダマを選ぶこと自体は悪くありません。問題は、リーチ棒が惜しいという理由だけでダマにして、そのまま何も起きずに流局する形です。ダマにするときは「この牌を引いたら曲げる」「この形になったら曲げる」という条件を、その場で1つ決めてください。条件を決めずにダマにした手は、たいてい最後まで曲げられずに終わります。決めておけば、次の巡目からは引いた牌を条件に照らすだけで済み、判断の回数がぐっと減ります。</p>
 
-<h3>鳴くと何が起きるか</h3>
-<p>鳴く＝手牌の一部を公開して面子を作ることです。手は速くなりますが、代わりに失うものがあります。</p>
-<ul>
-<li><b>門前の役が消える</b>：リーチ・メンゼンツモ・ピンフ・一盃口などは、1回でも鳴くと付きません</li>
-<li><b>翻が下がる役がある</b>（食い下がり）：ホンイツ・チンイツ・三色同順・一気通貫・チャンタなどは、鳴くと1翻下がります</li>
-<li><b>手の内がバレる</b>：公開された面子から、狙いを読まれます</li>
-<li><b>守りにくくなる</b>：手牌の枚数が減るので、危険牌を抱えて回る余地が小さくなります</li>
-</ul>
+<h2 id="demerit">第2部：鳴く（ポン・チー）デメリットは4つ</h2>
 
-<h3>鳴いていい条件は「3つ全部」を満たすとき</h3>
-<ol>
-<li><b>鳴いても役が残る</b>（これが最重要）</li>
-<li><b>鳴くことで手が実際に進む</b>（シャンテンが減る）</li>
-<li><b>あがったときの点数が、リーチをあきらめる価値に見合う</b></li>
-</ol>
-<p>とくに1つ目です。<b>役がないのに鳴く</b>のが、初心者の最大の事故です。形が完成してもアガれない手になり、その局は何もできないまま終わります。</p>
+<p>鳴く＝手牌の一部を公開して面子を作ることです。手は速くなります。速くなる代わりに失うものが4つあり、初心者が事故るのはほぼ全部この4つのどれかです。</p>
+
+<h3 id="d1">デメリット1：門前の役がまるごと消える</h3>
+<p>リーチ・メンゼンツモ・ピンフ・一盃口・七対子は、1回でも鳴くと付きません。ここでいちばん重いのはリーチが消えることです。リーチが消えるということは、一発と裏ドラも同時に消えるということで、実際には1翻ではなく打点の期待値をまとめて失っています。「鳴いたら1翻損する」という覚え方だと、この重さを取りこぼします。</p>
+
+<h3 id="d2">デメリット2：役の翻が下がる（食い下がり）</h3>
+<p>ホンイツ・チンイツ・三色同順・一気通貫・チャンタは、鳴いても使えますが1翻下がります。狙っていた手が、鳴いた瞬間に一段安くなるということです。</p>
+
+<figure class="fig">
+<svg viewBox="0 0 320 168" role="img" aria-label="食い下がりの比較図。ホンイツは門前3翻から鳴くと2翻、チンイツは門前6翻から鳴くと5翻、一気通貫は門前2翻から鳴くと1翻、三色同順は門前2翻から鳴くと1翻に下がる。">
+<text x="10" y="16" font-size="14" fill="#9aa5c9">役</text>
+<text x="150" y="16" text-anchor="middle" font-size="14" fill="#9aa5c9">門前</text>
+<text x="272" y="16" text-anchor="middle" font-size="14" fill="#34e5ff">鳴くと</text>
+<line x1="10" y1="24" x2="310" y2="24" stroke="rgba(255,255,255,.18)"/>
+
+<text x="10" y="52" font-size="15" fill="#eef2ff">ホンイツ</text>
+<rect x="104" y="34" width="92" height="26" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="150" y="52" text-anchor="middle" font-size="15" fill="#eef2ff">3翻</text>
+<text x="212" y="52" font-size="15" fill="#9aa5c9">→</text>
+<rect x="236" y="34" width="72" height="26" rx="4" fill="rgba(52,229,255,.16)"/>
+<text x="272" y="52" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">2翻</text>
+
+<text x="10" y="86" font-size="15" fill="#eef2ff">チンイツ</text>
+<rect x="104" y="68" width="92" height="26" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="150" y="86" text-anchor="middle" font-size="15" fill="#eef2ff">6翻</text>
+<text x="212" y="86" font-size="15" fill="#9aa5c9">→</text>
+<rect x="236" y="68" width="72" height="26" rx="4" fill="rgba(52,229,255,.16)"/>
+<text x="272" y="86" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">5翻</text>
+
+<text x="10" y="120" font-size="15" fill="#eef2ff">一気通貫</text>
+<rect x="104" y="102" width="92" height="26" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="150" y="120" text-anchor="middle" font-size="15" fill="#eef2ff">2翻</text>
+<text x="212" y="120" font-size="15" fill="#9aa5c9">→</text>
+<rect x="236" y="102" width="72" height="26" rx="4" fill="rgba(52,229,255,.16)"/>
+<text x="272" y="120" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">1翻</text>
+
+<text x="10" y="154" font-size="15" fill="#eef2ff">三色同順</text>
+<rect x="104" y="136" width="92" height="26" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="150" y="154" text-anchor="middle" font-size="15" fill="#eef2ff">2翻</text>
+<text x="212" y="154" font-size="15" fill="#9aa5c9">→</text>
+<rect x="236" y="136" width="72" height="26" rx="4" fill="rgba(52,229,255,.16)"/>
+<text x="272" y="154" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">1翻</text>
+</svg>
+<figcaption><span class="tag">図2</span>　食い下がりの実体。※翻数は一般的なルールでの値で、採用ルールによって差があります。チャンタも同様に2翻から1翻へ下がります。一方でタンヤオ・役牌・対々和は下がりません。</figcaption>
+</figure>
+
+<h3 id="d3">デメリット3：手の内が読まれる</h3>
+<p>公開された面子は、そのまま相手への情報になります。索子ばかり鳴いていればホンイツを警戒され、狙っている色が絞られて、必要な牌が最後まで出てきません。門前なら出ていたはずの牌が止まる、という形で損をします。ここは点数表に出てこない損なので、自覚しにくいのが厄介です。</p>
+
+<h3 id="d4">デメリット4：守りにくくなる</h3>
+<p>鳴くと手牌の枚数が減ります。ポンやチーを2回すれば、手の中に残るのは7枚です。他家からリーチが入ったとき、安全牌を抱えて回るための余地がそれだけ小さくなります。鳴いて速くなるというのは、あがるまで押し切る前提が入った速さで、途中で降りる選択肢を先に手放しているということです。</p>
+
+<h2 id="naki-ok">鳴いていいのは3つの門を全部通ったときだけ</h2>
+
+<figure class="fig">
+<svg viewBox="0 0 320 224" role="img" aria-label="鳴きの判断フローチャート。役が残るか、シャンテンが減るか、打点が見合うかの3つを順に確認し、1つでも「いいえ」があれば鳴かない。3つとも「はい」のときだけ鳴く。">
+<rect x="76" y="4" width="168" height="32" rx="8" fill="rgba(52,229,255,.14)" stroke="#34e5ff"/>
+<text x="160" y="25" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">鳴ける牌が出た</text>
+<line x1="160" y1="36" x2="160" y2="50" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+<rect x="10" y="52" width="196" height="32" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="22" y="73" font-size="15" fill="#eef2ff">① 鳴いても役が残る？</text>
+<line x1="206" y1="68" x2="240" y2="68" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="208" y="60" font-size="14" fill="#9aa5c9">いいえ</text>
+
+<rect x="10" y="92" width="196" height="32" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="22" y="113" font-size="15" fill="#eef2ff">② シャンテンが減る？</text>
+<line x1="206" y1="108" x2="240" y2="108" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+<rect x="10" y="132" width="196" height="32" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+<text x="22" y="153" font-size="15" fill="#eef2ff">③ 打点が見合う？</text>
+<line x1="206" y1="148" x2="240" y2="148" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+
+<rect x="242" y="52" width="70" height="112" rx="8" fill="rgba(255,255,255,.06)" stroke="#9aa5c9" stroke-dasharray="4 3"/>
+<text x="277" y="102" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">鳴か</text>
+<text x="277" y="122" text-anchor="middle" font-size="15" fill="#eef2ff" font-weight="700">ない</text>
+
+<line x1="108" y1="164" x2="108" y2="180" stroke="#9aa5c9" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="116" y="176" font-size="14" fill="#9aa5c9">3つとも はい</text>
+<rect x="24" y="182" width="168" height="38" rx="8" fill="rgba(52,229,255,.2)" stroke="#34e5ff" stroke-width="2"/>
+<text x="108" y="206" text-anchor="middle" font-size="16" fill="#eef2ff" font-weight="700">→ 鳴く</text>
+</svg>
+<figcaption><span class="tag">図3</span>　3つは<b>かつ</b>で結びます。1つでも「いいえ」があれば鳴きません。とくに①は絶対条件で、ここを飛ばした鳴きが初心者の最大の事故です。形が完成してもアガれない手になり、その局は何もできないまま終わります。</figcaption>
+</figure>
 
 <h3>鳴いても残る役／消える役</h3>
 <div class="scroll-x"><table class="cmp">
@@ -79,7 +230,55 @@
 <tr><td>役牌（白・發・中・自風・場風）<br>タンヤオ<span class="muted">※クイタン採用時</span><br>ホンイツ・チンイツ（1翻下がる）<br>対々和<br>三色同順・一気通貫・チャンタ（1翻下がる）</td><td>リーチ<br>メンゼンツモ<br>ピンフ<br>一盃口<br>七対子</td></tr>
 </table></div>
 
-<h3>判断の早見表</h3>
+<h2 id="rei">実例：この形なら鳴く、この形なら鳴かない</h2>
+
+<h3>鳴く例：役牌が2枚あって3枚目が出た</h3>
+
+<figure class="fig">
+<svg viewBox="0 0 320 196" role="img" aria-label="役牌ポンの実例。手牌に中が2枚あり、他家が中を捨てたのでポンして中の刻子を作る。役が中で確定し、残りは形を作るだけになる。">
+<text x="10" y="18" font-size="14" fill="#9aa5c9">手牌（一部）</text>
+<g>
+<rect x="10" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="28" y="60" text-anchor="middle" font-size="22" fill="#b3202a" font-weight="700">中</text>
+<rect x="52" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="70" y="60" text-anchor="middle" font-size="22" fill="#b3202a" font-weight="700">中</text>
+<rect x="100" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="118" y="52" text-anchor="middle" font-size="18" fill="#1b2340" font-weight="700">三</text>
+<text x="118" y="70" text-anchor="middle" font-size="14" fill="#5a5140">萬</text>
+<rect x="142" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="160" y="52" text-anchor="middle" font-size="18" fill="#1b2340" font-weight="700">四</text>
+<text x="160" y="70" text-anchor="middle" font-size="14" fill="#5a5140">萬</text>
+<rect x="184" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="202" y="52" text-anchor="middle" font-size="18" fill="#1b2340" font-weight="700">6</text>
+<text x="202" y="70" text-anchor="middle" font-size="14" fill="#5a5140">筒</text>
+<rect x="226" y="28" width="36" height="48" rx="4" fill="#f4efe2" stroke="#b9ae94"/>
+<text x="244" y="52" text-anchor="middle" font-size="18" fill="#1b2340" font-weight="700">7</text>
+<text x="244" y="70" text-anchor="middle" font-size="14" fill="#5a5140">筒</text>
+<text x="276" y="60" font-size="15" fill="#9aa5c9">…</text>
+</g>
+<text x="10" y="98" font-size="15" fill="#34e5ff">↓　他家が「中」を捨てた　→　ポン</text>
+<text x="10" y="122" font-size="14" fill="#9aa5c9">鳴いた面子（公開）</text>
+<g>
+<rect x="10" y="132" width="36" height="48" rx="4" fill="#f4efe2" stroke="#34e5ff" stroke-width="2"/>
+<text x="28" y="164" text-anchor="middle" font-size="22" fill="#b3202a" font-weight="700">中</text>
+<rect x="52" y="132" width="36" height="48" rx="4" fill="#f4efe2" stroke="#34e5ff" stroke-width="2"/>
+<text x="70" y="164" text-anchor="middle" font-size="22" fill="#b3202a" font-weight="700">中</text>
+<rect x="94" y="132" width="36" height="48" rx="4" fill="#f4efe2" stroke="#34e5ff" stroke-width="2"/>
+<text x="112" y="164" text-anchor="middle" font-size="22" fill="#b3202a" font-weight="700">中</text>
+</g>
+<text x="144" y="152" font-size="15" fill="#eef2ff" font-weight="700">役が確定</text>
+<text x="144" y="172" font-size="15" fill="#9aa5c9">あとは形を作るだけ</text>
+</svg>
+<figcaption><span class="tag">図4</span>　図3の3つの門を全部通る典型です。①役が残る（中そのものが役）、②シャンテンが1つ減る、③役牌＋ドラで十分戦える打点になる。初心者がいちばんあがりやすいルートなので、ここは迷わず鳴いてください。</figcaption>
+</figure>
+
+<h3>鳴かない例：ドラが3枚あるが役の当てがない</h3>
+<p>ドラが3枚あると、つい急ぎたくなります。ですがドラは役ではありません。役の当てがないまま鳴くと、ドラ3を抱えたまま一生あがれない手になります。図3の①で止まる形です。門前で進めてリーチをかければ、リーチ＋ドラ3で満貫が見えます。急ぐほど遠回りになる、という典型がここです。</p>
+
+<h3>鳴かない例：鳴いてもシャンテンが変わらない</h3>
+<p>チーはできるけれど、鳴いても手が進まないことがあります。手を短くして守りにくくしただけで、得は何もありません。図3の②で止まる形です。鳴ける＝鳴くべき、ではありません。</p>
+
+<h2 id="hayami">判断の早見表</h2>
 <div class="scroll-x"><table class="cmp">
 <thead><tr><th>状況</th><th>どうする</th></tr></thead>
 <tr><th>役牌が2枚あって<br>3枚目が出た</th><td><b>鳴く。</b>これで役が確定し、あとは形を作るだけになります。初心者がいちばんあがりやすいルートです</td></tr>
@@ -92,13 +291,34 @@
 
 <h3>細かい注意</h3>
 <ul>
-<li><b>チーは上家（自分の左隣）からだけ</b>。ポンとカンは誰の捨て牌からでもできます</li>
-<li><b>後付け（先に鳴いてから役を確定させる打ち方）の可否は採用ルールによります。</b>アリアリなら問題ありませんが、ナシナシの卓では認められません</li>
-<li>流局時にテンパイしていれば点のやりとりがあるルールが一般的ですが、<b>ノーテン罰符の有無も採用ルールによります</b>。終盤に役なしでも形だけテンパイに取る「形式テンパイ」は、このルールがある卓での話です</li>
+<li>チーは上家（自分の左隣）からだけ。ポンとカンは誰の捨て牌からでもできます</li>
+<li>後付け（先に鳴いてから役を確定させる打ち方）の可否は採用ルールによります。アリアリなら問題ありませんが、ナシナシの卓では認められません</li>
+<li>流局時にテンパイしていれば点のやりとりがあるルールが一般的ですが、ノーテン罰符の有無も採用ルールによります。終盤に役なしでも形だけテンパイに取る「形式テンパイ」は、このルールがある卓での話です</li>
+<li>カンは特殊で、新しいドラが増えるうえ相手にも乗ります。慣れるまでは「役が確定していて、待ちが変わらないときだけ」に絞ると事故りません</li>
 </ul>
 
+<h2 id="shippai">よくある失敗と、その直し方</h2>
+
+<h3>失敗1：役を確認する前に手が動く</h3>
+<p>ポンと言ってから役を探し始める形です。直し方は順番を固定することで、鳴ける牌が出たら、まず「この手の役は何か」を口の中で言ってから手を伸ばします。言えなければ鳴きません。ワンテンポ遅れても、鳴きは次巡以降にもう一度チャンスが来ることが多い一方、役なしで確定した手は取り返しがつきません。</p>
+
+<h3>失敗2：リーチが怖くてダマにし続ける</h3>
+<p>リーチ棒を出すのが惜しい、あるいは自分の待ちに自信がない、という理由でダマを続けると、打点が伸びないまま局が終わります。直し方は前述のとおりで、ダマにするなら曲げる条件を必ず1つ決めることです。条件が思いつかないなら、それは曲げるべき手です。</p>
+
+<h3>失敗3：鳴いた後に降りられなくなる</h3>
+<p>鳴いて手が短くなった状態で他家からリーチが入り、安全牌がなくて押すしかなくなる形です。直し方は、鳴くと決めた時点で「字牌を1枚だけ残す」と決めておくこと。1枚あるだけで、危険な巡目を1回やり過ごせます。デメリット4に対する、いちばん安いお守りです。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>リーチは、フリテン・安手で押す場面・着順確定の3つに当たらないなら曲げる</li>
+<li>鳴くデメリットは4つ。門前役が消える、翻が下がる、読まれる、守れなくなる</li>
+<li>鳴いていいのは、役が残る・シャンテンが減る・打点が見合うの3つを全部満たすときだけ</li>
+<li>ドラは役ではない。役の当てがないなら鳴かずに門前で進める</li>
+</ul>
+<p>この4行を覚えておけば、卓の上で迷う回数はかなり減ります。残りは打ちながら体に入れる部分です。</p>
+
 <div class="cta">
-<p style="margin:0 0 6px"><b>判断は、打って覚えるのがいちばん速い。</b></p>
+<p style="margin:0 0 6px"><b>次の1アクション：実際に1局打って、鳴きの判断を1回だけやってみる。</b></p>
 <p style="margin:0">・鳴きとリーチをゼロから学ぶ → <a href="/rules/">麻雀のいろは</a>（第7課「リーチとドラ」・第8課「ポン・チー・カン」）<br>
 ・実戦で1打ずつ評価をもらう → <a href="/">雀トレ 実戦トレーナー</a>／<a href="/drill">何切るドリル</a></p>
 </div>
@@ -108,5 +328,5 @@
 <a class="next" href="/articles/mahjong-score-basics"><b>点数計算は「よく出る形」だけ覚える</b>リーチと鳴きで打点がどう変わるかを、数字で把握するために。</a>
 
 </div>
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-13">2026年8月13日</time>　最終更新：<time datetime="2026-09-06">2026年9月6日</time></p>
 <footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
