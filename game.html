@@ -228,7 +228,10 @@
   .rev-nav{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:14px;flex-wrap:wrap}
   .rev-count{font-size:12px;color:var(--sub)}
   .mistakes{font-size:12px;line-height:1.8;color:#c6d2f0;margin-top:8px;max-height:200px;overflow-y:auto}
-  footer{margin-top:12px;font-size:11px;color:#5f6a92;line-height:1.7}
+  footer{margin-top:12px;font-size:13px;color:var(--sub);line-height:1.85}
+  .fnav{display:flex;flex-wrap:wrap;align-items:center;gap:0 2px;margin:2px 0}
+  .fnav a{display:inline-flex;align-items:center;min-height:48px;padding:0 6px;color:var(--sub)}
+  .fnav .sep{color:var(--sub)}
 
   /* ===== スマホ最適化 ===== */
   body{touch-action:manipulation;-webkit-text-size-adjust:100%}
@@ -356,14 +359,10 @@
     </div>
     <button class="primary" id="start-btn">対局開始</button>
     <p style="margin-top:14px"><a href="index.html">← ドリルモードへ</a>　<a href="rules/">🔰 麻雀を基礎から学ぶ</a>　<a href="/articles/">📖 初心者向け記事</a></p>
-    <p style="margin-top:12px;font-size:10.5px;color:var(--sub)">
-      <a href="/articles/" style="color:var(--sub)">記事一覧</a> ／
-      <a href="/privacy" style="color:var(--sub)">プライバシーポリシー</a> ／
-      <a href="/disclaimer" style="color:var(--sub)">免責事項</a> ／
-      <a href="/about" style="color:var(--sub)">運営者情報</a> ／
-      <a href="/contact" style="color:var(--sub)">お問い合わせ</a><br>
+    <div style="margin-top:12px;font-size:13px;line-height:1.85;color:var(--sub)">
+      <nav class="fnav"><a href="/articles/">記事一覧</a><span class="sep" aria-hidden="true">／</span><a href="/privacy">プライバシーポリシー</a><span class="sep" aria-hidden="true">／</span><a href="/disclaimer">免責事項</a><span class="sep" aria-hidden="true">／</span><a href="/about">運営者情報</a><span class="sep" aria-hidden="true">／</span><a href="/contact">お問い合わせ</a></nav>
       麻雀のルールと戦術を学ぶための無料の練習ツールです。現金・賭け金は一切扱いません。
-    </p>
+    </div>
 
     <section id="intro">
       <h2>雀トレとは</h2>

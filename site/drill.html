@@ -25,8 +25,8 @@
   header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px}
   h1{font-size:18px;letter-spacing:.02em}
   h1 .sub{font-size:11px;color:var(--sub);font-weight:400;margin-left:6px}
-  .navlink{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid #2b4a5e;border-radius:8px;padding:6px 10px}
-  select{background:var(--panel);color:var(--text);border:1px solid #334155;border-radius:8px;padding:6px 10px;font-size:13px}
+  .navlink{display:inline-flex;align-items:center;min-height:48px;font-size:12px;color:var(--accent);text-decoration:none;border:1px solid #2b4a5e;border-radius:8px;padding:6px 12px}
+  select{background:var(--panel);color:var(--text);border:1px solid #334155;border-radius:8px;padding:6px 10px;font-size:13px;min-height:48px}
   .stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
   .chip{background:var(--panel);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--sub)}
   .chip b{color:var(--text);font-size:14px;margin-left:4px}
@@ -69,7 +69,11 @@
   .btnrow{display:flex;gap:10px;margin-top:14px}
   button{background:var(--accent);color:#0c2231;font-weight:700;border:none;border-radius:10px;padding:10px 22px;font-size:14px;cursor:pointer}
   button:hover{filter:brightness(1.1)}
-  footer{margin-top:16px;font-size:11px;color:#64748b;line-height:1.7}
+  footer{margin-top:16px;font-size:13px;color:var(--sub);line-height:1.85}
+  footer a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .fnav{display:flex;flex-wrap:wrap;align-items:center;gap:0 2px;margin:2px 0}
+  .fnav a{display:inline-flex;align-items:center;min-height:48px;padding:0 6px}
+  .fnav .sep{color:var(--sub)}
   .tablewrap{overflow-x:auto}
   /* ===== 今日の1問（ロールモデル型C+D。ROLE_MODEL_tools.md 参照） ===== */
   .daily{background:var(--panel2);border:1px solid #33465f;border-radius:16px;padding:16px;margin-bottom:12px}
@@ -152,7 +156,7 @@
   <footer>
     ※ ドリルモードは牌効率（向聴数・受け入れ枚数）のみで採点。点数状況・河を考慮した練習は「実戦モード」へ。<br>
     ※ 評価エンジンは自前実装（一般手・七対子・国士無双の向聴数＋有効牌枚数）。完全ローカル動作・通信なし。<br>
-    <a href="/">🀄 雀トレ</a> ／ <a href="rules/">🔰 麻雀のいろは</a> ／ <a href="/articles/">📖 記事一覧</a> ／ <a href="/privacy">プライバシーポリシー</a> ／ <a href="/disclaimer">免責事項</a> ／ <a href="/about">運営者情報</a> ／ <a href="/contact">お問い合わせ</a><br>
+    <nav class="fnav"><a href="/">🀄 雀トレ</a><span class="sep" aria-hidden="true">／</span><a href="rules/">🔰 麻雀のいろは</a><span class="sep" aria-hidden="true">／</span><a href="/articles/">📖 記事一覧</a><span class="sep" aria-hidden="true">／</span><a href="/privacy">プライバシーポリシー</a><span class="sep" aria-hidden="true">／</span><a href="/disclaimer">免責事項</a><span class="sep" aria-hidden="true">／</span><a href="/about">運営者情報</a><span class="sep" aria-hidden="true">／</span><a href="/contact">お問い合わせ</a></nav>
     麻雀の牌効率を学ぶための無料の学習ドリルです。現金・賭け金は一切扱いません。
   </footer>
 </div>
