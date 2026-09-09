@@ -26,7 +26,8 @@
   h1{font-size:18px;letter-spacing:.02em}
   h1 .sub{font-size:11px;color:var(--sub);font-weight:400;margin-left:6px}
   .navlink{display:inline-flex;align-items:center;min-height:48px;font-size:12px;color:var(--accent);text-decoration:none;border:1px solid #2b4a5e;border-radius:8px;padding:6px 12px}
-  select{background:var(--panel);color:var(--text);border:1px solid #334155;border-radius:8px;padding:6px 10px;font-size:13px;min-height:48px}
+  /* font-size は 16px 未満にしない＝iOS Safari がフォーカス時に自動ズームして画面がずれる（design_guidelines §5-4）*/
+  select{background:var(--panel);color:var(--text);border:1px solid #334155;border-radius:8px;padding:6px 10px;font-size:16px;min-height:48px}
   .stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
   .chip{background:var(--panel);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--sub)}
   .chip b{color:var(--text);font-size:14px;margin-left:4px}
