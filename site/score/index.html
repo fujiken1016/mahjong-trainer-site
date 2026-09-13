@@ -11,7 +11,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XRJ40EFR6C');</script>
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"点数のいろは","url":"https://mahjong.mainichi-lab.com/score/","inLanguage":"ja","datePublished":"2026-08-22","dateModified":"2026-08-22"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"点数のいろは","url":"https://mahjong.mainichi-lab.com/score/","inLanguage":"ja","datePublished":"2026-08-22","dateModified":"2026-09-14"}</script>
 </head>
 <body>
 <style>
@@ -386,6 +386,70 @@
   </section>
 </main>
 
+<!-- ツールの解説（2026-09-14 追加）。
+     🔴 タブ（.tab）の中に入れないこと。タブに入れると「早見表」を開いている人にしか出ず、
+     サーバーが返すHTMLにも初回表示にも本文が無い状態に戻る（この面の可読テキストは401字だった）。
+     数値は上の点数エンジン（basePoints / calcFu）と同じ根拠で書いている。片方だけ直さないこと。 -->
+<style>
+  .guide{margin:26px 0 8px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.95}
+  .guide h2{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:.04em;margin-bottom:10px;color:var(--ivory)}
+  .guide h3{font-family:var(--serif);font-size:19px;font-weight:700;margin:20px 0 8px;color:var(--gold)}
+  .guide p{margin-bottom:10px;color:var(--ivory)}
+  .guide ul{margin:0 0 10px;padding-left:1.2em}
+  .guide li{margin-bottom:7px;color:var(--ivory)}
+  .guide dt{font-weight:700;margin-top:12px;color:var(--ivory)}
+  .guide dd{color:var(--ivory);opacity:.88}
+  .guide b{color:var(--gold);font-weight:700}
+</style>
+<section class="guide">
+  <h2>点数のいろはについて</h2>
+  <p>麻雀の点数を、卓についたまま数秒で引くための3点セットです。<b>早見表</b>で符と翻から点数を引き、<b>計算機</b>で本場と供託まで足した実際の支払いを出し、<b>符計算</b>で自分の手が何符になるかを組み立てます。広告は出しません。登録も不要で、開いた瞬間に使えます。</p>
+  <p>数える順番が決まっているので、慣れていないうちは右下の「符計算」から入って、出てきた符を持って「早見表」に戻るのが早いです。</p>
+
+  <h3>早見表の読み方</h3>
+  <ul>
+    <li>縦が符（20〜110符の11段階）、横が1〜4翻。マスの<b>上段がロン、下段がツモ</b>です。</li>
+    <li>ツモの子は「子1人が払う点 / 親が払う点」、親は「オール（3人とも同額）」で書いています。</li>
+    <li>「—」はその組み合わせが存在しないマスです。<b>20符はピンフのツモだけ</b>、<b>25符は七対子だけ</b>なので、20符のロンと、25符の1翻は空きます。</li>
+    <li>5翻以上は符を見ません。満貫・跳満・倍満・三倍満・役満は翻数だけで決まるので、表の外に別で置いています。</li>
+  </ul>
+
+  <h3>点数がどう決まっているか</h3>
+  <p>もとになるのは「基本点＝符 × 2の（翻数＋2）乗」という1本の式だけです。ここから、ロンなら子で4倍・親で6倍、ツモなら子が基本点ぶん・親がその2倍を払います（親のツモは全員が2倍ずつ）。<b>100点未満は必ず切り上げ</b>ます。</p>
+  <p>この式の値が2,000を超えたら、そこから先は満貫として2,000で止まります。満貫が「点数の上限」ではなく「式の頭打ち」であることが分かると、30符4翻と40符4翻の点差が急に小さくなる理由も見えてきます。</p>
+
+  <h3>切り上げ満貫を切り替えられます</h3>
+  <p>基本点が1,920になる<b>30符4翻と60符3翻</b>を、満貫（2,000）として扱うかどうかは店やルールで分かれます。表の上の切り替えでどちらにも合わせられて、選んだ設定はこの端末に残ります。次に開いたときも同じルールのままです。</p>
+
+  <h3>符の数え方（符計算タブ）</h3>
+  <ul>
+    <li>まず<b>基本符20</b>から始めます。門前でロンなら+10、ツモなら+2。</li>
+    <li>待ちがカンチャン・ペンチャン・単騎なら+2。両面とシャンポンは加符なしです。</li>
+    <li>雀頭が役牌なら+2、連風牌なら+4。数牌とオタ風は0です。</li>
+    <li>面子は4組ぶん、順子・刻子・槓子の別と、么九牌（1・9・字牌）かどうかで加符が変わります。</li>
+    <li>最後に<b>10符単位で切り上げ</b>ます。22符なら30符です。</li>
+    <li>ピンフと七対子は数えません。七対子は25符固定、ピンフはツモ20符・門前ロン30符で確定します。</li>
+    <li>鳴いていて加符がまったく無い形（喰い平和形）は、20符ではなく<b>30符</b>として扱います。</li>
+  </ul>
+
+  <h3>本場と供託（計算機タブ）</h3>
+  <p>積み棒は<b>ロンなら1本につき+300点を放銃者から、ツモなら1本につき+100点を全員から</b>受け取ります。場に出ているリーチ棒は1本1,000点で、点数とは別に和了者がそのまま取ります。計算機はこの3つを足した「結局いくら動くのか」を出すので、卓上で暗算し直す必要がありません。</p>
+
+  <h3>よくある質問</h3>
+  <dl>
+    <dt>符を数えるのが苦手です。飛ばせませんか？</dt>
+    <dd>実戦ではかなり飛ばせます。門前ロンで愚形待ち・役牌の雀頭が無ければ、たいてい30符か40符のどちらかです。まず「30符と40符の列だけ覚える」で困る場面はほとんど無く、そこから外れたときだけ符計算タブを開けば足ります。</dd>
+    <dt>20符のロンが空欄なのはなぜですか？</dt>
+    <dd>20符になるのはピンフをツモったときだけだからです。ピンフを門前でロンすると門前ロンの10符が付いて30符になるので、20符のロンという組み合わせ自体が成立しません。</dd>
+    <dt>25符の1翻が空欄です。</dt>
+    <dd>25符は七対子だけで、七対子そのものが2翻あるためです。さらにツモは、七対子＋門前ツモで最低3翻になるので3翻から埋まります。</dd>
+    <dt>点数が友だちの計算と1段階ずれます。</dt>
+    <dd>切り上げ満貫の設定が違っている可能性が高いです。30符4翻と60符3翻だけは、採用するかどうかで7,700点と8,000点のように結果が変わります。表の上の切り替えを合わせてください。</dd>
+    <dt>数え方そのものを覚えたいです。</dt>
+    <dd>下のリンクから、点数計算のきほんを解説した無料の読みものに進めます。ルールから入りたい場合は「麻雀のいろは」の入門レッスンが先です。</dd>
+  </dl>
+</section>
+
 <div class="detail" id="detailPanel"></div>
 
 <nav>
@@ -730,6 +794,6 @@ function renderFu() {
 renderTable(); renderCalc(); renderFu();
 </script>
 
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-22">2026年8月22日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-22">2026年8月22日</time>　最終更新：<time datetime="2026-09-14">2026年9月14日</time></p>
 </body>
 </html>
