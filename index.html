@@ -70,6 +70,20 @@
   .btnrow{display:flex;gap:10px;margin-top:14px}
   button{background:var(--accent);color:#0c2231;font-weight:700;border:none;border-radius:10px;padding:10px 22px;font-size:14px;cursor:pointer}
   button:hover{filter:brightness(1.1)}
+  /* ツール本体の下に置く静的な解説（2026-09-14 追加）。本文は16px・行間1.9。 */
+  .guide{margin-top:28px;padding-top:20px;border-top:1px solid #334155}
+  .guide h2{font-size:20px;line-height:1.4;margin-bottom:10px}
+  .guide h3{font-size:17px;line-height:1.6;margin:22px 0 8px}
+  .guide p{font-size:16px;line-height:1.9;color:#cbd5e1;margin-bottom:12px}
+  .guide ol{margin:0 0 12px 1.4em}
+  .guide ol li{font-size:16px;line-height:1.9;color:#cbd5e1;margin-bottom:10px}
+  .guide ol li b{color:var(--text)}
+  .guide dl{margin:0}
+  .guide dt{font-size:16px;line-height:1.8;font-weight:700;color:var(--text);margin-top:14px}
+  .guide dd{font-size:16px;line-height:1.9;color:#cbd5e1;margin:4px 0 0}
+  .guide .rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .guide .rel a{display:inline-flex;align-items:center;min-height:48px;padding:6px 14px;border:1px solid #2b4a5e;
+    border-radius:10px;color:var(--accent);text-decoration:none;font-size:15px;font-weight:700}
   footer{margin-top:16px;font-size:13px;color:var(--sub);line-height:1.85}
   footer a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
   .fnav{display:flex;flex-wrap:wrap;align-items:center;gap:0 2px;margin:2px 0}
@@ -151,6 +165,55 @@
       <button id="next">次の問題 →</button>
     </div>
   </div>
+
+  <section class="guide">
+    <h2>何切るトレーナー（ドリルモード）について</h2>
+    <p>配られた13枚とツモ牌の計14枚から1枚を選んで切ると、その場で採点する無料の麻雀ドリルです。採点の物差しは1つだけ、「その牌を切ったあと、手が進む牌が何枚残るか」です。</p>
+    <p>切った直後に、その手から切れる牌が種類ぶんすべて、受け入れ枚数の多い順に並びます。自分の1打が何位だったのか、最善と何枚差だったのか、どの有効牌を逃したのかが毎回そこに出ます。登録もインストールも要りません。</p>
+
+    <h3>使い方</h3>
+    <ol>
+      <li><b>難易度を選ぶ</b>：上のプルダウンで「1向聴（テンパイ目前）」「2向聴（中盤）」「聴牌形（待ち選択）」から選びます。まずは1向聴が分かりやすいです。</li>
+      <li><b>1枚タップして切る</b>：手牌の牌をタップすると、それが打牌になります。いちばん右の離れた牌がツモ牌です。</li>
+      <li><b>採点と比較表を読む</b>：◎最善／○ほぼ最善／△ロスあり／✕向聴戻しの4段階が出ます。下の表に、切れる牌ごとの受け入れが全部並ぶので（同じ牌が2枚あっても行は1つです）、自分の打牌と最善の行を見比べてください。</li>
+      <li><b>次の問題へ</b>：「次の問題 →」で新しい手牌が出ます。上の「今日の1問」からは、日替わりの1問だけを解けます。</li>
+    </ol>
+
+    <h3>どんな問題が出るのか</h3>
+    <p>ランダムな13枚をそのまま出しているわけではありません。山を切って13枚を配り、そこから「いちばん受け入れが広い牌を切る」を繰り返して、指定した向聴数まで手を進めた形を出題しています。つまり、実戦で普通に打っていたら通る形です。</p>
+    <p>ツモ牌は、引いた瞬間に和了になってしまう牌を除いて選んでいます。「切る前からもう上がっている」という問題が出ないようにするためです。</p>
+
+    <h3>採点の根拠</h3>
+    <p>向聴数と有効牌は、このサイトの自前エンジンが計算しています。一般手（4面子1雀頭）・七対子・国士無双の3通りで向聴数を出し、いちばん小さいものをその手の向聴数として扱います。</p>
+    <p>判定はこうです。向聴数が戻る打牌は✕。受け入れ枚数が最善とぴったり同じなら◎。最善の85%以上あれば○。それ未満は△です。最善が複数ある局面もあるので、最善手と違う牌を切っても枚数が同じなら◎になります。</p>
+    <p>逆に、このドリルが見ていないものもはっきりしています。点数状況・役・ドラ・捨て牌・リーチ・他家の気配は一切考慮していません。牌効率だけを切り出して反復するための道具です。それらを含めた判断は「実戦モード」で練習してください。</p>
+
+    <h3>上達の目安</h3>
+    <p>画面上部の「最善率」は◎だけを数えた割合です。○は入りません。ですので数字は辛めに出ます。「連続正解」のほうは◎と○を正解として数えるので、受け入れの読みが安定してくると先に伸びます。</p>
+    <p>目安として、1向聴で△と✕がほとんど出なくなったら2向聴へ、2向聴でも迷わなくなったら聴牌形（待ち選択）へ進んでください。難易度の3段階はこの順に難しくなるよう作ってあります。</p>
+    <p>「今日の1問」は日付から決めた乱数で作るので、誰がいつ開いても同じ手牌です。連続日数と最高記録が残るので、1日1問だけ解く使い方もできます。</p>
+
+    <h3>よくある質問</h3>
+    <dl>
+      <dt>最善手と違う牌を切ったのに◎が出ました。</dt>
+      <dd>受け入れ枚数が最善と同じだったからです。有効牌の枚数が並ぶ局面では、どちらを切っても◎になります。表の「最善」タグが付いた行を見ると、同じ枚数の打牌が複数あるのが分かります。</dd>
+      <dt>点数や役は考慮されますか。</dt>
+      <dd>されません。ドリルモードは向聴数と受け入れ枚数だけで採点します。点数状況や捨て牌を含んだ判断は実戦モードのほうで扱っています。</dd>
+      <dt>成績はどこに保存されますか。消せますか。</dt>
+      <dd>お使いの端末のブラウザ内だけに保存されます。手牌も成績もサーバーには送っていません。消すときは成績チップの右端にある「↺」を押してください。</dd>
+      <dt>「今日の1問」は毎日変わりますか。</dt>
+      <dd>日付ごとに1問が決まっていて、日付が変われば別の問題になります。同じ日なら誰が開いても同じ手牌なので、友だちと答え合わせができます。</dd>
+      <dt>麻雀のルールがまだ曖昧です。</dt>
+      <dd>先に「麻雀のいろは」で役と流れを押さえてから戻ってくると、受け入れの話が入ってきやすくなります。点数計算は「点数のいろは」に分けてあります。</dd>
+    </dl>
+
+    <div class="rel">
+      <a href="game.html">🀄 実戦モード</a>
+      <a href="rules/">🔰 麻雀のいろは</a>
+      <a href="/score/">🧮 点数のいろは</a>
+      <a href="/articles/">📖 記事一覧</a>
+    </div>
+  </section>
 
   <footer>
     ※ ドリルモードは牌効率（向聴数・受け入れ枚数）のみで採点。点数状況・河を考慮した練習は「実戦モード」へ。<br>
