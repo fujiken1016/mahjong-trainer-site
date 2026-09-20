@@ -87,6 +87,11 @@ p{margin:.55em 0}
 .tile.dim{opacity:.35}
 .tiles{display:flex;flex-wrap:wrap;align-items:center;gap:1px;margin:10px 0;row-gap:6px}
 .tiles .gap{width:12px}
+/* 手牌まるごと表示（13〜14枚）は折り返さず横スクロール（2026-09-21：375pxで2〜3列に折り返し見づらい問題の対策） */
+.tiles.tiles-scroll{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:5px;max-width:100%}
+.tiles.tiles-scroll::-webkit-scrollbar{height:5px}
+.tiles.tiles-scroll::-webkit-scrollbar-thumb{background:var(--line-hi);border-radius:3px}
+.tiles.tiles-scroll::-webkit-scrollbar-track{background:transparent}
 .tile-btn{appearance:none;border:0;background:none;padding:0;cursor:pointer;border-radius:6px;transition:transform .12s}
 .tile-btn:hover{transform:translateY(-3px)}
 .tile-btn:active{transform:translateY(-6px)}
@@ -255,7 +260,7 @@ details .body{padding:0 15px 11px;font-size:13.5px;color:var(--ink-soft)}
     <h3>相手の捨て牌（河）</h3>
     <div class="river" id="demo-river"></div>
     <h3>あなたの手牌</h3>
-    <div class="tiles" id="demo-hand"></div>
+    <div class="tiles tiles-scroll" id="demo-hand"></div>
     <h3>あなたの捨て牌</h3>
     <div class="river" id="demo-myriver"></div>
     <div class="note demo-caption" id="demo-caption"></div>
@@ -438,7 +443,7 @@ function tilesHTML(str,cls){ // string or array; "|" adds gap
   if(arr) return arr.map(i=>tileHTML(i,cls)).join("");
   return str.split("|").map(seg=>parseTiles(seg).map(i=>tileHTML(i,cls)).join("")).join('<span class="gap"></span>');
 }
-function T(str){ return '<span class="tiles" style="display:inline-flex;margin:2px 4px;vertical-align:middle">'+tilesHTML(str)+'</span>'; }
+function T(str){ return '<span class="tiles tiles-scroll" style="display:inline-flex;margin:2px 4px;vertical-align:middle;max-width:100%">'+tilesHTML(str)+'</span>'; }
 function toCounts(arr){ const c=new Array(34).fill(0); arr.forEach(i=>c[i]++); return c; }
 function sortT(arr){ return arr.slice().sort((a,b)=>a-b); }
 
@@ -873,7 +878,7 @@ function startSolo(){
     <div class="stat"><span>巡目 <b id="so-turn">1</b></span><span>残り山 <b id="so-wall"></b></span><span>ドラ表示牌 <span id="so-dora"></span></span></div>
     <div class="shanten-box"><span class="pill" id="so-shanten"></span><span id="so-waits"></span></div>
     <h3>手牌（タップで捨てる）</h3>
-    <div class="tiles" id="so-hand"></div>
+    <div class="tiles tiles-scroll" id="so-hand"></div>
     <div id="so-win"></div>
     <div class="btn-row">
       <button class="btn primary" id="so-riichi" style="display:none">リーチ！</button>
@@ -983,7 +988,7 @@ function soloWin(){
   const doraCnt=hand14.filter(t=>t===dora).length;
   const yk=detectYaku(hand14,solo.draw,{tsumo:true,riichi:solo.riichi,dora:doraCnt});
   $("#so-win").innerHTML='<div class="overlay-win"><h3 style="margin-top:0">ツモ！ あがりました 🎉</h3>'+
-   '<div class="tiles">'+hand14.map(t=>tileHTML(t)).join("")+'</div>'+
+   '<div class="tiles tiles-scroll">'+hand14.map(t=>tileHTML(t)).join("")+'</div>'+
    yk.list.map(y=>'<div class="yaku-line"><span>'+y[0]+'</span><span>'+y[1]+'翻</span></div>').join("")+
    '<p><b>合計 '+yk.han+'翻</b>　'+roughPoints(yk.han)+'</p>'+
    '<button class="btn primary" id="so-again">もう一局！</button></div>';
@@ -1050,7 +1055,7 @@ function startQuiz(kind){
       const hand=parseTiles(p);
       const ws=waitsOf(hand);
       const ansText=ws.map(t=>tName(t)).join(" と ");
-      qhtml='<p>このテンパイ、<b>何待ち</b>？</p><div class="tiles">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
+      qhtml='<p>このテンパイ、<b>何待ち</b>？</p><div class="tiles tiles-scroll">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
       const cands=new Set([ansText]);
       choices=[ansText]; ansIdx=0;
       let guard=0;
@@ -1073,12 +1078,12 @@ function startQuiz(kind){
         const u=ukeire(rest); evals.push({t,sh:u.base,cnt:u.count}); });
       evals.sort((a,b)=>a.sh-b.sh||b.cnt-a.cnt);
       const best=evals[0].t;
-      qhtml='<p>14枚あります。<b>どれを切る</b>のがよい？</p><div class="tiles">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
+      qhtml='<p>14枚あります。<b>どれを切る</b>のがよい？</p><div class="tiles tiles-scroll">'+sortT(hand).map(t=>tileHTML(t)).join("")+"</div>";
       const set=new Set([best]); choices=[tName(best)]; ansIdx=0;
       for(const e of evals.slice().reverse()){ if(choices.length>=4)break; if(!set.has(e.t)){set.add(e.t);choices.push(tName(e.t));} }
       explain="おすすめは「"+tName(best)+"」切り。"+p.why;
     }else{
-      qhtml='<p>このアガリ（'+p.cond+'）に付く役は？</p><div class="tiles">'+sortT(parseTiles(p.hand)).map(t=>tileHTML(t)).join("")+"</div>";
+      qhtml='<p>このアガリ（'+p.cond+'）に付く役は？</p><div class="tiles tiles-scroll">'+sortT(parseTiles(p.hand)).map(t=>tileHTML(t)).join("")+"</div>";
       choices=p.choices.slice(); ansIdx=p.a; explain=p.ex;
     }
     const order=choices.map((c,i)=>i); shuffle(order);
