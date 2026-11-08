@@ -10,8 +10,8 @@ DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$DIR/site"
 mkdir -p "$OUT/rules"
 cp "$DIR/engine.js" "$OUT/engine.js"
-sed 's|href="index.html">← ドリルモードへ|href="drill.html">← ドリルモードへ|' "$DIR/game.html" > "$OUT/index.html"
-sed 's|href="game.html"|href="index.html"|' "$DIR/index.html" > "$OUT/drill.html"
+sed 's|href="index.html"|href="/drill"|g' "$DIR/game.html" > "$OUT/index.html"
+sed 's|href="game.html"|href="/"|g' "$DIR/index.html" > "$OUT/drill.html"
 { printf '<!DOCTYPE html>\n<html lang="ja">\n'; cat "$DIR/mahjong_trainer.html"; printf '\n</html>\n'; } > "$OUT/rules/index.html"
 
 # ---- MUST_KEEP 照合（1つでも欠けたら異常終了）----
