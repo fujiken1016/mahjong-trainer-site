@@ -57,6 +57,7 @@
 
 <h2 id="kotae">答えと、全部の打牌の<span style="white-space:nowrap">受け入れ枚数</span></h2>
 <p><span class="answer">答え：2s</span>。切った後は1シャンテン、受け入れは14枚（5種）です。</p>
+<p class="muted" style="margin:0 0 6px">表は左右にスクロールできます。</p>
 <div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">2s</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　8s×4　發×2</td></tr><tr><th scope="row">9s</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　7s×2　發×2</td></tr><tr><th scope="row">5s</th><td>1シャンテン</td><td>8枚（2種）</td><td>6s×4　8s×4</td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>8枚（3種）</td><td>5s×2　8s×4　發×2</td></tr><tr><th scope="row">それ以外<br>（3m・4m・5m・6p・7p・8p・發）</th><td>2シャンテンに後退</td><td>最大32枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
 <p class="muted">※出典＝雀トレのエンジン（engine.js）の計算値、2026年11月時点。さらに、別に書いた全数え上げのプログラムで同じ14枚を計算し直し、全打牌のシャンテン数・受け入れ枚数・受け入れ牌が一致することを確認しています。</p>
 
@@ -72,6 +73,7 @@
 
 <h2 id="taisu">対子を崩すと、なぜ受け入れが減るのか</h2>
 <p>5sか7sを切ると、受け入れは8枚まで落ちます。表の受け入れ牌を見比べると、減る理由が分かります。</p>
+<p class="muted" style="margin:0 0 6px">表は左右にスクロールできます。</p>
 <div class="scroll-x"><table class="cmp">
 <thead><tr><th scope="col">切る牌</th><th scope="col">失うもの</th><th scope="col">受け入れ</th></tr></thead>
 <tr><th scope="row">2s（答え）</th><td>なし（使い道のない浮き牌だった）</td><td>14枚</td></tr>
@@ -96,6 +98,7 @@
 <p>浮き牌の9sが8sに変わり、77sの隣に並びました。何を切りますか？</p>
 <details class="ans"><summary>答えを見る</summary>
 <p><span class="answer">答え：2s</span><span style="white-space:nowrap">（1シャンテン・受け入れ14枚）</span></p>
+<p class="muted" style="margin:0 0 6px">表は左右にスクロールできます。</p>
 <div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">2s</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　9s×4　發×2</td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>12枚（4種）</td><td>5s×2　6s×4　9s×4　發×2</td></tr><tr><th scope="row">8s</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　7s×2　發×2</td></tr><tr><th scope="row">5s</th><td>1シャンテン</td><td>8枚（2種）</td><td>6s×4　9s×4</td></tr><tr><th scope="row">それ以外<br>（3m・4m・5m・6p・7p・8p・發）</th><td>2シャンテンに後退</td><td>最大32枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
 <p>2sを切るのが最多の14枚で、答えは第4問と同じです。ただし2位は7sの12枚、8sを切ると10枚。8sは77sと隣り合って、6sと9sの両方を受け入れ牌にします。浮き牌が対子に寄り添うと、その浮き牌の価値が上がります。</p>
 </details>
@@ -105,6 +108,7 @@
 <p>浮き牌が2sと、45sの両面に変わりました（2s・4s・5s・7s・7s・9s）。何を切りますか？</p>
 <details class="ans"><summary>答えを見る</summary>
 <p><span class="answer">答え：2s</span><span style="white-space:nowrap">（1シャンテン・受け入れ16枚）</span></p>
+<p class="muted" style="margin:0 0 6px">表は左右にスクロールできます。</p>
 <div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">2s</th><td>1シャンテン</td><td>16枚（5種）</td><td>3s×4　6s×4　7s×2　8s×4　發×2</td></tr><tr><th scope="row">5s</th><td>1シャンテン</td><td>12枚（4種）</td><td>3s×4　7s×2　8s×4　發×2</td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>12枚（3種）</td><td>3s×4　6s×4　8s×4</td></tr><tr><th scope="row">9s</th><td>1シャンテン</td><td>12枚（4種）</td><td>3s×4　6s×4　7s×2　發×2</td></tr><tr><th scope="row">4s</th><td>1シャンテン</td><td>8枚（2種）</td><td>6s×4　8s×4</td></tr><tr><th scope="row">それ以外<br>（3m・4m・5m・6p・7p・8p・發）</th><td>2シャンテンに後退</td><td>最大32枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
 <p>2sを切るのが最多の16枚です。2sと4sはカンチャンの形ですが、受け入れる牌は3sで、45sの両面と同じ。2sがあっても受けは増えないので、切って構いません。5s・7s・9sを切ると、どれも12枚に減ります。</p>
 </details>
@@ -117,6 +121,7 @@
 <p>55sと66sが並んで、2sと9sの浮き牌が残りました。何を切りますか？</p>
 <details class="ans"><summary>答えを見る</summary>
 <p><span class="answer">答え：2sか9s</span><span style="white-space:nowrap">（1シャンテン・受け入れ14枚）</span></p>
+<p class="muted" style="margin:0 0 6px">表は左右にスクロールできます。</p>
 <div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">2s</th><td>1シャンテン</td><td>14枚（5種）</td><td>4s×4　5s×2　6s×2　7s×4　發×2</td></tr><tr><th scope="row">9s</th><td>1シャンテン</td><td>14枚（5種）</td><td>4s×4　5s×2　6s×2　7s×4　發×2</td></tr><tr><th scope="row">それ以外<br>（3m・4m・5m・6p・7p・8p・5s・6s・發）</th><td>2シャンテンに後退</td><td>最大32枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
 <p>2sと9sは、どちらを切っても14枚で同点です。浮き牌が両方とも、手牌のどのブロックとも繋がっていないからです。同点のときは、河で見えている牌の数や他家の捨て牌、残した後の安全度で選びます。受け入れ枚数だけでは決まらない場面です。</p>
 </details>
