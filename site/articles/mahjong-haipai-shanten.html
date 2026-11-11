@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果 | 雀トレ</title>
+<meta name="description" content="麻雀の配牌（13枚）は平均3.58シャンテン。10万回の配牌を雀トレのエンジンで数え、3〜4シャンテンが約76%、5シャンテン以上が約14%という分布と、1回ツモった後の変化、七対子・国士の近さをまとめました。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-haipai-shanten">
+<meta property="og:title" content="麻雀の配牌は平均何シャンテン？10万回で数えた">
+<meta property="og:description" content="配牌13枚の平均は3.58シャンテン。分布・1ツモ後・七対子と国士の近さを実測。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-haipai-shanten">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果","datePublished":"2026-11-11","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-haipai-shanten","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-11"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"配牌でテンパイする確率はどれくらいですか？","acceptedAnswer":{"@type":"Answer","text":"10万回の試行で6回（0.006%）でした。約1万6千回に1回で、ほぼ出会わない確率です。"}},{"@type":"Question","name":"親の配牌は子より良いのですか？","acceptedAnswer":{"@type":"Answer","text":"この記事は子の13枚で数えています。親は最初から14枚持つので、ツモ1回分だけ有利です。親の値は計測していません。"}},{"@type":"Question","name":"配牌のシャンテン数は、どう数えますか？","acceptedAnswer":{"@type":"Answer","text":"「あと何枚、有効牌を引けばテンパイか」を数えます。手牌から面子とターツを取り出し、足りない数を引いたものです。詳しくは何を切るか迷ったときの基本方針にあります。"}}]}</script>
+<script src="/oc.js" defer></script>
+<style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:96px}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}table.cmp td.bar{width:42%;min-width:120px}table.cmp td.bar i{display:block;height:12px;background:var(--cyan);border-radius:4px;min-width:2px}table.cmp td.num{white-space:nowrap;text-align:right}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</h1>
+
+<div class="card">
+<p class="lead"><b>答え：配牌（13枚）の平均は3.58シャンテンです。</b>10万回の配牌を数えると、3シャンテンと4シャンテンで全体の約76%を占めました。5シャンテン以上は約14%で、7回に1回ほどです。</p>
+
+<div class="rulebox">
+<p><b>この記事の数字の出どころ</b>：雀トレのエンジン（<span class="hand">engine.js</span>）で、34種136枚をシャッフルして13枚を配る試行を10万回行いました（2026年11月11日に計測）。外部の統計の転記ではなく、雀トレ自身の計算です。数え方の詳細と限界は<a href="#keisan">末尾の節</a>に書きました。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#bunpu">配牌のシャンテン数は、何シャンテンが何％か</a></li>
+<li><a href="#warui">「配牌が悪い」と感じるのは、どこからか</a></li>
+<li><a href="#tsumo">最初に1枚ツモると、どう変わるか</a></li>
+<li><a href="#chiitoi">七対子と国士無双は、配牌でどのくらい近いか</a></li>
+<li><a href="#keisan">このページの数え方と、実戦との違い</a></li>
+<li><a href="#matome">まとめ</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="bunpu">配牌のシャンテン数は、何シャンテンが何％か？</h2>
+<p><b>結論：最も多いのは4シャンテン（39.9%）で、次が3シャンテン（35.9%）です。</b>シャンテン数は「テンパイまであと何回、有効牌を引く必要があるか」を表します（0がテンパイ）。配牌13枚のシャンテン数を10万回分、数えました。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf1t" viewBox="0 0 293 214" width="100%" style="display:block;max-width:360px" xmlns="http://www.w3.org/2000/svg"><title id="hf1t">配牌13枚のシャンテン数の分布。4シャンテンが39.9%、3シャンテンが35.9%、5シャンテンが13.2%、2シャンテンが9.4%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff">
+<text x="4" y="22">2以下</text><rect x="62" y="8" width="38" height="18" rx="4" fill="#34e5ff"/><text x="108" y="22">10.1%</text>
+<text x="4" y="56">3</text><rect x="62" y="42" width="143" height="18" rx="4" fill="#34e5ff"/><text x="213" y="56">35.9%</text>
+<text x="4" y="90">4</text><rect x="62" y="76" width="159" height="18" rx="4" fill="#34e5ff"/><text x="229" y="90">39.9%</text>
+<text x="4" y="124">5</text><rect x="62" y="110" width="53" height="18" rx="4" fill="#ff7ad9"/><text x="123" y="124">13.2%</text>
+<text x="4" y="158">6</text><rect x="62" y="144" width="4" height="18" rx="2" fill="#ff7ad9"/><text x="74" y="158">0.9%</text>
+<text x="4" y="196" fill="#9aa5c9">単位：シャンテン数／割合（10万回の実測）</text></g></svg></div>
+<figcaption>図：配牌13枚のシャンテン数の分布（雀トレのエンジンで10万回の実測）。水色が2〜4シャンテン、ピンクが5シャンテン以上です。</figcaption></figure>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">配牌</th><th scope="col">回数（10万回の実測）</th><th scope="col">割合（実測）</th><th scope="col">棒グラフ</th></tr></thead><tbody>
+<tr><th scope="row">テンパイ（0）</th><td class="num">6回</td><td class="num">0.006%</td><td class="bar"><i style="width:0.2%"></i></td></tr>
+<tr><th scope="row">1シャンテン</th><td class="num">674回</td><td class="num">0.67%</td><td class="bar"><i style="width:1.7%"></i></td></tr>
+<tr><th scope="row">2シャンテン</th><td class="num">9,439回</td><td class="num">9.44%</td><td class="bar"><i style="width:23.6%"></i></td></tr>
+<tr><th scope="row">3シャンテン</th><td class="num">35,862回</td><td class="num">35.86%</td><td class="bar"><i style="width:89.9%"></i></td></tr>
+<tr><th scope="row">4シャンテン</th><td class="num">39,890回</td><td class="num">39.89%</td><td class="bar"><i style="width:100%"></i></td></tr>
+<tr><th scope="row">5シャンテン</th><td class="num">13,230回</td><td class="num">13.23%</td><td class="bar"><i style="width:33.2%"></i></td></tr>
+<tr><th scope="row">6シャンテン</th><td class="num">899回</td><td class="num">0.90%</td><td class="bar"><i style="width:2.3%"></i></td></tr>
+</tbody></table></div>
+<p>表の読み方を3つ書いておきます。</p>
+<ul>
+<li>テンパイ（0）に近いほど、いい配牌です。数字が大きいほど、完成まで遠くなります。</li>
+<li>割合は10万回に対する比率です。回数を1,000で割ると、おおよその％になります。</li>
+<li>「2以下」は、テンパイ・1シャンテン・2シャンテンを合計した値（10.1%）です。</li>
+</ul>
+<p class="muted">平均は3.58シャンテン。シードを変えた2回の再計測（各10万回）でも3.580と3.585で、ほぼ同じ値でした。</p>
+<p>配牌でテンパイしていたのは、10万回のうち6回だけです。約1万6千回に1回なので、体感ではまず出会いません。標本が小さいため、この行は「ほぼゼロ」と読むのが妥当です。</p>
+
+<h2 id="warui">「配牌が悪い」と感じるのは、どこからか？</h2>
+<p><b>結論：5シャンテン以上が「かなり重い配牌」で、全体の14.1%、約7回に1回です。</b>4シャンテン以上まで広げると54.0%で、半分を超えます。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">条件</th><th scope="col">割合（上の実測から合計）</th><th scope="col">言い換え</th></tr></thead><tbody>
+<tr><th scope="row">2シャンテン以下</th><td class="num">10.1%</td><td>約10回に1回。「いい配牌」と言える</td></tr>
+<tr><th scope="row">3〜4シャンテン</th><td class="num">75.8%</td><td>4回に3回。これが標準の配牌</td></tr>
+<tr><th scope="row">4シャンテン以上</th><td class="num">54.0%</td><td>半分は4シャンテン以上</td></tr>
+<tr><th scope="row">5シャンテン以上</th><td class="num">14.1%</td><td>約7回に1回。重い配牌</td></tr>
+</tbody></table></div>
+<p>数字の幅を、もう少し具体的に言い換えます。5シャンテンは、ブロック（面子や塔子）がほとんどなく、孤立した牌が多い手です。6シャンテンは、さらに対子もない状態で、10万回に899回（0.9%）でした。この段階でも、ツモを重ねれば手は作れます。</p>
+<p>つまり、配牌で「全然まとまっていない」と感じても、それは珍しいことではありません。むしろ標準です。2シャンテン以下の配牌は10回に1回しか来ないので、残りの9回は、ツモで形を作っていく前提になります。</p>
+
+<h2 id="tsumo">最初に1枚ツモると、シャンテン数はどう変わるか？</h2>
+<p><b>結論：最初のツモでシャンテン数が進む確率は42.3%で、平均は3.58から3.16に下がります。</b>配牌13枚に1枚ツモり、いちばんシャンテン数が小さくなる牌を切った後の値です。同じ10万回の配牌で数えました。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">1ツモ後（最善の打牌）</th><th scope="col">回数（実測）</th><th scope="col">割合（実測）</th></tr></thead><tbody>
+<tr><th scope="row">テンパイ（0）</th><td class="num">74回</td><td class="num">0.07%</td></tr>
+<tr><th scope="row">1シャンテン</th><td class="num">2,381回</td><td class="num">2.38%</td></tr>
+<tr><th scope="row">2シャンテン</th><td class="num">19,487回</td><td class="num">19.49%</td></tr>
+<tr><th scope="row">3シャンテン</th><td class="num">43,591回</td><td class="num">43.59%</td></tr>
+<tr><th scope="row">4シャンテン</th><td class="num">28,720回</td><td class="num">28.72%</td></tr>
+<tr><th scope="row">5シャンテン</th><td class="num">5,573回</td><td class="num">5.57%</td></tr>
+<tr><th scope="row">6シャンテン</th><td class="num">174回</td><td class="num">0.17%</td></tr>
+</tbody></table></div>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf2t" viewBox="0 0 293 250" width="100%" style="display:block;max-width:360px" xmlns="http://www.w3.org/2000/svg"><title id="hf2t">配牌と1ツモ後の比較。2シャンテン以下は10.1%から21.9%、3は35.9%から43.6%、4は39.9%から28.7%、5以上は14.1%から5.7%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff">
+<text x="4" y="18" fill="#9aa5c9">上＝配牌　下＝1ツモ後（最善の打牌）</text>
+<text x="4" y="52">2以下</text><rect x="62" y="38" width="40" height="14" rx="3" fill="#9aa5c9"/><text x="108" y="50">10.1%</text><rect x="62" y="56" width="87" height="14" rx="3" fill="#34e5ff"/><text x="155" y="68">21.9%</text>
+<text x="4" y="102">3</text><rect x="62" y="88" width="143" height="14" rx="3" fill="#9aa5c9"/><text x="211" y="100">35.9%</text><rect x="62" y="106" width="174" height="14" rx="3" fill="#34e5ff"/><text x="242" y="118">43.6%</text>
+<text x="4" y="152">4</text><rect x="62" y="138" width="159" height="14" rx="3" fill="#9aa5c9"/><text x="227" y="150">39.9%</text><rect x="62" y="156" width="115" height="14" rx="3" fill="#34e5ff"/><text x="183" y="168">28.7%</text>
+<text x="4" y="202">5以上</text><rect x="62" y="188" width="56" height="14" rx="3" fill="#9aa5c9"/><text x="124" y="200">14.1%</text><rect x="62" y="206" width="23" height="14" rx="3" fill="#34e5ff"/><text x="91" y="218">5.7%</text>
+<text x="4" y="242" fill="#9aa5c9">灰＝配牌　水色＝1ツモ後</text></g></svg></div>
+<figcaption>図：配牌（灰）と、最初の1枚をツモって最善に切った後（水色）の比較。雀トレのエンジンによる10万回の実測です。</figcaption></figure>
+<p>1ツモで最頻値が4から3に動きました。2シャンテン以下は、配牌の10.1%から、1ツモ後は21.9%に増えます。1回ツモるだけで、「いい手」に入る確率が2倍以上になるわけです。</p>
+<p>残りの57.7%は、ツモ牌が役に立たず、最善に切ってもシャンテン数は変わりませんでした。最善の打牌を選べば、手が後退することはありません。進むかどうかは、有効牌を引けるかで決まります。</p>
+<p>注意点があります。これは最初の1回のツモだけの値です。2回目以降は、手の形が変わるので進む確率も変わります。ここから「何巡でテンパイする」とは計算できません。そこは未測定です。</p>
+
+<h2 id="chiitoi">七対子と国士無双は、配牌でどのくらい近いのか？</h2>
+<p><b>結論：七対子ルートが標準形より近い配牌が16.3%あり、国士無双が最短なのは0.6%だけです。</b>3つの和了形について、配牌ごとのシャンテン数を比べました。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">和了形</th><th scope="col">配牌での平均（実測）</th><th scope="col">その形だけが最短の割合（実測）</th></tr></thead><tbody>
+<tr><th scope="row">標準形（4面子1雀頭）</th><td class="num">3.79</td><td class="num">54.1%</td></tr>
+<tr><th scope="row">七対子</th><td class="num">4.45</td><td class="num">16.3%</td></tr>
+<tr><th scope="row">国士無双</th><td class="num">8.17</td><td class="num">0.6%</td></tr>
+<tr><th scope="row">最短が複数（同点）</th><td class="num">―</td><td class="num">29.0%</td></tr>
+</tbody></table></div>
+<p>七対子は平均だと標準形より0.66シャンテン遠いのに、6回に1回は七対子のほうが近い配牌です。対子が多い配牌では、七対子を見る価値があります。</p>
+<p>国士無双は、10万回のうち4シャンテン以下が664回（0.66%）でした。幺九牌が極端に多い配牌でなければ、最初から狙う形ではありません。七対子の進め方は<a href="/articles/mahjong-nanikiru-q2">何切る第2問（七対子か面子手か）</a>で、受け入れ枚数を数えて比べています。</p>
+
+<h2 id="keisan">このページの数え方と、実戦との違い</h2>
+<p>数えた条件を、先に書いておきます。</p>
+<ul>
+<li>試行：136枚（34種×4枚）をシャッフルして13枚を配る。これを10万回。乱数の種を固定して、再現できるようにしました。</li>
+<li>数え方：雀トレのエンジンのシャンテン計算（標準形・七対子・国士無双の最小値）。テンパイを0、和了形を−1としています。</li>
+<li>突き合わせ：エンジンとは別に書いた全数え上げのプログラムで、標本1,500配牌（13枚と1ツモ後）を計算し直し、不一致は0件でした。</li>
+<li>再計測：乱数の種を変えた2回の10万回で、平均は3.580と3.585。誤差は小数第2位まででした。</li>
+</ul>
+<p>実戦との違いもあります。ここでの配牌は子の13枚で、親の14枚（切る前）ではありません。また、赤ドラ・ドラ・役の有無、鳴き、他家の捨て牌は考えていません。「1ツモ後」は、シャンテン数だけを見て最善の牌を切った場合の値で、打点や安全度は入っていません。</p>
+<p>この表は「何も情報がない配牌の基準点」です。出典＝雀トレ自身の計算（2026年11月11日）。ルールや牌の枚数が違う麻雀（三人麻雀・牌の抜き取りなど）には、そのまま当てはまりません。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>配牌13枚の平均は<b>3.58シャンテン</b>。3〜4シャンテンが約76%で標準。</li>
+<li>5シャンテン以上は約14%（7回に1回）。配牌が重いのは珍しくない。</li>
+<li>最初の1ツモでシャンテン数が進む確率は42.3%。2シャンテン以下は10.1%から21.9%へ。</li>
+<li>七対子が標準形より近い配牌は16.3%。国士無双が最短なのは0.6%。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<h3>配牌でテンパイする確率はどれくらいですか？</h3>
+<p>10万回の試行で6回（0.006%）でした。約1万6千回に1回で、ほぼ出会わない確率です。</p>
+<h3>親の配牌は子より良いのですか？</h3>
+<p>この記事は子の13枚で数えています。親は最初から14枚持つので、ツモ1回分だけ有利です。親の値は計測していません。</p>
+<h3>配牌のシャンテン数は、どう数えますか？</h3>
+<p>「あと何枚、有効牌を引けばテンパイか」を数えます。手牌から面子とターツを取り出し、足りない数を引いたものです。詳しくは<a href="/articles/mahjong-what-to-discard">何を切るか迷ったときの基本方針</a>にあります。</p>
+
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：次に配牌をもらったら、まず自分のシャンテン数を数えてみる。</b></p>
+<p style="margin:0">・シャンテン数が自動で出る一人麻雀 → <a href="/rules/">麻雀のいろは（れんしゅうタブ）</a><br>
+・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・数え方の基本 → <a href="/articles/mahjong-what-to-discard"><span style="white-space:nowrap">何を切るか迷ったときの基本方針</span></a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-nanikiru-q2"><b>何切る 第2問｜七対子か面子手か、5対子の手を受け入れ枚数で比較</b>七対子が近い配牌で、どちらに進むかを数字で決める。</a>
+<a class="next" href="/articles/mahjong-what-to-discard"><b>麻雀で何を切るか迷ったら｜初心者のための牌効率の第一歩</b>シャンテン数と受け入れ枚数の基本。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-11">2026年11月11日</time>　最終更新：<time datetime="2026-11-11">2026年11月11日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>

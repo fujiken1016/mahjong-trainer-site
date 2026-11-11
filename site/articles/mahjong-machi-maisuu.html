@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた | 雀トレ</title>
+<meta name="description" content="麻雀の待ち牌は、両面8枚・嵌張4枚・辺張4枚・双碰4枚・単騎3枚・三面張11枚。形ごとの最大枚数をエンジンで数え、河で見えた牌で減る例と、1色13枚の全93,600通りで数えた待ちの種類・枚数の分布をまとめました。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-machi-maisuu">
+<meta property="og:title" content="麻雀の待ちは何枚？形ごとの枚数を数えた">
+<meta property="og:description" content="両面8枚・嵌張4枚・単騎3枚・三面張11枚。最大は23枚。全93,600通りの実測つき。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-machi-maisuu">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた","datePublished":"2026-11-11","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-machi-maisuu","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-11"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"麻雀の待ちで、一番枚数が多いのはどの形ですか？","acceptedAnswer":{"@type":"Answer","text":"純正九蓮宝燈の形（1112345678999m）で23枚です。1〜9のすべてが待ちになります。形として覚えやすい多面張は、三面張の11枚です。"}},{"@type":"Question","name":"待ちの種類が多いと、必ず有利ですか？","acceptedAnswer":{"@type":"Answer","text":"枚数が多いほど、和了牌を引きやすくなります。ただし、打点・役・フリテン・河での出やすさは別に考えます。この記事で数えたのは枚数だけです。"}},{"@type":"Question","name":"空聴（カラテン）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"待ち牌を自分で4枚すべて持っていて、残りが0枚のテンパイです。形はテンパイでも、他の誰も引けないので、和了は実質できません。"}}]}</script>
+<script src="/oc.js" defer></script>
+<style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:96px}table.cmp td.num{white-space:nowrap;text-align:right}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた</h1>
+
+<div class="card">
+<p class="lead"><b>答え：何も見えていない状態の待ち枚数は、両面が8枚、嵌張・辺張・双碰が4枚、単騎が3枚、三面張が11枚です。</b>最大は純正九蓮宝燈の形で23枚。実戦では、河や手牌で見えた牌の分だけ、これより減ります。</p>
+
+<div class="rulebox">
+<p><b>この記事の数字の出どころ</b>：雀トレのエンジン（<span class="hand">engine.js</span>）で数えた値です（2026年11月11日に計測）。形ごとの枚数は手牌を1つずつ計算し、後半の分布は「1色13枚の全93,600通り」を全部数えました。外部統計の転記ではありません。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#katachi">待ちの形ごとに、何枚残っているか</a></li>
+<li><a href="#genjitsu">実戦では、何枚に減るか</a></li>
+<li><a href="#zensu">1色13枚の全93,600通りを数えた</a></li>
+<li><a href="#keisan">このページの数え方と、実戦との違い</a></li>
+<li><a href="#matome">まとめ</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="katachi">待ちの形ごとに、何枚残っているか？</h2>
+<p><b>結論：同じテンパイでも、形によって待ち牌の枚数は3枚から23枚まで開きます。</b>待ち牌が自分の手牌に1枚もないとき、1種類につき最大4枚です。手牌に使っている分は、その種類から引きます。</p>
+<p>次の表は、「234p 678s 北北北」の3面子を共通にして、残りの4枚を入れ替えた手牌をエンジンで数えた結果です。河や他家の手牌は考えていません（実測）。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">待ちの形</th><th scope="col">変わる部分の手牌（実測）</th><th scope="col">待ち牌</th><th scope="col">待ち枚数（実測）</th></tr></thead><tbody>
+<tr><th scope="row">両面</th><td><span class="hand">45m＋白白</span></td><td>3m・6m</td><td class="num">4＋4＝8枚</td></tr>
+<tr><th scope="row">嵌張</th><td><span class="hand">46m＋白白</span></td><td>5m</td><td class="num">4枚</td></tr>
+<tr><th scope="row">辺張</th><td><span class="hand">12m＋白白</span></td><td>3m</td><td class="num">4枚</td></tr>
+<tr><th scope="row">双碰</th><td><span class="hand">白白＋中中</span></td><td>白・中</td><td class="num">2＋2＝4枚</td></tr>
+<tr><th scope="row">単騎</th><td><span class="hand">456m＋白</span></td><td>白</td><td class="num">3枚</td></tr>
+<tr><th scope="row">ノベタン</th><td><span class="hand">2345m</span></td><td>2m・5m</td><td class="num">3＋3＝6枚</td></tr>
+<tr><th scope="row">三面張</th><td><span class="hand">23456m＋白白</span></td><td>1m・4m・7m</td><td class="num">4＋3＋4＝11枚</td></tr>
+<tr><th scope="row">純正九蓮宝燈</th><td><span class="hand">1112345678999m</span>（13枚すべて）</td><td>1〜9m</td><td class="num">1＋3×7＋1＝23枚</td></tr>
+</tbody></table></div>
+
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf1t" viewBox="0 0 293 262" width="100%" style="display:block;max-width:360px" xmlns="http://www.w3.org/2000/svg"><title id="hf1t">待ちの形ごとの最大枚数。九蓮宝燈23、三面張11、両面8、ノベタン6、嵌張4、辺張4、双碰4、単騎3</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff">
+<text x="4" y="22">九蓮宝燈</text><rect x="78" y="8" width="184" height="18" rx="4" fill="#ff7ad9"/><text x="270" y="22">23</text>
+<text x="4" y="55">三面張</text><rect x="78" y="41" width="88" height="18" rx="4" fill="#34e5ff"/><text x="174" y="55">11</text>
+<text x="4" y="88">両面</text><rect x="78" y="74" width="64" height="18" rx="4" fill="#34e5ff"/><text x="150" y="88">8</text>
+<text x="4" y="121">ノベタン</text><rect x="78" y="107" width="48" height="18" rx="4" fill="#34e5ff"/><text x="134" y="121">6</text>
+<text x="4" y="154">嵌張</text><rect x="78" y="140" width="32" height="18" rx="4" fill="#34e5ff"/><text x="118" y="154">4</text>
+<text x="4" y="187">辺張</text><rect x="78" y="173" width="32" height="18" rx="4" fill="#34e5ff"/><text x="118" y="187">4</text>
+<text x="4" y="220">双碰</text><rect x="78" y="206" width="32" height="18" rx="4" fill="#34e5ff"/><text x="118" y="220">4</text>
+<text x="4" y="253">単騎</text><rect x="78" y="239" width="24" height="18" rx="4" fill="#34e5ff"/><text x="110" y="253">3</text></g></svg></div>
+<figcaption>図：待ちの形ごとの最大枚数（雀トレのエンジンの実測。単位は枚）。見えている牌がない状態です。</figcaption></figure>
+
+<p>ここで押さえたいのは3点です。</p>
+<ul>
+<li>両面は「2種類×4枚」なので8枚。嵌張と辺張は1種類だけなので4枚です。</li>
+<li>双碰は2種類ありますが、どちらも自分で2枚持っているので、残りは2＋2の4枚です。</li>
+<li>単騎は、待ち牌を1枚自分で持っているので3枚です。</li>
+</ul>
+<p>両面が他の形の2倍ある、というのが基本の数字です。だからこそ、形を比べるときは<a href="/articles/mahjong-nanikiru-q3">ペンチャンとカンチャンのどちらを払うか</a>のように、枚数で順位をつけられます。</p>
+
+<h2 id="genjitsu">実戦では、待ちが何枚に減るのか？</h2>
+<p><b>結論：見えた牌の分だけ、そのまま引き算します。</b>河・ドラ表示牌・他家の鳴き・自分の手牌が対象です。表の枚数は「何も見えていない序盤」の上限です。</p>
+<p>数え方の例を3つ示します（計算例。見えている牌は仮定です）。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">待ちの形</th><th scope="col">見えている牌（仮定）</th><th scope="col">残り枚数（計算）</th></tr></thead><tbody>
+<tr><th scope="row">両面（3m・6m）</th><td>河に3m 2枚、6m 1枚、ドラ表示牌に6m 1枚</td><td class="num">2＋2＝4枚（8枚から半減）</td></tr>
+<tr><th scope="row">双碰（白・中）</th><td>河に中 1枚</td><td class="num">2＋1＝3枚</td></tr>
+<tr><th scope="row">単騎（白）</th><td>河に白 1枚</td><td class="num">2枚</td></tr>
+</tbody></table></div>
+<p>両面は枚数が多い分、見えた牌の影響を受けやすい形です。この例では、河に出た牌だけで半分になりました。待ちを選ぶときは、手牌を作る前の「理論上の枚数」ではなく、見えている牌を引いた数で比べます。</p>
+<p>字牌の単騎は、場に1枚出ると残り2枚に減ります。待ちが少ない形ほど、1枚見えたときの割合が大きく、影響が重くなります。</p>
+
+<h2 id="zensu">1色13枚の全93,600通りを数えると、待ちはどう分布するか？</h2>
+<p><b>結論：テンパイ形のうち、待ちが1〜2種類のものが約70%で、待ち枚数は4枚ちょうどが最多（33.5%）でした。</b>1つのスートだけで13枚を作る手牌（各牌4枚まで）は、全部で93,600通りあります。そのすべてを、エンジンで1つずつ調べました（実測）。</p>
+<p>この中でテンパイしている形は40,872通り（43.7%）。待ち牌の種類の分布は次のとおりです。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">待ちの種類数</th><th scope="col">通り数（実測）</th><th scope="col">テンパイ形に占める割合（実測）</th></tr></thead><tbody>
+<tr><th scope="row">0種類（空聴）</th><td class="num">676通り</td><td class="num">1.65%</td></tr>
+<tr><th scope="row">1種類</th><td class="num">14,193通り</td><td class="num">34.73%</td></tr>
+<tr><th scope="row">2種類</th><td class="num">14,493通り</td><td class="num">35.46%</td></tr>
+<tr><th scope="row">3種類</th><td class="num">6,739通り</td><td class="num">16.49%</td></tr>
+<tr><th scope="row">4種類</th><td class="num">2,948通り</td><td class="num">7.21%</td></tr>
+<tr><th scope="row">5種類以上</th><td class="num">1,823通り</td><td class="num">4.46%</td></tr>
+</tbody></table></div>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf2t" viewBox="0 0 293 214" width="100%" style="display:block;max-width:360px" xmlns="http://www.w3.org/2000/svg"><title id="hf2t">1色13枚のテンパイ形の待ちの種類数の分布。2種類35.5%、1種類34.7%、3種類16.5%、4種類7.2%、5種類以上4.5%、空聴1.7%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff">
+<text x="4" y="22">1種類</text><rect x="78" y="8" width="160" height="18" rx="4" fill="#34e5ff"/><text x="246" y="22">34.7%</text>
+<text x="4" y="55">2種類</text><rect x="78" y="41" width="163" height="18" rx="4" fill="#34e5ff"/><text x="249" y="55">35.5%</text>
+<text x="4" y="88">3種類</text><rect x="78" y="74" width="75" height="18" rx="4" fill="#34e5ff"/><text x="161" y="88">16.5%</text>
+<text x="4" y="121">4種類</text><rect x="78" y="107" width="33" height="18" rx="4" fill="#34e5ff"/><text x="119" y="121">7.2%</text>
+<text x="4" y="154">5以上</text><rect x="78" y="140" width="20" height="18" rx="4" fill="#ff7ad9"/><text x="106" y="154">4.5%</text>
+<text x="4" y="187">空聴</text><rect x="78" y="173" width="7" height="18" rx="4" fill="#ff7ad9"/><text x="93" y="187">1.7%</text></g></svg></div>
+<figcaption>図：1色13枚のテンパイ形40,872通りの、待ちの種類数の分布（雀トレのエンジンの実測）。</figcaption></figure>
+<p>待ち枚数（自分の手牌だけを見たときの残り枚数）の分布も、同じ40,872通りで数えました。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">待ち枚数</th><th scope="col">通り数（実測）</th><th scope="col">割合（実測）</th></tr></thead><tbody>
+<tr><th scope="row">0枚（空聴）</th><td class="num">676通り</td><td class="num">1.65%</td></tr>
+<tr><th scope="row">1〜3枚</th><td class="num">6,490通り</td><td class="num">15.88%</td></tr>
+<tr><th scope="row">4枚</th><td class="num">13,687通り</td><td class="num">33.49%</td></tr>
+<tr><th scope="row">5〜7枚</th><td class="num">10,105通り</td><td class="num">24.72%</td></tr>
+<tr><th scope="row">8枚</th><td class="num">2,926通り</td><td class="num">7.16%</td></tr>
+<tr><th scope="row">9〜15枚</th><td class="num">6,602通り</td><td class="num">16.15%</td></tr>
+<tr><th scope="row">16〜23枚</th><td class="num">386通り</td><td class="num">0.94%</td></tr>
+</tbody></table></div>
+<p>最大の23枚になる手牌は9通りありました。1つは純正九蓮宝燈の<span class="hand">1112345678999m</span>です。残りの8通りは、ある牌を4枚使った形で、たとえば<span class="hand">2344445678999m</span>（待ちは1・2・3・5・6・7・8・9m）も23枚です。次が22枚の2通りで、20枚は8通りでした。</p>
+<p>空聴は、待ち牌を自分で4枚すべて持っていて、残りが0枚のテンパイです。1色13枚だと676通り（1.65%）ありました。形の上ではテンパイですが、もう1枚は誰も引けません。</p>
+
+<h2 id="keisan">このページの数え方と、実戦との違い</h2>
+<p>数えた条件を先に書いておきます。</p>
+<ul>
+<li>形ごとの枚数：雀トレのエンジンで、手牌ごとにテンパイと待ち牌を判定し、残り枚数＝4枚−自分の手牌の枚数で数えました。</li>
+<li>全数の列挙：萬子1スート、各牌0〜4枚、合計13枚の手牌をすべて作り、93,600通りを調べました。七対子の形も含みます。</li>
+<li>突き合わせ：エンジンとは別に書いた全数え上げのプログラムで、全93,600通りから等間隔に抽出した251通り（うちテンパイ104通り）を計算し直して比べ、不一致は0件でした。全数ではなく標本の突き合わせです。</li>
+</ul>
+<p>実戦との違いが3つあります。1つめは、全数の分布は1色だけの手牌の話で、複数のスートが混ざる普通の手とは分布が違う点です。分布を実戦の確率として読まないでください。2つめは、枚数が多い待ちが必ず有利とは限らない点です。打点・役・フリテン・河での出やすさは、この数え方に入っていません。3つめは、他家の手牌に持たれている牌は見えない点です。山にある枚数と、実際に引ける枚数は一致しません。</p>
+<p>この表は「何も情報がない序盤」の基準点です。出典＝雀トレ自身の計算（2026年11月11日）。ルールが違う麻雀（三人麻雀など）には、そのままは当てはまりません。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>待ち枚数の基本は<b>両面8・嵌張4・辺張4・双碰4・単騎3</b>。三面張は11、ノベタンは6。</li>
+<li>最大は純正九蓮宝燈の形で23枚。ほかに23枚になる形が8通りあります。</li>
+<li>実戦では、河・ドラ表示牌・鳴きで見えた牌を引く。両面でも半分になることがある。</li>
+<li>1色13枚の全数では、待ちが1〜2種類のテンパイ形が約70%（実測）。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<h3>麻雀の待ちで、一番枚数が多いのはどの形ですか？</h3>
+<p>純正九蓮宝燈の形（1112345678999m）で23枚です。1〜9のすべてが待ちになります。形として覚えやすい多面張は、三面張の11枚です。</p>
+<h3>待ちの種類が多いと、必ず有利ですか？</h3>
+<p>枚数が多いほど、和了牌を引きやすくなります。ただし、打点・役・フリテン・河での出やすさは別に考えます。この記事で数えたのは枚数だけです。</p>
+<h3>空聴（カラテン）とは何ですか？</h3>
+<p>待ち牌を自分で4枚すべて持っていて、残りが0枚のテンパイです。形はテンパイでも、他の誰も引けないので、和了は実質できません。</p>
+
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：次にテンパイしたら、待ち牌の残り枚数を、河と自分の手牌から数えてみる。</b></p>
+<p style="margin:0">・待ち牌が自動で出る一人麻雀 → <a href="/rules/">麻雀のいろは（れんしゅうタブ）</a><br>
+・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・受け入れ枚数の数え方 → <a href="/articles/mahjong-what-to-discard"><span style="white-space:nowrap">何を切るか迷ったときの基本方針</span></a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-nanikiru-q5"><b>何切る 第5問｜両面が2つ。それでも両面を崩すのが最善？</b>両面の受けが重なるとき、枚数はどう変わるか。</a>
+<a class="next" href="/articles/mahjong-haipai-shanten"><b>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</b>配牌13枚のシャンテン数の分布と、1ツモ後の変化。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-11">2026年11月11日</time>　最終更新：<time datetime="2026-11-11">2026年11月11日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
