@@ -28,15 +28,29 @@
   .board{background:linear-gradient(160deg,#14532d,#166534);border-radius:16px;padding:18px 14px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
   .prompt{font-size:13px;color:#dcfce7;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
   .prompt .shanten-tag{background:rgba(0,0,0,.3);border-radius:6px;padding:3px 8px;font-size:12px}
-  .hand{display:flex;align-items:flex-end;gap:3px;flex-wrap:wrap}
-  .hand .tsumo{margin-left:14px}
-  .tile{width:clamp(30px,5.8vw,43px);aspect-ratio:3/4.3;background:linear-gradient(#fffdf4,#efe6d0);border-radius:5px;
+  /* J516 2026-11-15: 手牌は必ず1列（本人指示 K70）。手本＝App Store「麻雀何切る牌効率」(★4.8・317件)と
+     「麻雀ウザク式何切る？」(★4.5・387件)はどちらも手牌14枚を1列で見せ、1タップで即決しない（選択→決定）。
+     幅は .wrap(最大760px・左右16px)と .board(左右10px)の内側に14枚＋隙間＋ツモの離れが収まるよう計算する。
+     375px で約20.6px幅になるため、当たり判定は ::after で上下に広げ、誤タップは「選択→決定」の2段で吸収する。 */
+  .hand{display:flex;align-items:flex-end;gap:2px;flex-wrap:nowrap;padding-top:8px}
+  .hand .tsumo{margin-left:8px}
+  .tile{position:relative;flex:none;width:clamp(16px,calc((min(100vw,760px) - 52px - 26px - 8px) / 14),43px);aspect-ratio:3/4.3;background:linear-gradient(#fffdf4,#efe6d0);border-radius:5px;
     border:1px solid #d6cdb6;box-shadow:0 3px 0 #b8ae93,0 4px 6px rgba(0,0,0,.35);
     display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;user-select:none;
     transition:transform .08s}
   .tile:hover{transform:translateY(-5px)}
   .tile.disabled{cursor:default;pointer-events:none}
+  .tile::after{content:"";position:absolute;left:-1px;right:-1px;top:-10px;bottom:-10px}
+  .tile:focus-visible{outline:3px solid #fff;outline-offset:1px}
+  .tile.sel{outline:3px solid var(--ok);transform:translateY(-8px)}
   .tile.picked{outline:3px solid var(--accent);transform:translateY(-6px)}
+  @media (max-width:480px){.board{padding:16px 10px}}
+  .confirm{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;margin-top:16px;border:none;border-radius:12px;
+    background:#0b3d20;color:#bbf7d0;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
+  .confirm:disabled{cursor:default;color:#86efac;opacity:.75}
+  .confirm:not(:disabled){background:var(--accent);color:#0f172a}
+  .confirm .mini{display:inline-block;width:22px}
+  .confirm .mini svg{width:100%;height:auto;display:block}
   .tile.bestmark{outline:3px solid var(--good);transform:translateY(-6px)}
   .tile svg{width:88%;height:auto;pointer-events:none;display:block}
   .result{background:var(--panel);border-radius:16px;padding:16px;margin-top:14px;display:none}
@@ -142,10 +156,11 @@
 
   <div class="board" id="board">
     <div class="prompt">
-      <span id="prompt-text">受け入れが最大になる1牌を切ってください</span>
+      <span id="prompt-text">受け入れが最大になる1牌は？</span>
       <span class="shanten-tag" id="shanten-tag"></span>
     </div>
-    <div class="hand" id="hand"></div>
+    <div class="hand" id="hand" role="group" aria-label="手牌（右端の離れた牌がツモ牌）"></div>
+    <button type="button" class="confirm" id="confirm" disabled>切る牌をタップして選ぶ</button>
   </div>
 
   <div class="result" id="result">
@@ -310,7 +325,7 @@ const GRADE_VIEW = {
 
 /* ================= UI ================= */
 const $ = id => document.getElementById(id);
-let problem = null, rows = null, answered = false;
+let problem = null, rows = null, answered = false, selected = null;
 let dailyMode = false;
 let stats = JSON.parse(localStorage.getItem("mjt_stats") || '{"total":0,"best":0,"streak":0}');
 
@@ -336,16 +351,22 @@ function render(){
   handDiv.innerHTML = "";
   const list = [];
   problem.counts13.forEach((n,i)=>{ for(let j=0;j<n;j++) list.push(i); });
-  list.forEach(id => {
-    const el = tileEl(id, "tile");
+  // J516: 1タップで即決しない＝選択→決定の2段（同じ牌をもう一度タップしても決定）
+  selected = null;
+  const cf = $("confirm");
+  cf.disabled = true;
+  cf.textContent = "切る牌をタップして選ぶ";
+  const hook = (el, id) => {
     el.dataset.tile = id;
-    el.onclick = () => answer(id, el);
+    el.tabIndex = 0;
+    el.setAttribute("role", "button");
+    el.setAttribute("aria-label", tileJp(id) + "を選ぶ");
+    el.onclick = () => selectTile(id, el);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectTile(id, el); } };
     handDiv.appendChild(el);
-  });
-  const ts = tileEl(problem.tsumo, "tile tsumo");
-  ts.dataset.tile = problem.tsumo;
-  ts.onclick = () => answer(problem.tsumo, ts);
-  handDiv.appendChild(ts);
+  };
+  list.forEach(id => hook(tileEl(id, "tile"), id));
+  hook(tileEl(problem.tsumo, "tile tsumo"), problem.tsumo);
 
   const c14 = problem.counts13.slice(); c14[problem.tsumo]++;
   rows = evaluateAll(c14);
@@ -354,9 +375,23 @@ function render(){
   answered = false;
 }
 
+function selectTile(id, el){
+  if (answered) return;
+  if (selected === el) { answer(id, el); return; }   // 同じ牌を2回タップ＝決定
+  document.querySelectorAll("#hand .tile.sel").forEach(t => t.classList.remove("sel"));
+  selected = el;
+  el.classList.add("sel");
+  const cf = $("confirm");
+  cf.disabled = false;
+  cf.innerHTML = `打 <span aria-hidden="true">${miniTile(id)}</span> ${tileJp(id)} で決定`;
+}
 function answer(pick, el){
   if (answered) return;
   answered = true;
+  if (el) el.classList.remove("sel");
+  const cf = $("confirm");
+  cf.disabled = true;
+  cf.textContent = "回答済み（下に採点が出ています）";
   const g = judge(rows, pick);
   document.querySelectorAll(".tile").forEach(t => {
     t.classList.add("disabled");
@@ -401,6 +436,7 @@ function next(){
   enterMode(false);
 }
 $("next").onclick = next;
+$("confirm").onclick = () => { if (selected && !answered) answer(Number(selected.dataset.tile), selected); };
 $("mode").onchange = () => { if (!dailyMode) enterMode(false); };
 $("st-reset").onclick = () => { if(confirm("成績をリセットしますか？")){ stats={total:0,best:0,streak:0}; saveStats(); } };
 
@@ -461,14 +497,14 @@ function enterMode(isDaily){
     problem = newProblem(DAILY_TARGET, mulberry32((dayIndex(t) * 2654435761) >>> 0));
     if (!problem){ dailyMode = false; alert("今日の問題を作れませんでした。通常ドリルを表示します。"); return enterMode(false); }
     $("board").classList.add("is-daily");
-    $("prompt-text").textContent = "🗓 今日の1問：受け入れが最大になる1牌を切ってください";
+    $("prompt-text").textContent = "🗓 今日の1問：受け入れ最大の1牌は？";
     $("next").textContent = "通常ドリルに戻る →";
   } else {
     const target = Number($("mode").value);
     problem = newProblem(target);
     if (!problem){ alert("問題生成に失敗しました。再試行します"); return enterMode(false); }
     $("board").classList.remove("is-daily");
-    $("prompt-text").textContent = "受け入れが最大になる1牌を切ってください";
+    $("prompt-text").textContent = "受け入れが最大になる1牌は？";
     $("next").textContent = "次の問題 →";
   }
   render();

@@ -48,6 +48,18 @@
     color:var(--text);font-size:15px;font-weight:800;cursor:pointer;transition:all .15s}
   .mode-btn.sel{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 14px rgba(52,229,255,.35);transform:translateY(-2px)}
   .rules{margin:0 auto 20px;max-width:470px;text-align:left}
+  .entry{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 auto 10px;max-width:470px}
+  .entry a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:76px;padding:10px 6px;
+    border:1px solid var(--panel-bd);border-radius:14px;background:rgba(255,255,255,.04);color:var(--text);text-decoration:none;text-align:center}
+  .entry a:hover{border-color:var(--cyan,#2ee6ff)}
+  .entry .e-ic{font-size:22px;line-height:1}
+  .entry b{display:block;font-size:15px}
+  .entry small{display:block;font-size:13px;color:var(--sub);line-height:1.4}
+  #start p.entry-lead{font-size:13px;margin:0 0 14px}
+  .rules-box{margin:0 auto 18px;max-width:470px;text-align:left}
+  .rules-box summary{min-height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--sub);
+    border:1px dashed var(--panel-bd);border-radius:12px;padding:8px 12px}
+  .rules-box[open] summary{margin-bottom:12px}
   .rule-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07)}
   .rule-row .lbl{font-size:12.5px;color:var(--sub)}
   .seg{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
@@ -311,11 +323,21 @@
     <div class="logo-sub">MAHJONG TRAINER</div>
     <p>AI3人と対局しながら、一打ごとに<b>受け入れ×打点期待×放銃リスク</b>の統計ベースEVでフィードバック。<br>
     カン対応（暗槓・明槓・加槓／嶺上開花・槍槓・カンドラ・カン裏）。細かいルールは下で選択できます</p>
+    <!-- J516 2026-11-15: 初見の人が「ルール設定17項目の壁」から始まっていた。手本（ゲームエイト雀魂攻略の上部クイックナビ／
+         麻雀ウザク式何切る？の「1日1回チャレンジ」）に倣い、最初の1画面に入口を3つ置く。設定は折りたたむ。 -->
+    <nav class="entry" aria-label="はじめての方の入口">
+      <a href="rules/"><span class="e-ic" aria-hidden="true">🔰</span><span><b>はじめて</b><small>ルールを10課で</small></span></a>
+      <a href="index.html"><span class="e-ic" aria-hidden="true">🀄</span><span><b>今日の1問</b><small>何切る・1日1問</small></span></a>
+      <a href="/score/"><span class="e-ic" aria-hidden="true">🧮</span><span><b>点数早見表</b><small>符と翻で引く</small></span></a>
+    </nav>
+    <p class="entry-lead">ルールが分かる人は、そのまま下の「対局開始」でAI3人と打てます。</p>
     <div class="mode-row">
       <button class="mode-btn" data-mode="ikkyoku">一局戦</button>
       <button class="mode-btn sel" data-mode="tonpuu">東風戦</button>
       <button class="mode-btn" data-mode="tonnan">東南戦</button>
     </div>
+    <details class="rules-box">
+      <summary>細かいルール（17項目・そのままでOK）</summary>
     <div class="rules" id="rules">
       <div class="rule-row"><span class="lbl">鳴き（ポン・チー）</span>
         <span class="seg" data-rule="naki"><button data-v="true">あり</button><button data-v="false">なし</button></span></div>
@@ -352,6 +374,7 @@
       <div class="rule-row"><span class="lbl">サドンデス延長（30000未達で次風入り）</span>
         <span class="seg" data-rule="sudden"><button data-v="false">なし</button><button data-v="true">あり</button></span></div>
     </div>
+    </details>
     <button class="primary" id="start-btn">対局開始</button>
     <p style="margin-top:14px"><a href="index.html">← ドリルモードへ</a>　<a href="rules/">🔰 麻雀を基礎から学ぶ</a>　<a href="/articles/">📖 初心者向け記事</a></p>
     <div style="margin-top:12px;font-size:13px;line-height:1.85;color:var(--sub)">

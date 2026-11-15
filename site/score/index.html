@@ -396,7 +396,9 @@
      サーバーが返すHTMLにも初回表示にも本文が無い状態に戻る（この面の可読テキストは401字だった）。
      数値は上の点数エンジン（basePoints / calcFu）と同じ根拠で書いている。片方だけ直さないこと。 -->
 <style>
-  .guide{margin:26px 0 8px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.95}
+  /* J516 2026-11-15: 解説が画面の端に貼り付いていた（左右の余白0）。main と同じ左右余白を持たせ、PC幅では読みやすい行長に収める */
+  .guide{margin:26px 0 8px;padding:18px 16px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.95}
+  @media (min-width:760px){body>header,body>main,body>.guide,body>aside,body>.aff{max-width:720px;margin-left:auto;margin-right:auto}}
   .guide h2{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:.04em;margin-bottom:10px;color:var(--ivory)}
   .guide h3{font-family:var(--serif);font-size:19px;font-weight:700;margin:20px 0 8px;color:var(--gold)}
   .guide p{margin-bottom:10px;color:var(--ivory)}
