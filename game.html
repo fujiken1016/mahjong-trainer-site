@@ -19,7 +19,7 @@
     --text:#eef2ff; --sub:#9aa5c9;
     --cyan:#34e5ff; --magenta:#ff5fd2; --gold:#ffd54a;
     --good:#4ade80; --ok:#facc15; --warn:#fb923c; --bad:#ff6b81;
-    --felt1:#2f8d6d; --felt2:#0e4a38; --tside:#129a7b;
+    --felt1:#2f8d6d; --felt2:#0e4a38; --tside:#2b7a52;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   body{background:linear-gradient(150deg,var(--bg1),var(--bg2) 60%,#071022);color:var(--text);
@@ -134,21 +134,21 @@
   .handrow{display:flex;align-items:flex-end;gap:10px;justify-content:center}
   .hand{display:flex;align-items:flex-end;gap:2px;flex-wrap:nowrap;justify-content:center;margin-top:4px;flex:1;min-width:0}
   .hand .tsumo{margin-left:1.2%}
-  .tile{flex:0 1 auto;width:min(6.5%,58px);min-width:21px;aspect-ratio:3/4.05;background:linear-gradient(#fefefa,#e9e7db);border-radius:7px;
-    border:1px solid #d9d5c6;box-shadow:0 4px 0 var(--tside),0 6px 12px rgba(0,0,0,.45);
+  .tile{flex:0 1 auto;width:min(6.5%,58px);min-width:21px;aspect-ratio:3/4;background:linear-gradient(#faf7f2,#ebe5da);border-radius:7px;
+    border:1px solid #d7cfc2;box-shadow:0 4px 0 var(--tside),0 6px 12px rgba(0,0,0,.45);
     display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;
     transition:transform .1s,box-shadow .1s}
   .tile:hover{transform:translateY(-7px);box-shadow:0 4px 0 var(--tside),0 10px 16px rgba(52,229,255,.4)}
   .tile.disabled{cursor:default;pointer-events:none}
   .tile.dimmed{opacity:.3;cursor:default;pointer-events:none}
-  .tile svg{width:88%;height:auto;pointer-events:none;display:block}
+  .tile svg{width:90%;height:auto;pointer-events:none;display:block}
   .tile.deal{animation:dealIn .34s ease-out backwards}
   @keyframes dealIn{from{transform:translateY(18px) scale(.6);opacity:0}to{transform:none;opacity:1}}
   .user-melds{display:flex;gap:8px;align-items:flex-end;padding-bottom:2px}
   .user-melds .mini{width:29px;height:38px}
   .user-melds .mini svg{width:23px}
   .mini{display:inline-flex;align-items:center;justify-content:center;width:26px;height:34px;
-    background:linear-gradient(#fefefa,#e9e7db);border-radius:4px;border:1px solid #d9d5c6;vertical-align:middle;flex:none;
+    background:linear-gradient(#faf7f2,#ebe5da);border-radius:4px;border:1px solid #d7cfc2;vertical-align:middle;flex:none;
     box-shadow:0 2.5px 0 var(--tside),0 3px 5px rgba(0,0,0,.35)}
   .mini svg{width:21px;height:auto;display:block}
   .mini.riichi-tile{transform:rotate(90deg);margin:0 5px}

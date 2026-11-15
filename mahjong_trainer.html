@@ -70,9 +70,9 @@ p{margin:.55em 0}
 .note{background:rgba(46,230,255,.07);border:1px solid rgba(46,230,255,.22);border-left:3px solid var(--cyan);border-radius:10px;padding:11px 14px;font-size:13.5px;margin:12px 0}
 .warn{background:rgba(255,92,122,.08);border:1px solid rgba(255,92,122,.25);border-left:3px solid var(--red);border-radius:10px;padding:9px 14px;margin:10px 0}
 /* ---- tiles ---- */
-.tile{display:inline-block;width:34px;height:46px;border-radius:5px;background:linear-gradient(180deg,#fdfbf0,#ebe2cb);border:1px solid #c6bb9f;box-shadow:0 3px 0 #a3987c,0 5px 10px rgba(0,0,0,.5);padding:2px;margin:1px;vertical-align:middle;user-select:none;flex:0 0 auto}
+.tile{display:inline-block;width:34px;height:45px;border-radius:5px;background:linear-gradient(#faf7f2,#ebe5da);border:1px solid #d7cfc2;box-shadow:0 3px 0 #2b7a52,0 5px 10px rgba(0,0,0,.5);padding:1px 2px;margin:1px;vertical-align:middle;user-select:none;flex:0 0 auto}
 .tile svg{display:block;width:100%;height:100%}
-.tile.back{background:linear-gradient(135deg,#3b1e66,#16224e);border-color:#4c3b8a;box-shadow:0 3px 0 #241347,0 5px 10px rgba(0,0,0,.5)}
+.tile.back{background:linear-gradient(#3a9468,#2b7a52);border-color:#24664a;box-shadow:0 3px 0 #1d5a40,0 5px 10px rgba(0,0,0,.5)}
 .tile.rot{transform:rotate(90deg);margin:0 10px}
 .tile.hi{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 0 14px rgba(255,209,102,.55),0 3px 0 rgba(0,0,0,.45)}
 .tile.dim{opacity:.35}
@@ -177,7 +177,7 @@ details .body{padding:0 15px 11px;font-size:13.5px;color:var(--ink-soft)}
 .shop-article{display:block;margin-top:14px;padding:12px 15px;border:1px solid var(--line-hi);border-radius:11px;text-decoration:none;color:var(--ink);font-size:13.5px}
 .shop-article:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan)}
 .shop-article b{color:var(--cyan)}
-@media (max-width:430px){ .tile{width:29px;height:41px} .mode-grid{grid-template-columns:1fr} .brand h1{font-size:19px} }
+@media (max-width:430px){ .tile{width:30px;height:40px} .tiles.tiles-scroll .tile{flex:1 1 0;min-width:0;max-width:30px;height:auto;aspect-ratio:3/4;padding:1px} .tiles.tiles-scroll{gap:0} .mode-grid{grid-template-columns:1fr} .brand h1{font-size:19px} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
 
 </style>
@@ -359,59 +359,10 @@ function tIdx(code){ // '5m' -> 4, '1z'..'7z'
 }
 function tCode(i){ if(i<9)return (i+1)+"m"; if(i<18)return (i-8)+"p"; if(i<27)return (i-17)+"s"; return (i-26)+"z"; }
 function tName(i){ if(i<9)return "萬子（マンズ）の"+(i+1); if(i<18)return "筒子（ピンズ）の"+(i-8); if(i<27)return "索子（ソーズ）の"+(i-17); return HONOR_NAME[i-27]; }
-/* --- realistic tile faces (SVG) --- */
-const SUIT_B="#2b4ba6",SUIT_G="#1d8f4e",SUIT_R="#c8322b",INK="#232a35",FACE="#fffdf6";
-const MINCHO="'Hiragino Mincho ProN','Yu Mincho',serif";
-const PIN_POS={1:[[30,40]],2:[[30,21],[30,59]],3:[[16,18],[30,40],[44,62]],4:[[18,21],[42,21],[18,59],[42,59]],5:[[17,19],[43,19],[30,40],[17,61],[43,61]],6:[[18,18],[42,18],[18,40],[42,40],[18,62],[42,62]],7:[[14,16],[28,22],[42,28],[18,50],[42,50],[18,68],[42,68]],8:[[18,14],[42,14],[18,32],[42,32],[18,50],[42,50],[18,68],[42,68]],9:[[16,16],[30,16],[44,16],[16,40],[30,40],[44,40],[16,64],[30,64],[44,64]]};
-const PIN_R={1:14,2:10,3:9,4:8.5,5:8,6:8,7:7,8:7,9:6.5};
-const PIN_COL={1:["r"],2:["b","g"],3:["b","r","g"],4:["b","g","g","b"],5:["b","b","r","b","b"],6:["g","g","r","r","r","r"],7:["g","g","g","r","r","r","r"],8:["b","b","b","b","b","b","b","b"],9:["b","b","b","r","r","r","g","g","g"]};
-const SOU_POS={2:[[30,20],[30,60]],3:[[30,18],[18,60],[42,60]],4:[[19,20],[41,20],[19,60],[41,60]],5:[[16,18],[44,18],[30,40],[16,62],[44,62]],6:[[16,20],[30,20],[44,20],[16,60],[30,60],[44,60]],7:[[30,15],[16,44],[30,44],[44,44],[16,68],[30,68],[44,68]],8:[[15,20],[25,20],[35,20],[45,20],[15,60],[25,60],[35,60],[45,60]],9:[[16,14],[30,14],[44,14],[16,40],[30,40],[44,40],[16,66],[30,66],[44,66]]};
-const SOU_RED={5:2,7:0,9:4};
-function souStick(x,y,h,w,c){
-  return '<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="'+(w*0.45)+'" fill="'+c+'"/>'+
-         '<rect x="'+(x-w/2-0.6)+'" y="'+(y-1.5)+'" width="'+(w+1.2)+'" height="3" rx="1.2" fill="#efe8d2" opacity=".9"/>';
-}
-function cornerIdx(n,c){ return '<text x="5" y="13" font-size="11" font-weight="700" font-family="sans-serif" fill="'+c+'" opacity=".5">'+n+'</text>'; }
+/* --- 牌面：標準の牌＝FluffyStuff/riichi-mahjong-tiles（CC0）。/img/tiles/ に同梱（雀トレ本体・記事と同じ1セット） --- */
 function tileSVG(i){
-  const col=c=>c==="b"?SUIT_B:c==="g"?SUIT_G:SUIT_R;
-  let g="";
-  if(i<9){
-    g='<text x="30" y="34" text-anchor="middle" font-size="29" font-weight="700" font-family="'+MINCHO+'" fill="'+INK+'">'+KAN[i]+'</text>'+
-      '<text x="30" y="71" text-anchor="middle" font-size="30" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_R+'">萬</text>';
-  }else if(i<18){
-    const n=i-8, r=PIN_R[n];
-    PIN_POS[n].forEach((p,k)=>{
-      const c=col(PIN_COL[n][k]);
-      g+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+r+'" fill="'+FACE+'" stroke="'+c+'" stroke-width="'+(r>=10?3:2.4)+'"/>'+
-         '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(r*0.42).toFixed(1)+'" fill="'+c+'"/>';
-    });
-    if(n===1)g+='<circle cx="30" cy="40" r="9" fill="none" stroke="'+SUIT_B+'" stroke-width="2"/>';
-    g+=cornerIdx(n,SUIT_B);
-  }else if(i<27){
-    const n=i-17;
-    if(n===1){
-      g='<polygon points="30,8 24,17 36,17" fill="'+SUIT_R+'"/>'+
-        '<circle cx="30" cy="22" r="8" fill="'+SUIT_G+'"/>'+
-        '<circle cx="26.8" cy="20.5" r="1.7" fill="'+FACE+'"/>'+
-        '<ellipse cx="30" cy="47" rx="12" ry="16" fill="'+SUIT_G+'"/>'+
-        '<ellipse cx="36" cy="47" rx="5" ry="12" fill="#166b3c"/>'+
-        '<path d="M24 70 l-4 8 M30 71 l0 8 M36 70 l4 8" stroke="'+SUIT_R+'" stroke-width="2.5" fill="none" stroke-linecap="round"/>';
-    }else if(n===8){
-      const pairs=[[14,24,18],[26,24,-18],[34,24,18],[46,24,-18],[14,56,-18],[26,56,18],[34,56,-18],[46,56,18]];
-      pairs.forEach(p=>{ g+='<g transform="rotate('+p[2]+' '+p[0]+' '+p[1]+')">'+souStick(p[0],p[1],20,5.5,SUIT_G)+'</g>'; });
-    }else{
-      const h=n<=6?22:18, w=6;
-      SOU_POS[n].forEach((p,k)=>{ g+=souStick(p[0],p[1],h,w,SOU_RED[n]===k?SUIT_R:SUIT_G); });
-    }
-    g+=cornerIdx(n,SUIT_G);
-  }else{
-    const h=i-27;
-    if(h<4)g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+INK+'">'+HONOR[h]+'</text>';
-    else if(h===4)g='<rect x="12" y="12" width="36" height="56" rx="4" fill="none" stroke="'+SUIT_B+'" stroke-width="4"/>';
-    else if(h===5)g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_G+'">發</text>';
-    else g='<text x="30" y="56" text-anchor="middle" font-size="44" font-weight="700" font-family="'+MINCHO+'" fill="'+SUIT_R+'">中</text>';
-  }
-  return '<svg viewBox="0 0 60 80" aria-hidden="true">'+g+'</svg>';
+  const k=i<27?("mps"[Math.floor(i/9)]+(i%9+1)):("z"+(i-26));
+  return '<svg viewBox="0 0 300 400" aria-hidden="true"><image href="/img/tiles/'+k+'.svg" width="300" height="400"/></svg>';
 }
 function tileHTML(i,cls){
   cls=cls||"";

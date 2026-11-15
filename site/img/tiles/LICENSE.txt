@@ -1,0 +1,4 @@
+Mahjong tile faces: FluffyStuff/riichi-mahjong-tiles (Regular)
+https://github.com/FluffyStuff/riichi-mahjong-tiles
+License: CC0 1.0 Universal (public domain) https://creativecommons.org/publicdomain/zero/1.0/
+Changes: metadata removed, coordinates rounded, wind tiles (E/S/W/N) recolored to black, renamed (m/p/s 1-9, 0 = red five, z1-z7 = E S W N White Green Red).

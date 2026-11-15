@@ -17,88 +17,21 @@ function tileJp(i){
   return HONORS[i-27];
 }
 
-/* ---------------- 牌面SVG描画 ---------------- */
-const RED = "#c1272d", GREEN = "#2f7d32", BLUE = "#14418c", BLACK = "#1f1f1f";
-const COL = { R: RED, G: GREEN, B: BLUE };
-const SERIF = "'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif";
-
-function pinCircle(cx, cy, r, color){
-  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="${(r*0.62).toFixed(1)}"/>` +
-         `<circle cx="${cx}" cy="${cy}" r="${(r*0.33).toFixed(1)}" fill="${color}"/>`;
-}
-const PIN = {
-  2:{r:11,pts:[[30,23,"G"],[30,61,"B"]]},
-  3:{r:10,pts:[[15,18,"B"],[30,42,"R"],[45,66,"G"]]},
-  4:{r:9.5,pts:[[17,23,"B"],[43,23,"G"],[17,61,"G"],[43,61,"B"]]},
-  5:{r:8.5,pts:[[16,20,"B"],[44,20,"G"],[30,42,"R"],[16,64,"G"],[44,64,"B"]]},
-  6:{r:8,pts:[[18,18,"G"],[42,18,"G"],[18,42,"R"],[42,42,"R"],[18,66,"R"],[42,66,"R"]]},
-  7:{r:7.5,pts:[[13,14,"G"],[30,18,"G"],[47,22,"G"],[18,46,"R"],[42,46,"R"],[18,68,"R"],[42,68,"R"]]},
-  8:{r:7.5,pts:[[18,13,"B"],[42,13,"B"],[18,32,"B"],[42,32,"B"],[18,51,"B"],[42,51,"B"],[18,70,"B"],[42,70,"B"]]},
-  9:{r:7.5,pts:[[15,18,"G"],[30,18,"G"],[45,18,"G"],[15,42,"R"],[30,42,"R"],[45,42,"R"],[15,66,"B"],[30,66,"B"],[45,66,"B"]]},
-};
-function stick(cx, cy, len, color){
-  const x = cx - 4, y = cy - len/2;
-  return `<rect x="${x}" y="${y}" width="8" height="${len}" rx="4" fill="${color}"/>` +
-         `<line x1="${x}" y1="${(cy-len/6).toFixed(1)}" x2="${x+8}" y2="${(cy-len/6).toFixed(1)}" stroke="#fffdf4" stroke-width="1.8"/>` +
-         `<line x1="${x}" y1="${(cy+len/6).toFixed(1)}" x2="${x+8}" y2="${(cy+len/6).toFixed(1)}" stroke="#fffdf4" stroke-width="1.8"/>`;
-}
-const SOU = {
-  2:{len:32,pts:[[30,23,"B"],[30,61,"G"]]},
-  3:{len:30,pts:[[30,20,"B"],[18,61,"G"],[42,61,"G"]]},
-  4:{len:32,pts:[[18,23,"B"],[42,23,"G"],[18,61,"G"],[42,61,"B"]]},
-  5:{len:30,pts:[[15,20,"G"],[45,20,"B"],[30,42,"R"],[15,64,"B"],[45,64,"G"]]},
-  6:{len:32,pts:[[14,23,"G"],[30,23,"G"],[46,23,"G"],[14,61,"G"],[30,61,"G"],[46,61,"G"]]},
-  7:{len:21,pts:[[30,14,"R"],[14,44,"G"],[30,44,"G"],[46,44,"G"],[14,69,"G"],[30,69,"G"],[46,69,"G"]]},
-  8:{len:32,pts:[[13,23,"G"],[24.3,23,"G"],[35.7,23,"G"],[47,23,"G"],[13,61,"G"],[24.3,61,"G"],[35.7,61,"G"],[47,61,"G"]]},
-  9:{len:21,pts:[[15,17,"G"],[30,17,"G"],[45,17,"G"],[15,42,"R"],[30,42,"R"],[45,42,"R"],[15,67,"G"],[30,67,"G"],[45,67,"G"]]},
-};
-function birdFace(){
-  return `<g>
-    <path d="M20 56 Q10 68 12 76" fill="none" stroke="${GREEN}" stroke-width="3" stroke-linecap="round"/>
-    <path d="M24 58 Q18 70 22 78" fill="none" stroke="${GREEN}" stroke-width="3" stroke-linecap="round"/>
-    <ellipse cx="28" cy="42" rx="11" ry="16" fill="${GREEN}"/>
-    <ellipse cx="24" cy="42" rx="5.5" ry="11" fill="${RED}"/>
-    <path d="M28 28 Q30 18 37 17" fill="none" stroke="${GREEN}" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="38" cy="18" r="7" fill="${GREEN}"/>
-    <path d="M44 15 L54 17 L44 21 Z" fill="${RED}"/>
-    <circle cx="38.5" cy="16.5" r="1.6" fill="#fffdf4"/>
-    <line x1="30" y1="57" x2="30" y2="72" stroke="${RED}" stroke-width="2.6" stroke-linecap="round"/>
-    <line x1="35" y1="56" x2="38" y2="71" stroke="${RED}" stroke-width="2.6" stroke-linecap="round"/>
-  </g>`;
-}
-function face(id, red){
-  if (id < 9){
-    const numColor = red ? RED : BLACK;
-    return `<text x="30" y="24" text-anchor="middle" dominant-baseline="central" font-family="${SERIF}" font-weight="900" font-size="33" fill="${numColor}">${KANJI_NUM[id]}</text>` +
-           `<text x="30" y="62" text-anchor="middle" dominant-baseline="central" font-family="${SERIF}" font-weight="900" font-size="33" fill="${RED}">萬</text>`;
-  }
-  if (id < 18){
-    const n = id - 9 + 1;
-    if (n === 1){
-      return `<circle cx="30" cy="42" r="26" fill="none" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="4.5 3.4"/>` + pinCircle(30,42,17,RED);
-    }
-    const L = PIN[n];
-    return L.pts.map(([x,y,c]) => pinCircle(x,y,L.r, red ? RED : COL[c])).join("");
-  }
+/* ---------------- 牌面描画 ----------------
+   標準の牌＝FluffyStuff/riichi-mahjong-tiles（CC0・パブリックドメイン）
+   https://github.com/FluffyStuff/riichi-mahjong-tiles  ／ /img/tiles/ に軽量化して同梱（風牌は日本の標準に合わせて黒）
+   牌の地（クリーム色・角丸・下の厚み）は各ページのCSS、牌面は 300x400（3:4）の画像。 */
+const TILE_BASE = (typeof globalThis !== "undefined" && globalThis.MJ_TILE_BASE) || "/img/tiles/";
+function tileKey(id, red){
   if (id < 27){
-    const n = id - 18 + 1;
-    if (n === 1) return birdFace();
-    if (n === 8){
-      // 実物の8索: 上段が∧∧、下段が∨∨のアーチ型
-      const c8 = red ? RED : GREEN;
-      const st = (cx,cy,ang) => `<g transform="rotate(${ang} ${cx} ${cy})">${stick(cx,cy,27,c8)}</g>`;
-      return st(13,23,15)+st(25,23,-15)+st(35,23,15)+st(47,23,-15)
-           + st(13,61,-15)+st(25,61,15)+st(35,61,-15)+st(47,61,15);
-    }
-    const L = SOU[n];
-    return L.pts.map(([x,y,c]) => stick(x,y,L.len, red ? RED : COL[c])).join("");
+    const n = id % 9 + 1;
+    return "mps"[Math.floor(id/9)] + (red && n === 5 ? 0 : n);
   }
-  const ch = HONORS[id-27];
-  if (ch === "白") return `<rect x="11" y="13" width="38" height="58" rx="4" fill="none" stroke="${BLUE}" stroke-width="4"/>`;
-  const color = ch === "發" ? GREEN : ch === "中" ? RED : BLACK;
-  return `<text x="30" y="43" text-anchor="middle" dominant-baseline="central" font-family="${SERIF}" font-weight="800" font-size="46" fill="${color}">${ch}</text>`;
+  return "z" + (id - 26);
 }
-function faceSvg(id, red){ return `<svg viewBox="0 0 60 84" xmlns="http://www.w3.org/2000/svg">${face(id, red)}</svg>`; }
+function faceSvg(id, red){
+  return `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="${TILE_BASE}${tileKey(id, red)}.svg" width="300" height="400"/></svg>`;
+}
 
 /* ---------------- 向聴数計算 ---------------- */
 const MEMO = new Map();

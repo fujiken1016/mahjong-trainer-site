@@ -34,8 +34,8 @@
      375px で約20.6px幅になるため、当たり判定は ::after で上下に広げ、誤タップは「選択→決定」の2段で吸収する。 */
   .hand{display:flex;align-items:flex-end;gap:2px;flex-wrap:nowrap;padding-top:8px}
   .hand .tsumo{margin-left:8px}
-  .tile{position:relative;flex:none;width:clamp(16px,calc((min(100vw,760px) - 52px - 26px - 8px) / 14),43px);aspect-ratio:3/4.3;background:linear-gradient(#fffdf4,#efe6d0);border-radius:5px;
-    border:1px solid #d6cdb6;box-shadow:0 3px 0 #b8ae93,0 4px 6px rgba(0,0,0,.35);
+  .tile{position:relative;flex:none;width:clamp(16px,calc((min(100vw,760px) - 52px - 26px - 8px) / 14),43px);aspect-ratio:3/4;background:linear-gradient(#faf7f2,#ebe5da);border-radius:5px;
+    border:1px solid #d7cfc2;box-shadow:0 3px 0 #2b7a52,0 4px 6px rgba(0,0,0,.35);
     display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;user-select:none;
     transition:transform .08s}
   .tile:hover{transform:translateY(-5px)}
@@ -44,7 +44,7 @@
   .tile:focus-visible{outline:3px solid #fff;outline-offset:1px}
   .tile.sel{outline:3px solid var(--ok);transform:translateY(-8px)}
   .tile.picked{outline:3px solid var(--accent);transform:translateY(-6px)}
-  @media (max-width:480px){.board{padding:16px 10px}}
+  @media (max-width:480px){.board{padding:16px 6px;margin-inline:-8px;border-radius:12px}.hand{gap:1px}.hand .tsumo{margin-left:5px}.tile{width:calc((min(100vw,760px) - 32px + 16px - 12px - 13px - 5px) / 14)}}
   .confirm{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;margin-top:16px;border:none;border-radius:12px;
     background:#0b3d20;color:#bbf7d0;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
   .confirm:disabled{cursor:default;color:#86efac;opacity:.75}
@@ -52,7 +52,7 @@
   .confirm .mini{display:inline-block;width:22px}
   .confirm .mini svg{width:100%;height:auto;display:block}
   .tile.bestmark{outline:3px solid var(--good);transform:translateY(-6px)}
-  .tile svg{width:88%;height:auto;pointer-events:none;display:block}
+  .tile svg{width:90%;height:auto;pointer-events:none;display:block}
   .result{background:var(--panel);border-radius:16px;padding:16px;margin-top:14px;display:none}
   .result.show{display:block;animation:pop .18s ease-out}
   @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
@@ -68,7 +68,7 @@
   tr.hl-best td{background:rgba(74,222,128,.08)}
   tr.hl-mine td{background:rgba(56,189,248,.10)}
   .mini{display:inline-flex;align-items:center;justify-content:center;width:27px;height:36px;
-    background:linear-gradient(#fffdf4,#efe6d0);border-radius:3px;border:1px solid #d6cdb6;vertical-align:middle}
+    background:linear-gradient(#faf7f2,#ebe5da);border-radius:3px;border:1px solid #d7cfc2;vertical-align:middle}
   .mini svg{width:22px;height:auto;display:block}
   .uke{color:var(--sub)}
   .uke span{margin-right:5px;white-space:nowrap;font-weight:600}
