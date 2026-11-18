@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>何切る 第6問｜3456の4連形と対子が3つ。どこを切る？ | 雀トレ</title>
+<meta name="description" content="麻雀の何切る第6問。3456mの4連形に、5s5s・7s7s・北北の対子が3つ並ぶ14枚。受け入れ枚数をエンジンで全打牌計算し、4連形の余り1枚を切るのが最善になる理由と、5連形・同点になる変形3問を解説します。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-nanikiru-q6">
+<meta property="og:title" content="何切る 第6問｜4連形の余り1枚を切る？">
+<meta property="og:description" content="3456mは面子3枚＋余り1枚。受け入れ枚数で決める。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-nanikiru-q6">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"何切る 第6問｜3456の4連形と対子が3つ。どこを切る？","datePublished":"2026-11-18","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-nanikiru-q6","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-18"}</script>
+<script src="/oc.js" defer></script>
+<style>.tiles{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:0;margin:10px -22px 6px}.tiles .t{aspect-ratio:3/4;background:linear-gradient(#faf7f2,#ebe5da);border:1px solid #d7cfc2;border-radius:4px;box-shadow:0 3px 0 #2b7a52;display:flex;align-items:center;justify-content:center}.tiles .t svg{width:92%;height:auto;display:block}@media(min-width:700px){.tiles{grid-template-columns:repeat(14,42px);margin:10px 0 6px;gap:1px}.tiles .t{border-radius:5px}}table.cmp td:nth-child(2),table.cmp td:nth-child(3){white-space:nowrap}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}details.ans{border:1px solid var(--bd);border-radius:12px;padding:0 14px;margin:10px 0 14px;background:rgba(255,255,255,.04)}details.ans summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:700;color:var(--cyan);font-size:15px}details.ans[open] summary{margin-bottom:6px}</style>
+<style>.pick{border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:14px 0;background:rgba(255,255,255,.04)}.pick-t{font-size:14px;line-height:1.8;margin:0 0 4px}.pick-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0}.pick-row button{min-height:48px;font-size:16px;font-weight:700;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.06);color:var(--text);cursor:pointer;font-family:inherit}.pick-row button[aria-pressed="true"]{border-color:var(--cyan);color:var(--cyan);background:rgba(52,229,255,.1)}.pick-res{font-size:15px;line-height:1.8;margin:6px 0;font-weight:700}.pick-rate{font-size:15px;line-height:1.8;margin:6px 0 2px;color:var(--cyan);font-weight:700}.pick-miss{font-size:14px;line-height:1.8;margin:2px 0 6px}.pick-miss a{display:inline-flex;align-items:center;min-height:48px;padding:0 4px}.pick-reset{min-height:48px;padding:0 16px;font-size:14px;border-radius:12px;border:1px solid var(--bd);background:transparent;color:var(--sub);cursor:pointer;font-family:inherit}@media(min-width:700px){.pick-row{grid-template-columns:repeat(6,minmax(0,1fr));max-width:560px}}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>何切る 第6問｜3456の4連形と対子が3つ。<span style="white-space:nowrap">どこを切る？</span></h1>
+<div class="card">
+
+<p class="lead"><b>結論：3mか6mを切ります。</b>どちらを切っても1シャンテンで、受け入れは14枚（5種）。同じ手で7sを切ると12枚、8sは10枚、5sは8枚にとどまります。数字はすべて、雀トレのエンジンの計算値です。</p>
+<p class="lead">3456mのように4枚つながった「4連形」は、完成している面子に見えます。でも1つの面子にできるのは3枚まで。残りの1枚は、実は浮き牌と同じ働きしかしません。</p>
+<div class="rulebox">
+<p><b>この記事の前提</b>：日本で一般的な4人打ちのリーチ麻雀です。牌は <span class="hand">3m＝萬子の3</span>／<span class="hand">5p＝筒子の5</span>／<span class="hand">7s＝索子の7</span>、字牌は漢字（東・南・西・北・白・發・中）で書きます。面子は、同じ牌3枚か連続する3枚の組。対子は同じ牌2枚、浮き牌はどこにも繋がっていない1枚です。<br>1シャンテンは、テンパイ（あと1枚でアガリ）の1つ手前の形です。<br>
+雀トレは麻雀のルールと戦術を学ぶための無料の学習ツールで、現金・賭け金は一切扱いません。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#mondai">問題：手牌と条件</a></li>
+<li><a href="#kotae">答えと、全部の打牌の受け入れ枚数</a></li>
+<li><a href="#riyu">なぜ4連形の端を切るのか</a></li>
+<li><a href="#mikata">4連形と5連形の見分け方</a></li>
+<li><a href="#miss">よくある間違い</a></li>
+<li><a href="#henkei">変形1・2：萬子と索子を入れ替える</a></li>
+<li><a href="#henkei3">変形3：3つの答えが同点になるとき</a></li>
+<li><a href="#keisan">このページの数え方と、実戦との違い</a></li>
+<li><a href="#matome">まとめ</a></li>
+</ol>
+</nav>
+
+<h2 id="mondai">問題：手牌と条件</h2>
+<p>東場の5巡目、あなたは東家（親）です。誰も鳴かず、リーチもかかっていません。次の14枚から、1枚を切ってください。</p>
+<figure class="hf"><div class="tiles" role="img" aria-label="手牌：3萬 4萬 5萬 6萬 7筒 8筒 9筒 5索 5索 7索 7索 8索 北 北"><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m3.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m6.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p8.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p9.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s8.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span></div><figcaption>第6問の手牌（14枚）　<span class="hand">3456m 789p 55778s 北北</span></figcaption></figure>
+<ul>
+<li>萬子は3456mの4連形、筒子は789pの面子です。</li>
+<li>対子が3つあります。5s5s、7s7s、北北です。</li>
+<li>7s7sには8sが寄り添っていて、7s8sの塔子にも見えます。</li>
+<li>北は東場・東家のどちらの風でもないので、役にはなりません。ドラはなく、門前でリーチはかけられます。</li>
+</ul>
+<div class="pick" id="pick" data-q="q6" data-ans="3m,6m" data-label="第6問" data-href="/articles/mahjong-nanikiru-q6">
+<p class="pick-t"><b>先に自分の答えを選ぶ</b><br>切る牌をタップ。記録はこの端末の中だけに残り、外には送られません。</p>
+<div class="pick-row" role="group" aria-label="切る牌を選ぶ"><button type="button" data-t="3m" aria-label="3mを切る">3m</button><button type="button" data-t="4m" aria-label="4mを切る">4m</button><button type="button" data-t="5m" aria-label="5mを切る">5m</button><button type="button" data-t="6m" aria-label="6mを切る">6m</button><button type="button" data-t="7p" aria-label="7pを切る">7p</button><button type="button" data-t="8p" aria-label="8pを切る">8p</button><button type="button" data-t="9p" aria-label="9pを切る">9p</button><button type="button" data-t="5s" aria-label="5sを切る">5s</button><button type="button" data-t="7s" aria-label="7sを切る">7s</button><button type="button" data-t="8s" aria-label="8sを切る">8s</button><button type="button" data-t="北" aria-label="北を切る">北</button></div>
+<p class="pick-res" id="pick-res" aria-live="polite"></p>
+<div class="pick-stat" id="pick-stat" hidden>
+<p class="pick-rate" id="pick-rate"></p>
+<p class="pick-miss" id="pick-miss" hidden></p>
+<button type="button" class="pick-reset" id="pick-reset">記録を消す</button>
+</div>
+</div>
+<script>
+(function(){
+var K="mjt_nq",box=document.getElementById("pick");if(!box)return;
+var res=document.getElementById("pick-res"),st=document.getElementById("pick-stat"),rate=document.getElementById("pick-rate"),miss=document.getElementById("pick-miss");
+var ans=box.getAttribute("data-ans").split(","),q=box.getAttribute("data-q"),canSave=true;
+function load(){try{var o=JSON.parse(localStorage.getItem(K)||"{}");return(o&&typeof o==="object")?o:{};}catch(e){canSave=false;return{};}}
+function save(o){try{localStorage.setItem(K,JSON.stringify(o));}catch(e){canSave=false;}}
+function show(o){
+ var keys=Object.keys(o),n=keys.length,ok=0,bad=[];
+ keys.forEach(function(k){if(o[k].ok)ok++;else bad.push(o[k]);});
+ if(!n){st.hidden=true;return;}
+ st.hidden=false;
+ rate.textContent="あなたの正解率：何切る"+n+"問中"+ok+"問（"+Math.round(ok*100/n)+"%）";
+ miss.textContent="";
+ if(bad.length){miss.hidden=false;miss.appendChild(document.createTextNode("間違えた問題："));
+  bad.forEach(function(b,i){if(i)miss.appendChild(document.createTextNode("、"));var a=document.createElement("a");a.href=b.h;a.textContent=b.l;miss.appendChild(a);});}
+ else miss.hidden=true;
+}
+function mark(o){var cur=o[q]?o[q].p:"";[].forEach.call(box.querySelectorAll("button[data-t]"),function(b){b.setAttribute("aria-pressed",b.getAttribute("data-t")===cur?"true":"false");});}
+function msg(p,ok){res.textContent=ok?("正解です。"+p+"を切るのが最善です（受け入れ最多）。下の表で、他の打牌との差を確かめてください。"):("惜しい。"+p+"を切ると、受け入れは下の表のとおり最善より少なくなります。答えは"+ans.join("か")+"です。");}
+var o=load();
+if(o[q]){msg(o[q].p,o[q].ok);}
+mark(o);show(o);
+box.addEventListener("click",function(e){
+ var b=e.target.closest?e.target.closest("button[data-t]"):null;if(!b)return;
+ var p=b.getAttribute("data-t"),ok=ans.indexOf(p)>-1?1:0;
+ o=load();o[q]={p:p,ok:ok,l:box.getAttribute("data-label"),h:box.getAttribute("data-href")};save(o);
+ msg(p,ok);if(!canSave)res.textContent+="（この端末では記録を保存できません）";
+ mark(o);show(o);
+});
+document.getElementById("pick-reset").addEventListener("click",function(){
+ if(!confirm("この端末に残した何切るの記録を消します。よろしいですか？"))return;
+ try{localStorage.removeItem(K);}catch(e){}
+ o={};res.textContent="";mark(o);show(o);
+});
+})();
+</script>
+
+<h2 id="kotae">答えと、全部の打牌の<span style="white-space:nowrap">受け入れ枚数</span></h2>
+<p><span class="answer">答え：3mか6m</span>。切った後は1シャンテン、受け入れは14枚（5種）です。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">3m</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　<span style="white-space:nowrap">9s×4　北×2</span></td></tr><tr><th scope="row">6m</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　<span style="white-space:nowrap">9s×4　北×2</span></td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>12枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">9s×4　北×2</span></td></tr><tr><th scope="row">8s</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">5s</th><td>1シャンテン</td><td>8枚（2種）</td><td>6s×4　9s×4</td></tr><tr><th scope="row">それ以外<br>（4m・5m・7p・8p・9p・北）</th><td>2シャンテンに後退</td><td>最大45枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
+<p class="muted">※出典＝雀トレのエンジン（engine.js）の計算値、2026年11月時点。さらに、別に書いた全数え上げのプログラムで同じ14枚を計算し直し、全打牌のシャンテン数・受け入れ枚数・受け入れ牌が一致することを確認しています。</p>
+
+<h2 id="riyu">なぜ4連形の<span style="white-space:nowrap">端を切るのか</span></h2>
+<p>3456mは、345mの面子と6mが余っている形、あるいは456mの面子と3mが余っている形です。面子として使えるのは3枚だけで、<b>余った1枚は、どこにも繋がっていない浮き牌とほぼ同じ働き</b>です。</p>
+<p>この手はすでに、面子が2つ（3456mの中の1つと789p）あります。残りの対子・塔子も足りているので、余り1枚の周りの牌（2mや7m）を引いても、シャンテンは進みません。表のどの行にも、萬子の牌が1枚も出てこないのはそのためです。</p>
+<p>では、他の牌を切ると<span style="white-space:nowrap">どうなるでしょう。</span></p>
+<ul>
+<li><b>7sを切る（12枚）</b>：7sが対子でなくなり、7sを引いて刻子にする受け（2枚）が消えます。</li>
+<li><b>8sを切る（10枚）</b>：7s8sの繋がりがなくなり、9s（4枚）の受けが消えます。</li>
+<li><b>5sを切る（8枚）</b>：5s・7s・北を引いて刻子にする受け（各2枚）がまとめて消え、6sと9sの8枚だけになります。</li>
+</ul>
+<p>3mか6mを切るだけなら、対子も塔子も、1枚も減りません。余り1枚を切ることが、受けを一番減らさない選択です。</p>
+
+<h2 id="mikata">4連形と5連形の<span style="white-space:nowrap">見分け方</span></h2>
+<p>萬子の連続が1枚増えると、答えが変わります。表にまとめます（変形1の手牌も含みます）。</p>
+<p class="muted" style="margin:0 0 6px">← 表は横にスクロールできます</p>
+<div class="scroll-x"><table class="cmp">
+<thead><tr><th scope="col">萬子の形</th><th scope="col">見方</th><th scope="col">余り</th></tr></thead>
+<tbody>
+<tr><th scope="row">3456m（4連形）</th><td>345mか456mの面子＋余り1枚</td><td>あり（3mか6mを切る）</td></tr>
+<tr><th scope="row">23456m（5連形）</th><td>234mの面子＋56mの両面、または23mの両面＋456mの面子</td><td>なし（切るなら別のブロック）</td></tr>
+</tbody>
+</table></div>
+<p>4連形は、余りの1枚を切る。5連形は、全部が面子か両面として使えるので、萬子には手を付けず、別のブロックを探す。この区別は、変形1で数字として確かめます。</p>
+<p class="muted">※どんな手でも成り立つわけではありません。ブロックが足りない手（面子が少ない手）では、余り1枚も塔子の一部として働くことがあります。確かめるには、全打牌の受け入れ枚数を数えます。このページの表は、それをエンジンで全打牌に行ったものです。</p>
+
+<h2 id="miss">よくある間違い</h2>
+<ul>
+<li><b>北北の片方を切る</b>：この手では北北が雀頭の役目をしています。1枚切ると雀頭がなくなって2シャンテンに後退し、表の「それ以外」の行になります。</li>
+<li><b>8sを切る</b>：8sは7sと並んで、9sを呼び込みます。切ると9sの4枚が受けから消えて10枚。いちばん手を狭める余計な1枚ではありません。</li>
+<li><b>4連形は完成形だから崩さない</b>：完成しているのは3枚だけ。余りの1枚は、守る価値が低い牌です。</li>
+</ul>
+
+<h2 id="henkei">変形1・2：萬子と<span style="white-space:nowrap">索子を入れ替える</span></h2>
+<p>手牌の一部を入れ替えた2問です。先に自分で考えて、「答えを見る」を開いてください。条件は第6問と同じで、789pと北北はそのままです。</p>
+<h3>変形1</h3>
+<figure class="hf"><div class="tiles" role="img" aria-label="手牌：2萬 3萬 4萬 5萬 6萬 7筒 8筒 9筒 5索 5索 7索 7索 北 北"><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m2.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m3.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m6.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p8.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p9.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span></div><figcaption>変形1の手牌（14枚）　<span class="hand">23456m 789p 5577s 北北</span></figcaption></figure>
+<p>8sが2mに変わり、萬子が23456mの5連形になりました。<span style="white-space:nowrap">何を切りますか？</span></p>
+<details class="ans"><summary>答えを見る</summary>
+<p><span class="answer">答え：5sか7s</span><span style="white-space:nowrap">（1シャンテン・受け入れ19枚）</span></p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">5s</th><td>1シャンテン</td><td>19枚（6種）</td><td>1m×4　4m×3　7m×4　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>19枚（6種）</td><td>1m×4　4m×3　7m×4　5s×2　<span style="white-space:nowrap">6s×4　北×2</span></td></tr><tr><th scope="row">北</th><td>1シャンテン</td><td>15枚（5種）</td><td>1m×4　4m×3　7m×4　<span style="white-space:nowrap">5s×2　7s×2</span></td></tr><tr><th scope="row">2m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">3m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">5m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">6m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">それ以外<br>（4m・7p・8p・9p）</th><td>2シャンテンに後退</td><td>最大28枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
+<p>5sか7sを切るのが最多の19枚で、同点です。萬子は5連形で余りがなく、2m・3m・5m・6mのどれを切っても10枚に落ちます。北北を切ると15枚。対子の5sと7sのうち、片方を切ると、残った5s・7s・7s（または5s・5s・7s）に6sが入って順子になるので、受けが増えます。</p>
+</details>
+
+<h3>変形2</h3>
+<figure class="hf"><div class="tiles" role="img" aria-label="手牌：3萬 4萬 5萬 6萬 7筒 8筒 9筒 5索 5索 7索 7索 9索 北 北"><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m3.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m6.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p8.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p9.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s9.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span></div><figcaption>変形2の手牌（14枚）　<span class="hand">3456m 789p 55779s 北北</span></figcaption></figure>
+<p>8sが9sに変わりました。<span style="white-space:nowrap">何を切りますか？</span></p>
+<details class="ans"><summary>答えを見る</summary>
+<p><span class="answer">答え：3mか6m</span><span style="white-space:nowrap">（1シャンテン・受け入れ14枚）</span></p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">3m</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　<span style="white-space:nowrap">8s×4　北×2</span></td></tr><tr><th scope="row">6m</th><td>1シャンテン</td><td>14枚（5種）</td><td>5s×2　6s×4　7s×2　<span style="white-space:nowrap">8s×4　北×2</span></td></tr><tr><th scope="row">9s</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">5s</th><td>1シャンテン</td><td>8枚（2種）</td><td>6s×4　8s×4</td></tr><tr><th scope="row">7s</th><td>1シャンテン</td><td>8枚（3種）</td><td>5s×2　<span style="white-space:nowrap">8s×4　北×2</span></td></tr><tr><th scope="row">それ以外<br>（4m・5m・7p・8p・9p・北）</th><td>2シャンテンに後退</td><td>最大45枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
+<p>3mか6mを切るのが最多の14枚で、第6問と同じ答えです。7s9sはカンチャンで、8sを引くと789sの順子になります（4枚）。9sを切ると10枚に減ります。カンチャンの塔子があっても、余り1枚を切る方が受けは広いままです。</p>
+</details>
+
+
+<h2 id="henkei3">変形3：3つの答えが<span style="white-space:nowrap">同点になるとき</span></h2>
+<p>最後の1問は、受け入れ枚数では決まらない場面です。</p>
+<h3>変形3</h3>
+<figure class="hf"><div class="tiles" role="img" aria-label="手牌：3萬 4萬 5萬 6萬 7筒 8筒 9筒 1索 5索 5索 7索 7索 北 北"><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m3.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/m6.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p8.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/p9.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s1.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s5.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/s7.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span><span class="t"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><image href="/img/tiles/z4.svg" width="300" height="400"/></svg></span></div><figcaption>変形3の手牌（14枚）　<span class="hand">3456m 789p 15577s 北北</span></figcaption></figure>
+<p>8sが1sに変わりました。<span style="white-space:nowrap">何を切りますか？</span></p>
+<details class="ans"><summary>答えを見る</summary>
+<p><span class="answer">答え：3mか6mか1s</span><span style="white-space:nowrap">（1シャンテン・受け入れ10枚）</span></p>
+<div class="scroll-x"><table class="cmp"><thead><tr><th scope="col">切る牌</th><th scope="col">切った後</th><th scope="col">受け入れ</th><th scope="col">受け入れ牌（残り枚数）</th></tr></thead><tbody><tr><th scope="row">3m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">6m</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">1s</th><td>1シャンテン</td><td>10枚（4種）</td><td>5s×2　6s×4　<span style="white-space:nowrap">7s×2　北×2</span></td></tr><tr><th scope="row">それ以外<br>（4m・5m・7p・8p・9p・5s・7s・北）</th><td>2シャンテンに後退</td><td>最大61枚</td><td>シャンテン数が戻るので比べない</td></tr></tbody></table></div>
+<p>3m・6m・1sのどれを切っても10枚で、3通りが同点です。3mか6mは4連形の余り1枚、1sは繋がりのない浮き牌で、どれも「余り1枚」という点で同じ働きだからです。同点のときは、河で見えた牌・打点・安全度で選びます。受け入れ枚数だけでは決まらない場面です。</p>
+</details>
+
+
+<h2 id="keisan">このページの数え方と、実戦との違い</h2>
+<p>受け入れ枚数は、雀トレのエンジン（<span class="hand">engine.js</span>）が1枚ずつ切って計算した値です。さらに、エンジンとは別に書いた全数え上げのプログラムで、このページの4つの手牌・計44通りの打牌を計算し直して、すべて一致しました。出典＝雀トレ自身の計算、2026年11月の実測です。</p>
+<ul>
+<li>見えている牌は<b>自分の14枚だけ</b>。河・ドラ表示牌・他家の鳴きは考えていません。</li>
+<li>「受け入れ」は、引いたときにシャンテン数が1つ進む牌の合計です。切った牌も「見えている牌」として数えています。</li>
+<li>七対子と国士無双も同時に調べています。副露（鳴き）はなしです。</li>
+<li>待ちの形の良さや打点は、受け入れ枚数には入っていません。</li>
+</ul>
+<p>実戦では、河で見えた牌の分だけ受け入れは減ります。またテンパイしたときの待ちの形も、勝負を分けます。このページの答えは「何も情報がない序盤」の基準点だと考えてください。※手計算ではなくエンジンの値なので、試したい手牌は<a href="/drill">何切るドリル</a>でも確かめられます。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>第6問の答えは<b>3mか6m</b>。4連形の余り1枚を切ると、受け入れが14枚で最多です。</li>
+<li>4連形（3456m）は、面子3枚＋余り1枚。余りは浮き牌と同じ働きなので、最初に切る候補になる。</li>
+<li>5連形（23456m）は余りがない。このときは対子の5sか7sを切るほうが、受けが広い。</li>
+<li>受け入れ枚数が同じになる場面もある。そのときは河・打点・安全度で決める。</li>
+</ul>
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：自分の手牌で4枚以上つながった形を見つけたら、面子3枚と余り1枚に分けて、余りを数えてみる。</b></p>
+<p style="margin:0">・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・前の問題へ → <a href="/articles/mahjong-nanikiru-q5"><span style="white-space:nowrap">第5問：両面が2つ、それでも崩す？</span></a><br>
+・5ブロックの数え方 → <a href="/articles/mahjong-what-to-discard"><span style="white-space:nowrap">何を切るか迷ったときの基本方針</span></a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-nanikiru-q5"><b>何切る 第5問｜両面が2つ。それでも両面を崩すのが最善？</b>23sと56sが並んだとき、受けの重なりを数えて決める1問。</a>
+<a class="next" href="/articles/mahjong-machi-maisuu"><b>麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた</b>形ごとの待ち枚数を一覧で比べる。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-18">2026年11月18日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
