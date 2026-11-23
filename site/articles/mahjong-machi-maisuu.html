@@ -17,7 +17,7 @@
 <script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた","datePublished":"2026-11-11","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-machi-maisuu","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-16"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた","datePublished":"2026-11-11","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-machi-maisuu","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-23"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"麻雀の待ちで、一番枚数が多いのはどの形ですか？","acceptedAnswer":{"@type":"Answer","text":"純正九蓮宝燈の形（1112345678999m）で23枚です。1〜9のすべてが待ちになります。形として覚えやすい多面張は、三面張の11枚です。"}},{"@type":"Question","name":"待ちの種類が多いと、必ず有利ですか？","acceptedAnswer":{"@type":"Answer","text":"枚数が多いほど、和了牌を引きやすくなります。ただし、打点・役・フリテン・河での出やすさは別に考えます。この記事で数えたのは枚数だけです。"}},{"@type":"Question","name":"空聴（カラテン）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"待ち牌を自分で4枚すべて持っていて、残りが0枚のテンパイです。形はテンパイでも、他の誰も引けないので、和了は実質できません。"}}]}</script>
 <script src="/oc.js" defer></script>
 <style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:96px}table.cmp td.num{white-space:nowrap;text-align:right}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}</style>
@@ -92,6 +92,7 @@
 </tbody></table></div>
 <p>両面は枚数が多い分、見えた牌の影響を受けやすい形です。この例では、河に出た牌だけで半分になりました。待ちを選ぶときは、手牌を作る前の「理論上の枚数」ではなく、見えている牌を引いた数で比べます。</p>
 <p>字牌の単騎は、場に1枚出ると残り2枚に減ります。待ちが少ない形ほど、1枚見えたときの割合が大きく、影響が重くなります。</p>
+<p>この枚数でツモあがりの確率がどう変わるかは、<a href="/articles/mahjong-tsumo-agari-kakuritsu">待ち枚数×残りツモ回数の確率表</a>にまとめました（両面は残り7ツモで50%、4枚待ちは17ツモでも45.9%）。</p>
 
 <h2 id="zensu">1色13枚の全93,600通りを数えると、待ちはどう分布するか？</h2>
 <p><b>結論：テンパイ形のうち、待ちが1〜2種類のものが約70%で、待ち枚数は4枚ちょうどが最多（33.5%）でした。</b>1つのスートだけで13枚を作る手牌（各牌4枚まで）は、全部で93,600通りあります。そのすべてを、エンジンで1つずつ調べました（実測）。</p>
@@ -162,9 +163,10 @@
 </div>
 
 <h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-tsumo-agari-kakuritsu"><b>麻雀のツモあがり確率表｜何ツモで50%に届くか</b>待ち枚数1〜11枚×残りツモ1〜17回の確率表と、1枚見えたときの損。</a>
 <a class="next" href="/articles/mahjong-nanikiru-q5"><b>何切る 第5問｜両面が2つ。それでも両面を崩すのが最善？</b>両面の受けが重なるとき、枚数はどう変わるか。</a>
 <a class="next" href="/articles/mahjong-haipai-shanten"><b>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</b>配牌13枚のシャンテン数の分布と、1ツモ後の変化。</a>
 
 </div>
-<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-11">2026年11月11日</time>　最終更新：<time datetime="2026-11-16">2026年11月16日</time></p>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-11">2026年11月11日</time>　最終更新：<time datetime="2026-11-23">2026年11月23日</time></p>
 <footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>

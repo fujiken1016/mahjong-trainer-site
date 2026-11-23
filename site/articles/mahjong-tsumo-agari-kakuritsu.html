@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀のツモあがり確率表｜待ち枚数×残りツモ回数で、何ツモで50%に届くか | 雀トレ</title>
+<meta name="description" content="麻雀の待ち枚数1〜8・11枚×残りツモ回数1〜17回の、ツモあがり確率表。両面8枚は残り7ツモで50%、嵌張・辺張・シャボの4枚は17ツモでも45.9%。厳密計算とモンテカルロで検算しました。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-tsumo-agari-kakuritsu">
+<meta property="og:title" content="麻雀のツモあがり確率表｜何ツモで50%に届く？">
+<meta property="og:image" content="https://mahjong.mainichi-lab.com/og_mahjong.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="538">
+<meta name="twitter:image" content="https://mahjong.mainichi-lab.com/og_mahjong.jpg">
+<meta property="og:description" content="両面8枚は残り7ツモで50%。4枚待ちは17ツモでも45.9%。待ち枚数×残りツモの確率表。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-tsumo-agari-kakuritsu">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀のツモあがり確率表｜待ち枚数×残りツモ回数で、何ツモで50%に届くか","datePublished":"2026-11-23","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-tsumo-agari-kakuritsu","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about", "sameAs": ["https://note.com/fujiken818", "https://qiita.com/fujiken818", "https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-23"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"待ち8枚の両面は、何ツモで50%に届きますか？","acceptedAnswer":{"@type":"Answer","text":"残りツモ7回で53.1%、6回では49.4%です。東家・南家なら11巡目まで、西家・北家なら10巡目までにテンパイすれば、ツモだけで半分を超えます。ロン、鳴き、他家のあがりは数えていません。"}},{"@type":"Question","name":"嵌張・辺張・シャボ（4枚待ち）は、ツモだけで50%に届きますか？","acceptedAnswer":{"@type":"Answer","text":"届きません。東家が1巡目にテンパイして残り17ツモあっても45.9%です。33%（3回に1回）に届くのは残り9ツモです。"}},{"@type":"Question","name":"待ち牌が1枚見えると、何ツモ分の損ですか？","acceptedAnswer":{"@type":"Answer","text":"4枚待ちが3枚待ちになると、残り7ツモで届く30.8%に届くのに、残り約12ツモ（31.9%）が必要です。約4〜5ツモ分です。8枚待ちが7枚待ちになる場合は約3ツモ分です。"}},{"@type":"Question","name":"この表の確率には、ロンでのあがりが含まれますか？","acceptedAnswer":{"@type":"Answer","text":"含まれません。自分のツモだけであがれる確率です。他家のあがり・鳴き・流局で局が止まる影響も入れていないので、実戦の数字そのものではなく、枚数と残りツモを比べる物差しとして使ってください。"}}]}</script>
+<script src="/oc.js" defer></script>
+<style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:56px}table.cmp td.num{white-space:nowrap;text-align:right}table.wrapth th[scope=row]{white-space:normal;min-width:128px}table.cmp td.hi{font-weight:700;background:rgba(52,229,255,.14)}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}table.full th[scope=row]{position:sticky;left:0;background:#141238;z-index:1}table.full th,table.full td{padding:7px 8px}table.full th.lt{font-weight:400;color:var(--sub)}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}.page-updated time{white-space:nowrap}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>麻雀のツモあがり確率表｜待ち枚数×残りツモ回数で、何ツモで50%に届くか</h1>
+
+<div class="card">
+<p class="lead"><b>先に結論です。待ち8枚の両面は、残りツモ7回でツモあがり確率が50%に届きます。嵌張・辺張・シャボの4枚待ちは、東家が1巡目にテンパイして残り17ツモあっても45.9%で、50%に届きません。</b>両面と4枚待ちの差は、残りツモが少ないほど大きく（1ツモ目で2.0倍）、多いほど縮みます（17ツモで1.56倍）。</p>
+
+<div class="rulebox">
+<p><b>この記事の数字の出どころ</b>：自分の手牌13枚・ドラ表示牌・河の牌を除いた「自分から見えない牌」の中に、待ち牌がランダムに入っているとして、自分のツモだけであがれる確率を計算しました（2026年11月23日に計算）。厳密計算（Python）と、山の順番を再現したモンテカルロ（C言語）で検算し、一致しています。ロン・鳴き・他家のあがりは入っていません。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#yomu">形ごとの確率：両面・嵌張・単騎は何%か</a></li>
+<li><a href="#han">何ツモで33%・50%に届くか</a></li>
+<li><a href="#ichimai">待ち牌が1枚見えると、何ツモ分の損か</a></li>
+<li><a href="#zenhyo">全表：待ち枚数×残りツモ（1〜17回）</a></li>
+<li><a href="#tsukai">表の引き方と、数え方の前提</a></li>
+<li><a href="#kensan">検算：2つの方法と、公開されている数値との一致</a></li>
+<li><a href="#chigai">すでに公開されているツモ確率の記事との違い</a></li>
+<li><a href="#matome">まとめ</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="yomu">形ごとのツモあがり確率は、何%か？</h2>
+<p><b>結論：同じ残り9ツモでも、三面張は71.3%、両面は59.0%、嵌張・辺張・シャボは35.2%、単騎は27.7%です。</b>待ち枚数の数え方は<a href="/articles/mahjong-machi-maisuu">待ちの形ごとの枚数の記事</a>のとおりで、何も見えていないときは両面8枚・嵌張4枚・シャボ4枚・単騎3枚・ノベタン6枚・三面張11枚です。</p>
+<p>「残りツモ」は、テンパイして打牌したあとに、自分が引ける回数です。東家・南家は「18−テンパイ巡目」、西家・北家は「17−テンパイ巡目」回になります（例：東家が6巡目にテンパイすれば残り12ツモ）。数字は自分のツモだけであがる確率（％）で、50%以上は太字・水色の背景にしています（2026年11月23日の計算値）。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">待ちの形（枚数）</th><th scope="col">残り3ツモ</th><th scope="col">残り6ツモ</th><th scope="col">残り9ツモ</th><th scope="col">残り12ツモ</th><th scope="col">残り15ツモ</th></tr></thead><tbody><tr><th scope="row">単騎（3枚）</th><td class="num">13.4</td><td class="num">21.9</td><td class="num">27.7</td><td class="num">31.9</td><td class="num">35.0</td></tr><tr><th scope="row">嵌張・辺張・シャボ（4枚）</th><td class="num">17.6</td><td class="num">28.2</td><td class="num">35.2</td><td class="num">40.2</td><td class="num">43.9</td></tr><tr><th scope="row">ノベタン（6枚）</th><td class="num">25.6</td><td class="num">39.6</td><td class="num">48.3</td><td class="num hi">54.1</td><td class="num hi">58.3</td></tr><tr><th scope="row">両面（8枚）</th><td class="num">33.0</td><td class="num">49.4</td><td class="num hi">59.0</td><td class="num hi">65.1</td><td class="num hi">69.2</td></tr><tr><th scope="row">三面張（11枚）</th><td class="num">43.2</td><td class="num hi">61.7</td><td class="num hi">71.3</td><td class="num hi">77.0</td><td class="num hi">80.7</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf1t" viewBox="0 0 293 140" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf1t">残り9ツモのツモあがり確率。三面張71.3%、両面59.0%、4枚待ち35.2%、単騎27.7%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">三面張</text><rect x="78" y="8" width="143" height="18" rx="4" fill="#34e5ff"/><text x="229" y="22">71.3%</text><text x="4" y="55">両面</text><rect x="78" y="41" width="118" height="18" rx="4" fill="#34e5ff"/><text x="204" y="55">59.0%</text><text x="4" y="88">4枚待ち</text><rect x="78" y="74" width="70" height="18" rx="4" fill="#34e5ff"/><text x="156" y="88">35.2%</text><text x="4" y="121">単騎</text><rect x="78" y="107" width="55" height="18" rx="4" fill="#ff7ad9"/><text x="141" y="121">27.7%</text></g></svg></div>
+<figcaption>図1：残り9ツモ（東家9巡目テンパイ）のツモあがり確率。「4枚待ち」は嵌張・辺張・シャボ（この記事の計算値）。</figcaption></figure>
+<p>1ツモ目だけを見ると確率は「待ち枚数÷未見牌」に近く、両面は4枚待ちのちょうど2倍です。ツモ回数が増えるほど、どの形も頭打ちに近づくので、倍率は縮みます（残り12ツモで両面65.1%、4枚待ち40.2%＝1.62倍）。</p>
+
+<h2 id="han">何ツモで33%・50%に届くか？</h2>
+<p><b>結論：ツモだけで50%に届くのは、待ち5枚以上です。4枚以下は、1巡目テンパイでも届きません。</b>テンパイから流局までの最大ツモ回数は、東家・南家が17回（1巡目テンパイのとき）です。この範囲で、確率が3分の1・2分の1に最初に届く残りツモ回数を数えました。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">待ち枚数</th><th scope="col">33%に届く</th><th scope="col">50%に届く</th><th scope="col">残り17ツモの確率</th></tr></thead><tbody><tr><th scope="row">1枚</th><td class="num">届かない</td><td class="num">届かない</td><td class="num">14.0%</td></tr><tr><th scope="row">2枚</th><td class="num">届かない</td><td class="num">届かない</td><td class="num">26.2%</td></tr><tr><th scope="row">3枚</th><td class="num">残り14ツモ</td><td class="num">届かない</td><td class="num">36.8%</td></tr><tr><th scope="row">4枚</th><td class="num">残り9ツモ</td><td class="num">届かない</td><td class="num">45.9%</td></tr><tr><th scope="row">5枚</th><td class="num">残り6ツモ</td><td class="num">残り14ツモ</td><td class="num">53.7%</td></tr><tr><th scope="row">6枚</th><td class="num">残り5ツモ</td><td class="num">残り10ツモ</td><td class="num">60.5%</td></tr><tr><th scope="row">7枚</th><td class="num">残り4ツモ</td><td class="num">残り8ツモ</td><td class="num">66.4%</td></tr><tr><th scope="row">8枚</th><td class="num">残り4ツモ</td><td class="num">残り7ツモ</td><td class="num">71.4%</td></tr><tr><th scope="row">11枚</th><td class="num">残り3ツモ</td><td class="num">残り4ツモ</td><td class="num">82.5%</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf2t" viewBox="0 0 293 205" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf2t">ツモあがり確率が50%に届く残りツモ回数。11枚4回、8枚7回、7枚8回、6枚10回、5枚14回。4枚は17回でも届かない</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">4枚</text><rect x="52" y="8" width="153" height="18" rx="4" fill="#ff7ad9"/><text x="213" y="22">届かない</text><text x="4" y="55">5枚</text><rect x="52" y="41" width="126" height="18" rx="4" fill="#34e5ff"/><text x="186" y="55">14</text><text x="4" y="88">6枚</text><rect x="52" y="74" width="90" height="18" rx="4" fill="#34e5ff"/><text x="150" y="88">10</text><text x="4" y="121">7枚</text><rect x="52" y="107" width="72" height="18" rx="4" fill="#34e5ff"/><text x="132" y="121">8</text><text x="4" y="154">8枚</text><rect x="52" y="140" width="63" height="18" rx="4" fill="#34e5ff"/><text x="123" y="154">7</text><text x="4" y="187">11枚</text><rect x="52" y="173" width="36" height="18" rx="4" fill="#34e5ff"/><text x="96" y="187">4</text></g></svg></div>
+<figcaption>図2：ツモあがり確率が50%に届く残りツモ回数（回）。4枚待ちは最大の17回でも45.9%で届かないため「届かない」と表示（この記事の計算値）。</figcaption></figure>
+<ul>
+<li>両面（8枚）は残り7ツモで53.1%。残り6ツモは49.4%なので、<b>東家・南家は11巡目まで、西家・北家は10巡目までにテンパイして</b>ようやく半分です。</li>
+<li>嵌張・辺張・シャボ（4枚）は、33%に届くのが残り9ツモ（35.2%）。東家で9巡目までにテンパイしても3回に1回です。</li>
+<li>三面張（11枚）は残り4ツモで50.9%。東家なら14巡目までのテンパイで届きます。</li>
+</ul>
+<p>「リーチをかければツモれる」と思って押す場面でも、4枚待ちで残り3ツモなら、ツモあがりだけを見れば17.6%です。ロンやオリた相手からの出あがりは別の話なので、<a href="/articles/mahjong-riichi-naki">リーチするか鳴くかの判断</a>では、この数字を「自分のツモだけで考えた下限」として使います。</p>
+
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf3t" viewBox="0 0 293 212" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf3t">残りツモ回数ごとのツモあがり確率の推移。11枚は4回、8枚は7回で50%を超え、4枚は17回でも45.9%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff">
+<line x1="34" y1="77.8" x2="262" y2="77.8" stroke="#9aa5c9" stroke-width="1" stroke-dasharray="4 4"/>
+<polyline points="34.0,128.3 48.2,105.6 62.5,88.9 76.8,76.3 91.0,66.4 105.2,58.6 119.5,52.2 133.8,47.1 148.0,42.7 162.2,39.1 176.5,36.0 190.8,33.3 205.0,31.0 219.2,29.0 233.5,27.2 247.8,25.7 262.0,24.3" fill="none" stroke="#34e5ff" stroke-width="2.5"/><polyline points="34.0,136.9 48.2,119.4 62.5,105.7 76.8,94.8 91.0,86.0 105.2,78.7 119.5,72.6 133.8,67.5 148.0,63.1 162.2,59.2 176.5,55.9 190.8,53.0 205.0,50.5 219.2,48.2 233.5,46.1 247.8,44.3 262.0,42.6" fill="none" stroke="#ff7ad9" stroke-width="2.5"/><polyline points="34.0,148.5 48.2,139.0 62.5,131.0 76.8,124.3 91.0,118.6 105.2,113.6 119.5,109.3 133.8,105.5 148.0,102.1 162.2,99.1 176.5,96.3 190.8,93.9 205.0,91.7 219.2,89.7 233.5,87.8 247.8,86.1 262.0,84.6" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-dasharray="7 4"/>
+<text x="30" y="165" text-anchor="end">0</text><text x="30" y="124" text-anchor="end">25</text><text x="30" y="83" text-anchor="end">50</text><text x="30" y="42" text-anchor="end">75</text><text x="34" y="182" text-anchor="middle">1</text><text x="91" y="182" text-anchor="middle">5</text><text x="148" y="182" text-anchor="middle">9</text><text x="205" y="182" text-anchor="middle">13</text><text x="262" y="182" text-anchor="middle">17</text>
+<text x="268" y="29">11</text><text x="268" y="48">8</text><text x="268" y="90">4</text>
+<text x="148" y="206" text-anchor="middle">残りツモ（回）</text></g></svg></div>
+<figcaption>図3：待ち11枚・8枚・4枚（破線）の、残りツモ回数ごとの確率（％）。点線は50%。右端の数字は待ち枚数（この記事の計算値）。</figcaption></figure>
+<h2 id="ichimai">待ち牌が1枚見えると、何ツモ分の損か？</h2>
+<p><b>結論：4枚待ちが3枚待ちになると約4〜5ツモ分、8枚待ちが7枚待ちになると約3ツモ分の損です。</b>河や他家の副露で待ち牌が1枚見えたとき、確率は次のように下がります（表より。東家の残りツモ数）。</p>
+<div class="scroll-x"><table class="cmp wrapth"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">待ちの形</th><th scope="col">見えた牌なし</th><th scope="col">1枚見えた</th><th scope="col">差</th></tr></thead><tbody>
+<tr><th scope="row">残り9ツモ・4枚→3枚</th><td class="num">35.2%</td><td class="num">27.7%</td><td class="num">−7.5ポイント</td></tr>
+<tr><th scope="row">残り9ツモ・8枚→7枚</th><td class="num">59.0%</td><td class="num">53.9%</td><td class="num">−5.1ポイント</td></tr>
+<tr><th scope="row">残り12ツモ・4枚→3枚</th><td class="num">40.2%</td><td class="num">31.9%</td><td class="num">−8.3ポイント</td></tr>
+<tr><th scope="row">残り12ツモ・8枚→7枚</th><td class="num">65.1%</td><td class="num">59.9%</td><td class="num">−5.2ポイント</td></tr>
+</tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf4t" viewBox="0 0 293 244" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf4t">待ち牌が1枚見えたときの確率の変化。残り9ツモの4枚待ちは35.2%から27.7%、8枚待ちは59.0%から53.9%。残り12ツモの4枚待ちは40.2%から31.9%、8枚待ちは65.1%から59.9%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="20">残り9ツモ・4枚→3枚</text><rect x="4" y="26" width="106" height="14" rx="3" fill="#34e5ff"/><text x="116" y="38">35.2%</text><rect x="4" y="43" width="83" height="14" rx="3" fill="#ff7ad9"/><text x="93" y="55">27.7%</text><text x="4" y="78">残り9ツモ・8枚→7枚</text><rect x="4" y="84" width="177" height="14" rx="3" fill="#34e5ff"/><text x="187" y="96">59.0%</text><rect x="4" y="101" width="162" height="14" rx="3" fill="#ff7ad9"/><text x="172" y="113">53.9%</text><text x="4" y="136">残り12ツモ・4枚→3枚</text><rect x="4" y="142" width="121" height="14" rx="3" fill="#34e5ff"/><text x="131" y="154">40.2%</text><rect x="4" y="159" width="96" height="14" rx="3" fill="#ff7ad9"/><text x="106" y="171">31.9%</text><text x="4" y="194">残り12ツモ・8枚→7枚</text><rect x="4" y="200" width="195" height="14" rx="3" fill="#34e5ff"/><text x="205" y="212">65.1%</text><rect x="4" y="217" width="180" height="14" rx="3" fill="#ff7ad9"/><text x="190" y="229">59.9%</text></g></svg></div>
+<figcaption>図4：待ち牌が見えていないとき（上の水色の棒）と、1枚見えたとき（下のピンクの棒）の確率（この記事の計算値）。</figcaption></figure>
+<p>「ツモ分」に直すと、4枚待ちが残り7ツモで届く30.8%に、3枚待ちは残り11〜12ツモ（30.6〜31.9%）かかります。約4〜5ツモ分です。8枚待ちが残り9ツモで届く59.0%には、7枚待ちは残り12ツモ（59.9%）かかり、約3ツモ分です。待ち枚数が少ないほど、1枚の重みが増えます。だから<a href="/articles/mahjong-nanikiru-q3">ペンチャンとカンチャンのどちらを払うか</a>のような場面では、残り枚数を数えて決めます。</p>
+
+<h2 id="zenhyo">全表：待ち枚数×残りツモ（1〜17回）</h2>
+<p><b>結論：この1枚で、待ち1〜8枚・11枚、残りツモ1〜17回の全部を引けます。</b>数字は東家のツモあがり確率（％・2026年11月23日の計算値）、50%以上は太字・水色の背景です。1行目は残りツモ、2行目はそのときの東家・南家のテンパイ巡目です（西家・北家は「17−残りツモ」巡目）。形の対応は、3枚＝単騎、4枚＝嵌張・辺張・シャボ、6枚＝ノベタン、8枚＝両面、11枚＝三面張です。</p>
+<div class="scroll-x"><table class="cmp full"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロール（左の列は固定）</caption><thead><tr><th scope="col">残りツモ</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th><th scope="col">13</th><th scope="col">14</th><th scope="col">15</th><th scope="col">16</th><th scope="col">17</th></tr><tr><th scope="col" class="lt">東南の巡目</th><th scope="col">17</th><th scope="col">16</th><th scope="col">15</th><th scope="col">14</th><th scope="col">13</th><th scope="col">12</th><th scope="col">11</th><th scope="col">10</th><th scope="col">9</th><th scope="col">8</th><th scope="col">7</th><th scope="col">6</th><th scope="col">5</th><th scope="col">4</th><th scope="col">3</th><th scope="col">2</th><th scope="col">1</th></tr></thead><tbody><tr><th scope="row">1枚</th><td class="num">1.8</td><td class="num">3.3</td><td class="num">4.6</td><td class="num">5.8</td><td class="num">6.8</td><td class="num">7.8</td><td class="num">8.6</td><td class="num">9.4</td><td class="num">10.1</td><td class="num">10.8</td><td class="num">11.3</td><td class="num">11.9</td><td class="num">12.4</td><td class="num">12.8</td><td class="num">13.3</td><td class="num">13.7</td><td class="num">14.0</td></tr><tr><th scope="row">2枚</th><td class="num">3.5</td><td class="num">6.5</td><td class="num">9.1</td><td class="num">11.3</td><td class="num">13.3</td><td class="num">15.1</td><td class="num">16.6</td><td class="num">18.0</td><td class="num">19.3</td><td class="num">20.5</td><td class="num">21.5</td><td class="num">22.5</td><td class="num">23.3</td><td class="num">24.1</td><td class="num">24.9</td><td class="num">25.6</td><td class="num">26.2</td></tr><tr><th scope="row">3枚</th><td class="num">5.3</td><td class="num">9.7</td><td class="num">13.4</td><td class="num">16.6</td><td class="num">19.4</td><td class="num">21.9</td><td class="num">24.0</td><td class="num">25.9</td><td class="num">27.7</td><td class="num">29.2</td><td class="num">30.6</td><td class="num">31.9</td><td class="num">33.0</td><td class="num">34.1</td><td class="num">35.0</td><td class="num">35.9</td><td class="num">36.8</td></tr><tr><th scope="row">4枚</th><td class="num">7.0</td><td class="num">12.8</td><td class="num">17.6</td><td class="num">21.7</td><td class="num">25.2</td><td class="num">28.2</td><td class="num">30.8</td><td class="num">33.2</td><td class="num">35.2</td><td class="num">37.1</td><td class="num">38.7</td><td class="num">40.2</td><td class="num">41.5</td><td class="num">42.8</td><td class="num">43.9</td><td class="num">44.9</td><td class="num">45.9</td></tr><tr><th scope="row">5枚</th><td class="num">8.8</td><td class="num">15.8</td><td class="num">21.7</td><td class="num">26.5</td><td class="num">30.6</td><td class="num">34.1</td><td class="num">37.1</td><td class="num">39.8</td><td class="num">42.1</td><td class="num">44.1</td><td class="num">46.0</td><td class="num">47.6</td><td class="num">49.1</td><td class="num hi">50.4</td><td class="num hi">51.6</td><td class="num hi">52.7</td><td class="num hi">53.7</td></tr><tr><th scope="row">6枚</th><td class="num">10.5</td><td class="num">18.9</td><td class="num">25.6</td><td class="num">31.1</td><td class="num">35.7</td><td class="num">39.6</td><td class="num">42.9</td><td class="num">45.8</td><td class="num">48.3</td><td class="num hi">50.5</td><td class="num hi">52.4</td><td class="num hi">54.1</td><td class="num hi">55.7</td><td class="num hi">57.1</td><td class="num hi">58.3</td><td class="num hi">59.5</td><td class="num hi">60.5</td></tr><tr><th scope="row">7枚</th><td class="num">12.3</td><td class="num">21.8</td><td class="num">29.4</td><td class="num">35.5</td><td class="num">40.5</td><td class="num">44.7</td><td class="num">48.2</td><td class="num hi">51.3</td><td class="num hi">53.9</td><td class="num hi">56.2</td><td class="num hi">58.2</td><td class="num hi">59.9</td><td class="num hi">61.5</td><td class="num hi">62.9</td><td class="num hi">64.2</td><td class="num hi">65.3</td><td class="num hi">66.4</td></tr><tr><th scope="row">8枚</th><td class="num">14.0</td><td class="num">24.7</td><td class="num">33.0</td><td class="num">39.6</td><td class="num">45.0</td><td class="num">49.4</td><td class="num hi">53.1</td><td class="num hi">56.3</td><td class="num hi">59.0</td><td class="num hi">61.3</td><td class="num hi">63.3</td><td class="num hi">65.1</td><td class="num hi">66.6</td><td class="num hi">68.0</td><td class="num hi">69.2</td><td class="num hi">70.4</td><td class="num hi">71.4</td></tr><tr><th scope="row">11枚</th><td class="num">19.3</td><td class="num">33.1</td><td class="num">43.2</td><td class="num hi">50.9</td><td class="num hi">56.9</td><td class="num hi">61.7</td><td class="num hi">65.5</td><td class="num hi">68.7</td><td class="num hi">71.3</td><td class="num hi">73.5</td><td class="num hi">75.4</td><td class="num hi">77.0</td><td class="num hi">78.4</td><td class="num hi">79.7</td><td class="num hi">80.7</td><td class="num hi">81.7</td><td class="num hi">82.5</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。</p>
+<p class="muted">席による差：同じ残りツモ数でも、残りの山の枚数が席ごとに最大3枚違います。全セルで比べた差は最大1.7ポイントで、上の表（東家）を西家・北家に使っても読み取りは変わりません。</p>
+
+<h2 id="tsukai">表の引き方と、数え方の前提</h2>
+<p><b>結論：必要なのは「見えていない待ち牌の枚数」と「残りツモ回数」の2つだけです。</b>手順は3つです。</p>
+<ol>
+<li>待ち牌ごとに「4−自分の手牌・河・ドラ表示牌・他家の副露で見えている枚数」を出して合計します（待ち枚数）。</li>
+<li>テンパイ後に自分が引ける回数を数えます（東家・南家は18−巡目、西家・北家は17−巡目）。</li>
+<li>表の行と列を合わせて読みます。</li>
+</ol>
+<p>数式は、未見牌をU枚、待ち牌をk枚、自分のツモをn回として、<span class="hand">あがり確率 = 1 − C(U−k, n) ÷ C(U, n)</span> です。Uは「山の残り枚数＋王牌13枚＋他家3人の手牌39枚」で、東家の場合は山の残りが4n+1枚なので<span class="hand">U = 4n + 53</span> と置きました（例：残り12ツモなら U=101）。王牌と他家の手牌にも待ち牌が埋まっている、というのが肝です。</p>
+<p>3つの母数の取り方で、同じ「残り12ツモ」がこれだけ変わります（計算値。山の残りは49枚、この記事のUは101枚、固定の場合は122枚）。</p>
+<div class="scroll-x"><table class="cmp wrapth"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">母数の取り方</th><th scope="col">待ち4枚</th><th scope="col">待ち8枚</th></tr></thead><tbody>
+<tr><th scope="row">山の残りだけ（誤）</th><td class="num">68.8%</td><td class="num">91.4%</td></tr>
+<tr><th scope="row">山＋王牌＋他家手牌（この記事）</th><td class="num">40.2%</td><td class="num">65.1%</td></tr>
+<tr><th scope="row">122枚固定（誤）</th><td class="num">34.3%</td><td class="num">57.5%</td></tr>
+</tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。</p>
+<p>山の残りだけで割ると、他家の手牌にある牌をツモれる前提になってしまうため、確率が大きく出ます。逆に、配牌直後の122枚のまま計算すると、河に出た牌を未見牌から外さないので、確率が小さく出ます。</p>
+<p>表に入っていないものは4つです。</p>
+<ul>
+<li>ロン（自分の出あがり・他家からの出あがり）。実戦のあがり率は、ロンぶんだけこの数字より高くなります。</li>
+<li>他家のあがり・リーチ・鳴き・途中流局。局が早く終われば、残りツモを使い切れないので実戦は低くなります。</li>
+<li>他家が手牌にどの牌を持ちやすいか。待ち牌は未見牌の中で均等に散らばっている前提です。</li>
+<li>あがりに役があること。待ち牌を引いたらあがれる前提で、フリテンや役なしは扱っていません。</li>
+</ul>
+<p>実戦のあがり率ではなく、「枚数と残りツモがどれだけ効くか」を比べる物差しとして使ってください。待ち枚数を数える練習は、<a href="/drill">何切るドリル</a>で、受け入れ枚数を答える形でできます。</p>
+
+<h2 id="kensan">検算：2つの方法と、公開されている数値との一致</h2>
+<p>確率表は1つの式の出力なので、実装の取り違えを見つけにくい性質があります。このため、別の方式で2回、さらに公開されている数値でも確認しました（2026年11月23日）。</p>
+<ol>
+<li><b>厳密計算</b>：Python（<span class="hand">fractions</span> と <span class="hand">math.comb</span>）で、上の式を分数のまま計算し、小数に丸めて表にしました。</li>
+<li><b>モンテカルロ</b>：C言語で、山の順番を再現しました。未見牌U枚の位置に待ち牌をランダムに置き、自分のツモ位置（山の4・8・…番目）に当たるかを数えます。シード固定の乱数で、1セル200万回（別シードで400万回）、表の全153セル（待ち9種×残りツモ17通り）を比べました。<b>厳密値との差は最大0.09ポイント（別シードで0.05ポイント）</b>で、標準誤差の範囲内でした。</li>
+<li><b>公開値との一致</b>：東家6巡目テンパイ（残り12ツモ）の公開値と、この表は一致しました。待ち3枚31.9%・4枚40.2%・6枚54.1%・8枚65.1%で、表の「残り12」の列と同じです。</li>
+</ol>
+<p>公開値の出典（いずれも2026年11月23日に確認）：</p>
+<ul>
+<li><a href="https://note.com/anmo_suzuki/n/n462c4a3243ae" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;text-wrap:balance">アンモナイト鈴木「第5回 ツモ和了り確率の計算」</a></li>
+<li><a href="https://note.com/anmo_suzuki/n/nae6a3d4278ed" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;text-wrap:balance">アンモナイト鈴木「保存版 ツモ和了確率をいろんなパターンで計算してみた！」</a></li>
+<li><a href="https://ameblo.jp/mantenbo/entry-12406672151.html" rel="noopener" style="display:inline-flex;align-items:center;min-height:48px;text-wrap:balance">ameblo「聴牌巡目ごとのツモあがり確率」</a></li>
+</ul>
+
+<h2 id="chigai">すでに公開されているツモ確率の記事との違い</h2>
+<p>同じ式（1−C(U−k,n)÷C(U,n)）のツモ確率は、すでに複数の記事に載っています（上記の2本のnote、残り巡目と残り枚数を足して3倍する近似を紹介した記事、待ち枚数と巡目の組を抜き出した表など）。確認できた範囲では、表の多くは画像で掲載され（2026年11月23日に確認。画像でない表もあるかもしれません）、シミュレーションなど別方式での検算の記述は見つけられませんでした。この記事で足したのは次の3点です。</p>
+<ul>
+<li><b>文字で読める表</b>：待ち9種×残り17通りを、HTMLの表としてそのまま載せました。</li>
+<li><b>「何ツモで50%か」の整理</b>：4枚待ちは17ツモでも届かない、両面は残り7ツモで届く、という読み方と、1枚見えたときの「ツモ分」への換算。</li>
+<li><b>検算を2つ書いた</b>：別方式のモンテカルロと、公開値との一致を、再現できる形で書きました。</li>
+</ul>
+<p>ほかの考え方（形ごとの待ち枚数、シャンテンの確率）は、<a href="/articles/mahjong-haipai-shanten">配牌のシャンテン分布</a>の記事や、<a href="/articles/mahjong-what-to-discard">何を切るか迷ったときの基本方針</a>にあります。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>ツモあがり確率は 1−C(U−k, n)÷C(U, n)。見えていない牌Uと待ち牌k、残りツモnだけで決まり、待ちの形は関係しません（計算値）。</li>
+<li>両面（8枚）は残り7ツモで53.1%。嵌張・辺張・シャボ（4枚）は17ツモでも45.9%で、ツモだけでは半分に届きません。</li>
+<li>待ち牌が1枚見えると、4枚待ちで約4〜5ツモ分、8枚待ちで約3ツモ分の損です。</li>
+<li>検算は、厳密計算とモンテカルロ（全153セルで最大差0.09ポイント）、公開値4点との一致で行いました（2026年11月23日）。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<h3>待ち8枚の両面は、何ツモで50%に届きますか？</h3>
+<p>残りツモ7回で53.1%、6回では49.4%です。東家・南家なら11巡目まで、西家・北家なら10巡目までにテンパイすれば、ツモだけで半分を超えます。ロン、鳴き、他家のあがりは数えていません。</p>
+<h3>嵌張・辺張・シャボ（4枚待ち）は、ツモだけで50%に届きますか？</h3>
+<p>届きません。東家が1巡目にテンパイして残り17ツモあっても45.9%です。33%（3回に1回）に届くのは残り9ツモです。</p>
+<h3>待ち牌が1枚見えると、何ツモ分の損ですか？</h3>
+<p>4枚待ちが3枚待ちになると、残り7ツモで届く30.8%に届くのに、残り約12ツモ（31.9%）が必要です。約4〜5ツモ分です。8枚待ちが7枚待ちになる場合は約3ツモ分です。</p>
+<h3>この表の確率には、ロンでのあがりが含まれますか？</h3>
+<p>含まれません。自分のツモだけであがれる確率です。他家のあがり・鳴き・流局で局が止まる影響も入れていないので、実戦の数字そのものではなく、枚数と残りツモを比べる物差しとして使ってください。</p>
+
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：何切るドリルで、受け入れ枚数が多い打牌を1問選んでみる。</b></p>
+<p style="margin:0">・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・待ち牌が自動で出る一人麻雀 → <a href="/rules/">麻雀のいろは（れんしゅうタブ）</a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-machi-maisuu"><b>麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた</b>待ち枚数の数え方。全93,600通りの実測つき。</a>
+<a class="next" href="/articles/mahjong-haipai-shanten"><b>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</b>配牌13枚のシャンテン数の分布と、1ツモ後の変化。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-23">2026年11月23日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
