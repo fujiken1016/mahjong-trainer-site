@@ -119,11 +119,23 @@
   .daily-btn[disabled]{background:var(--panel);color:var(--sub);cursor:default}
   .daily-btn[disabled]:hover{filter:none}
   .board.is-daily{outline:2px solid var(--accent);outline-offset:2px}
+  /* ===== 復習箱（J594・2026-11-23）：間違えた問題だけをもう一度。端末内(localStorage)のみ ===== */
+  .board.is-review{outline:2px solid var(--ok);outline-offset:2px}
+  .chip-btn{display:inline-flex;align-items:center;min-height:48px;padding:6px 14px;border-radius:8px;border:1px solid #6b5b1a;
+    background:var(--panel);color:var(--ok);font-size:14px;font-weight:700;font-family:inherit}
+  .chip-btn b{color:var(--text);font-size:16px;font-weight:700;margin:0 2px 0 6px}
+  .chip-btn[hidden]{display:none}
+  .boxnote{font-size:14px;line-height:1.8;color:var(--text);margin:0 0 12px;display:none}
+  .boxnote.show{display:block}
+  .btnrow{flex-wrap:wrap}
+  .btnrow button{min-height:48px}
+  .btnrow .sub-btn{background:var(--panel2);color:var(--text);border:1px solid #33465f;font-weight:600}
+  .btnrow .sub-btn[hidden]{display:none}
 </style>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
 <script src="/oc.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"麻雀 何切るトレーナー｜牌効率を1打ずつ採点する無料ドリル | 雀トレ","url":"https://mahjong.mainichi-lab.com/drill","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-11-15"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"麻雀 何切るトレーナー｜牌効率を1打ずつ採点する無料ドリル | 雀トレ","url":"https://mahjong.mainichi-lab.com/drill","inLanguage":"ja","datePublished":"2026-08-02","dateModified":"2026-11-23"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -157,6 +169,7 @@
     <div class="chip">最善率<b id="st-rate">-</b></div>
     <div class="chip">連続正解<b id="st-streak">0</b></div>
     <div class="chip" style="cursor:pointer" id="st-reset" title="成績リセット">↺</div>
+    <button type="button" class="chip-btn" id="box-open" hidden>🔁 復習箱<b id="box-n">0</b>問を解く</button>
   </div>
 
   <div class="board" id="board">
@@ -174,9 +187,12 @@
       <span class="grade-label" id="grade-label"></span>
     </div>
     <div class="explain" id="explain"></div>
+    <p class="boxnote" id="boxnote" aria-live="polite"></p>
     <div class="tablewrap"><table id="ranking"></table></div>
     <div class="btnrow">
       <button id="next">次の問題 →</button>
+      <button type="button" class="sub-btn" id="box-back" hidden>通常ドリルに戻る</button>
+      <button type="button" class="sub-btn" id="box-clear" hidden>箱を空にする</button>
     </div>
   </div>
 
@@ -215,6 +231,8 @@
       <dd>されません。ドリルモードは向聴数と受け入れ枚数だけで採点します。点数状況や捨て牌を含んだ判断は実戦モードのほうで扱っています。</dd>
       <dt>成績はどこに保存されますか。消せますか。</dt>
       <dd>お使いの端末のブラウザ内だけに保存されます。手牌も成績もサーバーには送っていません。消すときは成績チップの右端にある「↺」を押してください。</dd>
+      <dt>間違えた問題だけ解き直せますか。</dt>
+      <dd>できます。△か✕を付けた問題は自動で「復習箱」に入り、上の「🔁 復習箱」ボタンから同じ手牌をもう一度解けます。2回続けて◎か○なら卒業して箱から出ます。復習の解き直しは「最善率」には数えません。箱はお使いの端末のブラウザ内にだけ保存され、最大30問、同じ手は1問として入ります。</dd>
       <dt>「今日の1問」は毎日変わりますか。</dt>
       <dd>日付ごとに1問が決まっていて、日付が変われば別の問題になります。同じ日なら誰が開いても同じ手牌なので、友だちと答え合わせができます。</dd>
       <dt>麻雀のルールがまだ曖昧です。</dt>
@@ -229,7 +247,7 @@
     </div>
   </section>
 
-  <p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-11-15">2026年11月15日</time></p>
+  <p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-08-02">2026年8月2日</time>　最終更新：<time datetime="2026-11-23">2026年11月23日</time></p>
   <footer>
     ※ ドリルモードは牌効率（向聴数・受け入れ枚数）のみで採点。点数状況・河を考慮した練習は「実戦モード」へ。<br>
     ※ 評価エンジンは自前実装（一般手・七対子・国士無双の向聴数＋有効牌枚数）。完全ローカル動作・通信なし。<br>
@@ -332,7 +350,7 @@ const GRADE_VIEW = {
 /* ================= UI ================= */
 const $ = id => document.getElementById(id);
 let problem = null, rows = null, answered = false, selected = null;
-let dailyMode = false;
+let dailyMode = false, reviewMode = false, reviewKey = null;
 let stats = JSON.parse(localStorage.getItem("mjt_stats") || '{"total":0,"best":0,"streak":0}');
 
 function saveStats(){ localStorage.setItem("mjt_stats", JSON.stringify(stats)); renderStats(); }
@@ -414,12 +432,17 @@ function answer(pick, el){
   $("result").classList.add("show");
   $("result").scrollIntoView({behavior:"smooth", block:"nearest"});
 
-  stats.total++;
-  if (g.grade === "best") stats.best++;
-  stats.streak = (g.grade === "best" || g.grade === "ok") ? stats.streak+1 : 0;
-  saveStats();
-
-  if (dailyMode) recordDaily(g.grade);
+  if (reviewMode){
+    // 復習の解き直しは累計の成績（出題・最善率・連続正解）に混ぜない
+    reviewResult(g.grade);
+  } else {
+    stats.total++;
+    if (g.grade === "best") stats.best++;
+    stats.streak = (g.grade === "best" || g.grade === "ok") ? stats.streak+1 : 0;
+    saveStats();
+    if (dailyMode) recordDaily(g.grade);
+    boxAdd(g.grade);
+  }
 }
 
 function renderRanking(g){
@@ -439,11 +462,12 @@ function renderRanking(g){
 }
 
 function next(){
-  enterMode(false);
+  if (reviewMode && loadBox().length) enterReview();
+  else enterMode(false);
 }
 $("next").onclick = next;
 $("confirm").onclick = () => { if (selected && !answered) answer(Number(selected.dataset.tile), selected); };
-$("mode").onchange = () => { if (!dailyMode) enterMode(false); };
+$("mode").onchange = () => { if (!dailyMode) enterMode(false); };   // 復習箱の途中で難易度を変えたら通常ドリルへ出る
 $("st-reset").onclick = () => { if(confirm("成績をリセットしますか？")){ stats={total:0,best:0,streak:0}; saveStats(); } };
 
 /* ================= 今日の1問（型C+D） =================
@@ -498,6 +522,10 @@ function renderDaily(){
    共有DOM（board / result / next ボタン）を2モードで使い回しているため。 */
 function enterMode(isDaily){
   dailyMode = isDaily;
+  reviewMode = false; reviewKey = null;
+  $("board").classList.remove("is-review");
+  $("box-back").hidden = true; $("box-clear").hidden = true;
+  $("boxnote").classList.remove("show");
   const t = todayKey();
   if (isDaily){
     problem = newProblem(DAILY_TARGET, mulberry32((dayIndex(t) * 2654435761) >>> 0));
@@ -514,7 +542,97 @@ function enterMode(isDaily){
     $("next").textContent = "次の問題 →";
   }
   render();
+  renderBox();
 }
+
+/* ================= 復習箱（J594） =================
+   手本＝App Store「麻雀ウザク式何切る？」(id6474894627)の「間違いだけの復習」。2026-11-23 取得。
+   方針：登録なし・端末内(localStorage)のみ・自動で進まない・自動で消えない（卒業は2回連続で◎/○のときだけ）。
+   保存＝mjt_wrong = [{h:[13個の牌ID(昇順)], t:ツモID, d:初回の日付, n:連続成功回数}]（最大30件・同じ手は1件）。
+   書き込みのたびに localStorage から読み直す（別タブとの食い違いで上書きしない）。 */
+const BOX_KEY = "mjt_wrong", BOX_MAX = 30, BOX_GRAD = 2;
+function loadBox(){
+  try{
+    const a = JSON.parse(localStorage.getItem(BOX_KEY) || "[]");
+    if (!Array.isArray(a)) return [];
+    return a.filter(e => e && Array.isArray(e.h) && e.h.length === 13 && Number.isInteger(e.t) && e.t >= 0 && e.t < 34 &&
+      e.h.every(x => Number.isInteger(x) && x >= 0 && x < 34) && (() => { const c = new Array(34).fill(0); e.h.forEach(x => c[x]++); c[e.t]++; return c.every(n => n <= 4); })());
+  }catch(_){ return []; }
+}
+function saveBox(a){ try{ localStorage.setItem(BOX_KEY, JSON.stringify(a)); }catch(_){} renderBox(); }
+function boxKey(e){ return e.h.join(",") + "|" + e.t; }
+function problemEntry(){
+  const h = []; problem.counts13.forEach((n,i)=>{ for(let j=0;j<n;j++) h.push(i); });
+  return { h, t: problem.tsumo, d: todayKey(), n: 0 };
+}
+function renderBox(){
+  const n = loadBox().length;
+  $("box-n").textContent = n;
+  $("box-open").hidden = (n === 0);
+}
+function setBoxNote(html){
+  const el = $("boxnote");
+  el.innerHTML = html;
+  el.classList.toggle("show", !!html);
+}
+function boxAdd(grade){
+  setBoxNote("");
+  if (grade !== "sub" && grade !== "bad") return;
+  const e = problemEntry(), key = boxKey(e);
+  let box = loadBox();
+  if (!box.some(x => boxKey(x) === key)){
+    box.push(e);
+    if (box.length > BOX_MAX) box = box.slice(box.length - BOX_MAX);
+  }
+  saveBox(box);
+  setBoxNote("🔁 この問題を復習箱に入れました（いま" + box.length + "問）。上の「復習箱」からいつでも解き直せます。");
+}
+function enterReview(){
+  const box = loadBox();
+  if (!box.length){ renderBox(); return enterMode(false); }
+  const e = box[0];
+  dailyMode = false; reviewMode = true; reviewKey = boxKey(e);
+  const c = new Array(34).fill(0); e.h.forEach(x => c[x]++);
+  problem = { counts13: c, tsumo: e.t };
+  $("board").classList.remove("is-daily");
+  $("board").classList.add("is-review");
+  $("prompt-text").textContent = "🔁 復習箱：もう一度、受け入れ最大の1牌は？";
+  $("next").textContent = box.length > 1 ? "次の復習問題 →" : "もう一度（この1問） →";
+  $("box-back").hidden = false; $("box-clear").hidden = false;
+  setBoxNote("");
+  render();
+  renderBox();
+}
+function reviewResult(grade){
+  const ok = (grade === "best" || grade === "ok");
+  let box = loadBox();
+  const i = box.findIndex(x => boxKey(x) === reviewKey);
+  if (i < 0){ setBoxNote("この問題は別のタブで箱から外れていました。"); renderBox(); return; }
+  const e = box.splice(i, 1)[0];
+  if (ok){
+    e.n = (e.n || 0) + 1;
+    if (e.n >= BOX_GRAD){
+      saveBox(box);
+      setBoxNote(box.length
+        ? "🎓 " + BOX_GRAD + "回続けて正解したので、この問題は卒業です。復習箱はあと" + box.length + "問。"
+        : "🎓 卒業です。復習箱は空になりました。今日はここまでにして大丈夫です。");
+      if (!box.length) $("next").textContent = "通常ドリルに戻る →";
+      return;
+    }
+    box.push(e); saveBox(box);
+    setBoxNote("✅ 正解です。あと" + (BOX_GRAD - e.n) + "回続けて正解すると卒業（箱は" + box.length + "問）。");
+  } else {
+    e.n = 0; box.push(e); saveBox(box);
+    setBoxNote("もう一度やり直しです。連続正解は0に戻りました（箱は" + box.length + "問）。");
+  }
+  $("next").textContent = box.length > 1 ? "次の復習問題 →" : "もう一度（この1問） →";
+}
+$("box-open").onclick = () => { enterReview(); $("board").scrollIntoView({ block: "nearest" }); };
+$("box-back").onclick = () => enterMode(false);
+$("box-clear").onclick = () => {
+  const n = loadBox().length;
+  if (n && confirm("復習箱の" + n + "問をすべて空にしますか？")){ saveBox([]); enterMode(false); }
+};
 
 $("daily-start").onclick = () => {
   enterMode(true);
@@ -523,7 +641,7 @@ $("daily-start").onclick = () => {
 
 renderDaily();
 renderStats();
-enterMode(false);
+enterMode(false);   // 末尾で renderBox() も呼ばれる
 
 /* ================= セルフテスト（コンソール用） ================= */
 window.runTests = function(){
