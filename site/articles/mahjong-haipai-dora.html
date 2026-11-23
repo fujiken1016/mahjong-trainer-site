@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀の配牌にドラは何枚入る？赤ドラありで0枚は約49%、平均0.67枚（親・子別の分布表） | 雀トレ</title>
+<meta name="description" content="麻雀の配牌13枚（子）にドラが0枚の確率は赤ドラなしで66.4%、赤ドラありで49.0%。1枚37.2%・2枚11.7%・3枚以上2.2%。親14枚、表示牌の数字別の分布も、厳密計算と乱数10億回で確認。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-haipai-dora">
+<meta property="og:title" content="麻雀の配牌にドラは何枚入る？0枚は約49%">
+<meta property="og:image" content="https://mahjong.mainichi-lab.com/og_mahjong_dora.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mahjong.mainichi-lab.com/og_mahjong_dora.jpg">
+<meta property="og:description" content="子の配牌ドラは、赤ありで0枚49.0%・1枚37.2%・2枚11.7%。親と赤なしの表つき。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-haipai-dora">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀の配牌にドラは何枚入る？赤ドラありで0枚は約49%、平均0.67枚（親・子別の分布表）","datePublished":"2026-11-23","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-haipai-dora","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about","sameAs":["https://note.com/fujiken818","https://qiita.com/fujiken818","https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-23"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"麻雀の配牌にドラが1枚も入らない確率は、何%ですか？","acceptedAnswer":{"@type":"Answer","text":"子（13枚）で、赤ドラなしなら66.4%、赤ドラあり（5萬・5筒・5索が各1枚）なら49.0%です。親（14枚）は、赤なしで64.2%、赤ありで46.2%です。表示牌を山から除いた計算で、厳密計算と乱数10億回の結果が一致しています。"}},{"@type":"Question","name":"配牌のドラは、平均で何枚ですか？","acceptedAnswer":{"@type":"Answer","text":"子の平均は赤なしで0.385枚、赤ありで0.672枚です。親は赤なしで0.415枚、赤ありで0.724枚です。赤なしは、4枚×手牌の枚数÷135（表示牌を除いた枚数）で出せます。"}},{"@type":"Question","name":"配牌でドラ3枚以上が入るのは、何回に1回ですか？","acceptedAnswer":{"@type":"Answer","text":"子・赤ありで46.4回に1回（2.16%）、子・赤なしで372回に1回（0.27%）です。親・赤ありは37.7回に1回です。"}},{"@type":"Question","name":"ドラ表示牌が4のとき、ドラ（5）の入り方は変わりますか？","acceptedAnswer":{"@type":"Answer","text":"平均の枚数は変わりません。ドラが5になると赤5もドラとして数えられるため、0枚の確率は53.8%と高くなる一方、2枚以上の確率も16.3%と高くなります。平均は0.674枚で、ほかの表示牌と同じです（子・赤あり）。"}},{"@type":"Question","name":"この確率に、裏ドラやカンドラは含まれますか？","acceptedAnswer":{"@type":"Answer","text":"含まれません。配牌の時点で見えている表ドラ（赤ドラを含む）が、自分の手牌に何枚入るかだけを数えています。他家の手牌や王牌の中身は数えていません。"}}]}</script>
+<script src="/oc.js" defer></script>
+<style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:56px}table.cmp td.num{white-space:nowrap;text-align:right}table.wrapth th[scope=row]{white-space:normal;min-width:128px}table.cmp td.hi{font-weight:700;background:rgba(52,229,255,.14)}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}table.full th[scope=row]{position:sticky;left:0;background:#141238;z-index:1}table.full th,table.full td{padding:7px 8px}table.full th.lt{font-weight:400;color:var(--sub)}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}.page-updated time{white-space:nowrap}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>麻雀の配牌にドラは何枚入る？赤ドラの有無・親と子で数えた分布表</h1>
+
+<div class="card">
+<p class="lead"><b>先に結論です。子（13枚）の配牌にドラが1枚も入らない確率は、赤ドラなしで66.4%、赤ドラありで49.0%です（2026年11月23日の計算値）。</b>赤ありの平均は0.67枚で、半分の配牌にはドラが1枚以上あります。3枚以上入るのは46.4回に1回です。</p>
+
+<div class="rulebox">
+<p><b>この記事の数字の出どころ</b>：牌136枚から、ドラ表示牌を1枚抜き、残り135枚から手牌13枚（子）または14枚（親）を配ったとして、自分の手牌に入るドラの枚数を計算しました（2026年11月23日に計算）。厳密計算（Python）と、山を並べ替えるモンテカルロ（C言語・各10億回）で検算し、一致しています。裏ドラ・カンドラは入っていません。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#kodomo">子（13枚）の配牌：ドラは何枚か</a></li>
+<li><a href="#oya">親（14枚）の配牌：子より増えるか</a></li>
+<li><a href="#matome-hyo">平均と「1枚以上」の早見表</a></li>
+<li><a href="#hyouji">ドラ表示牌が4か5のとき</a></li>
+<li><a href="#hoho">数え方と前提</a></li>
+<li><a href="#kensan">検算：厳密計算・乱数10億回・公開されている数値</a></li>
+<li><a href="#chigai">すでに公開されている記事との違い</a></li>
+<li><a href="#matome">まとめ</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="kodomo">子（13枚）の配牌に、ドラは何枚入るか？</h2>
+<p><b>結論：赤ドラありの子の配牌は、0枚が49.0%、1枚が37.2%、2枚が11.7%、3枚以上が2.2%です（2026年11月23日時点の計算値）。</b>赤ドラなしでは、0枚が66.4%と、3回に2回はドラなしの配牌になります。</p>
+<p>赤ドラありは、5萬・5筒・5索のうち赤い1枚ずつ（標準の3枚）を、ドラとして数えています。赤5がドラ表示牌の次の牌（ドラ）でもあるときは、1枚で2枚分として数えます。数字は自分の配牌に入る枚数の確率（％）で、「何回に1回」は100%÷確率です（2026年11月23日の計算値）。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">ドラの枚数</th><th scope="col">赤ドラあり（%）</th><th scope="col">赤ドラなし（%）</th><th scope="col">赤ありで何回に1回</th></tr></thead><tbody><tr><th scope="row">0枚</th><td class="num">49.0</td><td class="num">66.4</td><td class="num">2.0回に1回</td></tr><tr><th scope="row">1枚</th><td class="num">37.2</td><td class="num">29.0</td><td class="num">2.7回に1回</td></tr><tr><th scope="row">2枚</th><td class="num">11.7</td><td class="num">4.35</td><td class="num">8.6回に1回</td></tr><tr><th scope="row">3枚</th><td class="num">1.96</td><td class="num">0.26</td><td class="num">51.1回に1回</td></tr><tr><th scope="row">4枚</th><td class="num">0.19</td><td class="num">0.01</td><td class="num">529回に1回</td></tr><tr><th scope="row">5枚</th><td class="num">0.01</td><td class="num">0.00</td><td class="num">約9,690回に1回</td></tr><tr><th scope="row">6枚以上</th><td class="num">0.0003</td><td class="num">0</td><td class="num">約340,000回に1回</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。厳密計算の値で、乱数10億回との差は0.002ポイント以内です。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hd1" viewBox="0 0 293 140" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hd1">子の配牌（13枚）のドラ枚数。0枚49.0%、1枚37.2%、2枚11.7%、3枚以上2.2%（赤ドラあり）</title><g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">0枚</text><rect x="78" y="8" width="76" height="18" rx="4" fill="#34e5ff"/><text x="162" y="22">49.0%</text><text x="4" y="55">1枚</text><rect x="78" y="41" width="58" height="18" rx="4" fill="#34e5ff"/><text x="144" y="55">37.2%</text><text x="4" y="88">2枚</text><rect x="78" y="74" width="18" height="18" rx="4" fill="#34e5ff"/><text x="104" y="88">11.7%</text><text x="4" y="121">3枚以上</text><rect x="78" y="107" width="3" height="18" rx="4" fill="#34e5ff"/><text x="89" y="121">2.2%</text></g></svg></div><figcaption>図1：子の配牌13枚に入るドラの枚数（赤ドラあり・この記事の計算値）。バーは0〜100%。</figcaption></figure>
+<ul>
+<li>赤ドラありで、ドラが2枚以上入るのは13.8%（7.2回に1回）です。赤ドラなしでは4.6%です。</li>
+<li>ドラ2枚以上の配牌は、赤ありのほうが赤なしの3.0倍の頻度で出ます。赤5がドラの数に加わるためです。</li>
+<li>赤ドラなしでドラが4枚入るのは約18,500回に1回です。ドラ4枚を全部持つ配牌は、ほとんど見られません。</li>
+</ul>
+<p class="muted" style="margin:0 0 10px">※上の数字は、2026年11月23日時点の計算値です。</p>
+
+<h2 id="oya">親（14枚）の配牌は、子よりドラが入るか？</h2>
+<p><b>結論：親は1枚多く持つぶん、ドラが入りやすくなります。赤ありで0枚は46.2%（子より2.8ポイント低い）、平均は0.72枚です（2026年11月23日時点の計算値）。</b>ここでの親の14枚は、配牌13枚に最初のツモを加えた、打牌する前の手牌です。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">ドラの枚数</th><th scope="col">赤ドラあり（%）</th><th scope="col">赤ドラなし（%）</th><th scope="col">赤ありで何回に1回</th></tr></thead><tbody><tr><th scope="row">0枚</th><td class="num">46.2</td><td class="num">64.2</td><td class="num">2.2回に1回</td></tr><tr><th scope="row">1枚</th><td class="num">38.1</td><td class="num">30.5</td><td class="num">2.6回に1回</td></tr><tr><th scope="row">2枚</th><td class="num">13.0</td><td class="num">4.99</td><td class="num">7.7回に1回</td></tr><tr><th scope="row">3枚</th><td class="num">2.38</td><td class="num">0.33</td><td class="num">42.0回に1回</td></tr><tr><th scope="row">4枚</th><td class="num">0.25</td><td class="num">0.01</td><td class="num">397回に1回</td></tr><tr><th scope="row">5枚</th><td class="num">0.02</td><td class="num">0.00</td><td class="num">約6,600回に1回</td></tr><tr><th scope="row">6枚以上</th><td class="num">0.0005</td><td class="num">0</td><td class="num">約210,000回に1回</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。親は第1ツモを含む14枚の値です。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hd2" viewBox="0 0 293 140" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hd2">ドラが1枚も入らない確率。子・赤なし66.4%、親・赤なし64.2%、子・赤あり49.0%、親・赤あり46.2%</title><g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">子・赤なし</text><rect x="78" y="8" width="103" height="18" rx="4" fill="#34e5ff"/><text x="189" y="22">66.4%</text><text x="4" y="55">親・赤なし</text><rect x="78" y="41" width="100" height="18" rx="4" fill="#34e5ff"/><text x="186" y="55">64.2%</text><text x="4" y="88">子・赤あり</text><rect x="78" y="74" width="76" height="18" rx="4" fill="#34e5ff"/><text x="162" y="88">49.0%</text><text x="4" y="121">親・赤あり</text><rect x="78" y="107" width="72" height="18" rx="4" fill="#34e5ff"/><text x="158" y="121">46.2%</text></g></svg></div><figcaption>図2：配牌にドラが1枚も入らない確率（2026年11月23日時点の計算値）。バーは0〜100%。</figcaption></figure>
+<ul>
+<li>親が14枚で、ドラ2枚以上になるのは赤ありで15.7%です。子より1.8ポイント高くなります。</li>
+<li>親の平均は、子の1.077倍です。手牌の枚数の比14÷13と同じ比で、これは平均の性質です。</li>
+</ul>
+<p class="muted" style="margin:0 0 10px">※上の数字は、2026年11月23日時点の計算値です。</p>
+
+<h2 id="matome-hyo">平均と「1枚以上」の早見表</h2>
+<p>結論：赤ドラありなら、子の51.0%、親の53.8%に、ドラが1枚以上入ります。（2026年11月23日時点の計算値）赤なしでは、子で33.6%、親で35.8%です。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">配牌</th><th scope="col">平均（枚）</th><th scope="col">1枚以上（%）</th><th scope="col">2枚以上（%）</th><th scope="col">3枚以上（%）</th></tr></thead><tbody><tr><th scope="row">子（13枚）・赤ドラあり</th><td class="num">0.672</td><td class="num">51.0</td><td class="num">13.8</td><td class="num">2.16</td></tr><tr><th scope="row">子（13枚）・赤ドラなし</th><td class="num">0.385</td><td class="num">33.6</td><td class="num">4.6</td><td class="num">0.27</td></tr><tr><th scope="row">親（14枚）・赤ドラあり</th><td class="num">0.724</td><td class="num">53.8</td><td class="num">15.7</td><td class="num">2.65</td></tr><tr><th scope="row">親（14枚）・赤ドラなし</th><td class="num">0.415</td><td class="num">35.8</td><td class="num">5.3</td><td class="num">0.34</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。平均は枚数、そのほかは％。</p>
+<ul>
+<li>「配牌にドラが1枚もないのは運が悪い」とは言えません。子の赤ありで、49.0%の配牌がそうです。</li>
+<li>「ドラ2枚の配牌」は、赤ありの子で約7回に1回です。13.8%は、そこそこ起こる確率です。</li>
+<li>ドラ3枚以上は、赤ありの子で約46回に1回（2.16%）です。数十局に1回の配牌です。</li>
+</ul>
+<p class="muted" style="margin:0 0 10px">※上の数字は、2026年11月23日時点の計算値です。</p>
+
+<h2 id="hyouji">ドラ表示牌が4か5のとき、確率は変わるか？</h2>
+<p><b>結論：赤ドラありでは、表示牌が4（ドラが5）のとき、0枚の確率が高くなり、2枚以上の確率も高くなります。平均の枚数は、ほとんど変わりません（2026年11月23日時点の計算値）。</b>表示牌の数字別に、子の赤ありを数えました（表示牌ごとに4枚の平均）。</p>
+<div class="scroll-x"><table class="cmp wrapth"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">ドラ表示牌の数字</th><th scope="col">0枚（%）</th><th scope="col">1枚（%）</th><th scope="col">2枚以上（%）</th><th scope="col">平均（枚）</th></tr></thead><tbody><tr><th scope="row">4<br>（ドラは5・赤5を含む）</th><td class="num">53.8</td><td class="num">29.9</td><td class="num">16.3</td><td class="num">0.674</td></tr><tr><th scope="row">5<br>（赤5が表示牌のこともある）</th><td class="num">49.7</td><td class="num">37.4</td><td class="num">12.8</td><td class="num">0.650</td></tr><tr><th scope="row">上記以外<br>（1〜3・6〜9・字牌）</th><td class="num">48.4</td><td class="num">38.0</td><td class="num">13.7</td><td class="num">0.674</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計算（2026年11月23日）。萬子・筒子・索子で同じ値でした。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hd3" viewBox="0 0 293 107" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hd3">ドラ表示牌別の、子・赤ありで0枚の確率。表示牌4は53.8%、表示牌5は49.7%、それ以外は48.4%</title><g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">表示牌4</text><rect x="78" y="8" width="83" height="18" rx="4" fill="#34e5ff"/><text x="169" y="22">53.8%</text><text x="4" y="55">表示牌5</text><rect x="78" y="41" width="77" height="18" rx="4" fill="#34e5ff"/><text x="163" y="55">49.7%</text><text x="4" y="88">その他</text><rect x="78" y="74" width="75" height="18" rx="4" fill="#34e5ff"/><text x="161" y="88">48.4%</text></g></svg></div><figcaption>図3：子・赤ありで、ドラが0枚の確率（表示牌の数字別・この記事の計算値）。バーは0〜100%。</figcaption></figure>
+<ul>
+<li>表示牌が4のとき、ドラは5です。5には赤が1枚あり、それを持つと1枚で2枚分になります。ばらつきが大きくなり、0枚が53.8%、2枚以上が16.3%です。</li>
+<li>表示牌が5のとき（赤5が表示牌のこともあります）は、赤5が山から1枚減る場合があり、平均が0.650枚にやや下がります。</li>
+<li>それ以外の表示牌では、数字によらず同じ分布です。1〜3や6〜9、字牌で、0枚は48.4%です。</li>
+</ul>
+<p class="muted" style="margin:0 0 10px">※上の数字は、2026年11月23日時点の計算値です。</p>
+
+<h2 id="hoho">数え方と前提</h2>
+<ul>
+<li>牌は136枚（34種×4枚）。赤ドラありは、5萬・5筒・5索のうち1枚ずつが赤（標準の3枚）です。</li>
+<li>ドラ表示牌は、山から無作為の1枚です。ドラは、表示牌の次の牌（9→1、北→東、中→白など）です。</li>
+<li>手牌は、表示牌を除いた135枚から無作為に13枚（子）・14枚（親）です。実際の配牌は、山を4人で分けますが、1人の手牌だけを見れば同じ分布です。</li>
+<li>数えるのは、自分の手牌のドラ（赤ドラを含む）だけです。裏ドラ・カンドラ・他家の手牌は入っていません。</li>
+<li>赤ドラが4枚や0枚のルール、赤の枚数を変えた場合は、この表の数字とは一致しません。</li>
+</ul>
+
+<h2 id="kensan">検算：厳密計算・乱数10億回・公開されている数値</h2>
+<p>結論：厳密計算と乱数10億回は、4つの条件で小数点以下の差が0.002ポイント以内で一致しました。（2026年11月23日時点の計算値）公開されている数値とも、数え方を合わせると一致します。</p>
+<ul>
+<li>厳密計算（Python）：表示牌136通りのそれぞれについて、残り135枚から手牌を選ぶ全組み合わせを数えました（分数で計算し、確率の合計がちょうど1になることを確認）。</li>
+<li>モンテカルロ（C言語）：山を136枚並べ替え、先頭から手牌13（または14）枚、次の1枚を表示牌として、ドラの枚数を数えました。各条件10億回です。厳密値との差は最大0.0012ポイント、標準誤差の2.4倍までで、乱数の揺れの範囲です（24セル）。</li>
+<li>公開値との一致（表示牌を抜かない場合）：あらの（一人）麻雀研究所は、子の配牌にドラが0枚の確率を0.6659、平均を0.38枚としています（<span style="overflow-wrap:anywhere">https://mahjong.ara.black/column/dora2.htm</span> ・2026年11月23日に確認）。表示牌を抜かずに136枚から配ると、同じ式で0.6659・0.3824になり、一致します。</li>
+<li>公開値との一致（赤ドラあり）：麻雀ウォッチの記事は、赤ありの平均を1人あたり0.67枚、赤なしを0.38枚としています（<span style="overflow-wrap:anywhere">https://mj-news.net/mj-course/mj-tips/20210426157948</span> ・2026年11月23日に確認）。この記事の表示牌を抜いた計算は0.672枚と0.385枚で、ほぼ同じ値です（赤なしは、表示牌を抜いた分だけ0.003枚大きくなります）。</li>
+</ul>
+<p>表示牌を抜くと、確率は少し動きます。子・赤なしの0枚は、抜かない66.59%に対し、抜くと66.38%です（差0.21ポイント）。実戦では表示牌は必ず1枚めくれているので、この記事は抜いた値を使いました。</p>
+
+<h2 id="chigai">すでに公開されている記事との違い</h2>
+<p>子の配牌のドラ枚数は、すでに複数の記事に載っています。2026年11月23日に確認した範囲では、次のとおりです。</p>
+<ul>
+<li>あらの（一人）麻雀研究所は、子・赤なし・表示牌を抜かない計算で、0枚の確率と平均を示しています。親、赤ドラ、表示牌の数字別は、確認できませんでした。</li>
+<li>麻雀ウォッチは、赤あり・赤なしの1人あたりの平均枚数（0.67枚・0.38枚）を示しています。枚数ごとの分布は、確認できませんでした。</li>
+</ul>
+<p>この記事は、それらにない親・子別、赤ありなしの分布表と「何回に1回」、表示牌の数字別の違いを、表示牌を抜いた計算で出しました。配牌の形そのもの（シャンテン数）は<a href="/articles/mahjong-haipai-shanten">配牌のシャンテン分布</a>の記事、ドラを使った点数の目安は<a href="/articles/mahjong-score-basics">点数計算の基本</a>の記事にあります。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>子の配牌にドラが0枚の確率は、赤なしで66.4%、赤ありで49.0%です（表示牌を除いた計算値）。</li>
+<li>平均は子・赤ありで0.672枚、親・赤ありで0.724枚です。</li>
+<li>3枚以上は、子・赤ありで46.4回に1回です。ドラ0枚の配牌は珍しくありません。</li>
+<li>検算は、厳密計算と乱数10億回の一致、公開値2件との一致で行いました（2026年11月23日）。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<h3>麻雀の配牌にドラが1枚も入らない確率は、何%ですか？</h3>
+<p>子（13枚）で、赤ドラなしなら66.4%、赤ドラあり（5萬・5筒・5索が各1枚）なら49.0%です。親（14枚）は、赤なしで64.2%、赤ありで46.2%です。表示牌を山から除いた計算で、厳密計算と乱数10億回の結果が一致しています。</p>
+<h3>配牌のドラは、平均で何枚ですか？</h3>
+<p>子の平均は赤なしで0.385枚、赤ありで0.672枚です。親は赤なしで0.415枚、赤ありで0.724枚です。赤なしは、4枚×手牌の枚数÷135（表示牌を除いた枚数）で出せます。</p>
+<h3>配牌でドラ3枚以上が入るのは、何回に1回ですか？</h3>
+<p>子・赤ありで46.4回に1回（2.16%）、子・赤なしで372回に1回（0.27%）です。親・赤ありは37.7回に1回です。</p>
+<h3>ドラ表示牌が4のとき、ドラ（5）の入り方は変わりますか？</h3>
+<p>平均の枚数は変わりません。ドラが5になると赤5もドラとして数えられるため、0枚の確率は53.8%と高くなる一方、2枚以上の確率も16.3%と高くなります。平均は0.674枚で、ほかの表示牌と同じです（子・赤あり）。</p>
+<h3>この確率に、裏ドラやカンドラは含まれますか？</h3>
+<p>含まれません。配牌の時点で見えている表ドラ（赤ドラを含む）が、自分の手牌に何枚入るかだけを数えています。他家の手牌や王牌の中身は数えていません。</p>
+
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：次の自分の配牌で、ドラ（赤ドラを含む）の枚数を数えて、この表のどこにあたるか確かめる。</b></p>
+<p style="margin:0">・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・配牌からの一人麻雀 → <a href="/rules/">麻雀のいろは（れんしゅうタブ）</a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-haipai-shanten"><b>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</b>配牌13枚のシャンテン数の分布と、1ツモ後の変化。</a>
+<a class="next" href="/articles/mahjong-tsumo-agari-kakuritsu"><b>麻雀のツモあがり確率表｜<span style="white-space:nowrap">何ツモで50%に届くか</span></b>待ち枚数×残りツモ回数の確率表。</a>
+<a class="next" href="/articles/mahjong-machi-maisuu"><b>麻雀の待ちは何枚？両面・嵌張・単騎など形ごとの枚数を数えた</b>待ち枚数の数え方。全93,600通りの実測つき。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-23">2026年11月23日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
