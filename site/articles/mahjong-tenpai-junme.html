@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀のテンパイは何巡目？配牌から受け入れ最大で打つと、半分が14巡目までに届く | 雀トレ</title>
+<meta name="description" content="麻雀で配牌から受け入れ最大で打つと、何巡目にテンパイするか20万回数えました。8巡目まで16.3%、10巡目まで27.3%、12巡目まで38.8%、半分に届くのは14巡目、18巡目でも31.6%は未テンパイ。配牌のシャンテン別の表つき。">
+<link rel="canonical" href="https://mahjong.mainichi-lab.com/articles/mahjong-tenpai-junme">
+<meta property="og:title" content="麻雀のテンパイは何巡目？半分は14巡目まで">
+<meta property="og:image" content="https://mahjong.mainichi-lab.com/og_mahjong_tenpai.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mahjong.mainichi-lab.com/og_mahjong_tenpai.jpg">
+<meta property="og:description" content="配牌から受け入れ最大で打つと、10巡目までに27%がテンパイ。18巡目でも32%は届かない。20万回の実測。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mahjong.mainichi-lab.com/articles/mahjong-tenpai-junme">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/_legal_style.css">
+<link rel="stylesheet" href="/_article_style.css">
+<!-- GA4 host-guard J347: 本番ホスト以外(localhost/pages.dev/プレビュー)では計測を送らない -->
+<script>(function(){var w=window;w.dataLayer=w.dataLayer||[];w.gtag=function(){w.dataLayer.push(arguments);};if(!/(^|\.)(mainichi-lab|shoubu-lab)\.com$|^fujiken1016\.github\.io$/.test(location.hostname))return;gtag('js',new Date());gtag('config','G-XRJ40EFR6C');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-XRJ40EFR6C';document.head.appendChild(s);})();</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289616283786904" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"麻雀のテンパイは何巡目？配牌から受け入れ最大で打つと半分が14巡目までに届く","datePublished":"2026-11-25","inLanguage":"ja","mainEntityOfPage":"https://mahjong.mainichi-lab.com/articles/mahjong-tenpai-junme","author":{"@type":"Person","name":"フジケン","url":"https://mahjong.mainichi-lab.com/about","sameAs":["https://note.com/fujiken818","https://qiita.com/fujiken818","https://github.com/fujiken1016"]},"publisher":{"@type":"Organization","name":"雀トレ（毎日ラボ）"},"dateModified":"2026-11-25"}</script>
+<script src="/oc.js" defer></script>
+<style>nav.toc ol{padding-left:22px}nav.toc a{display:inline-flex;align-items:center;min-height:48px}nav.toc .t{margin:0 0 4px;font-weight:700}table.cmp td{min-width:56px}table.cmp td.num{white-space:nowrap;text-align:right}table.wrapth th[scope=row]{white-space:normal;min-width:128px}table.cmp td.hi{font-weight:700;background:rgba(52,229,255,.14)}figure.hf{margin:14px 0}figure.hf figcaption{font-size:14px;line-height:1.8;color:var(--sub)}table.full th[scope=row]{position:sticky;left:0;background:#141238;z-index:1}table.full th,table.full td{padding:7px 8px}table.full th.lt{font-weight:400;color:var(--sub)}h1,h2,h3,table td,nav.toc a{word-break:auto-phrase;text-wrap:balance}.page-updated time{white-space:nowrap}</style>
+</head>
+<body><div class="wrap">
+<a class="home" href="/">← 雀トレに戻る</a>
+<h1>麻雀のテンパイは何巡目？配牌から受け入れ最大で打ったときの巡目別の確率</h1>
+
+<div class="card">
+<p class="lead">先に結論です。配牌から受け入れ最大で打ち続けても、テンパイしているのは8巡目まで16.3%、10巡目まで27.3%、12巡目まで38.8%で、半分に届くのは14巡目です。18巡目の最後まで打っても、31.6%はテンパイしません。配牌が2シャンテン以下なら、10巡目まで50.7%、5シャンテン以上なら13.5%です。</p>
+
+<div class="rulebox">
+<p><b>この記事の数字の出どころ</b>：牌136枚をシャッフルして子の配牌13枚を配り、ツモるたびに「シャンテン数が最小になる牌」を切る、という打ち方を18ツモ分繰り返しました。同じ小さいシャンテン数のときは、受け入れ（シャンテン数が進む牌の残り枚数）が最大になる牌を切ります。雀トレのエンジンで20万回数えました（2026年11月25日に計測）。他家の打牌・鳴き・リーチ・役は入っていません。</p>
+</div>
+
+<nav class="toc" aria-label="目次">
+<p class="t">目次</p>
+<ol>
+<li><a href="#junme">何巡目までに、何%がテンパイするか</a></li>
+<li><a href="#haipai">配牌のシャンテン別に見ると</a></li>
+<li><a href="#agari">テンパイ巡目から、ツモあがり確率へ</a></li>
+<li><a href="#katachi">形が完成するのは、何巡目か</a></li>
+<li><a href="#chigai">実戦との違いと、この数字の限界</a></li>
+<li><a href="#kensan">検算：別の実装・既存記事との一致</a></li>
+<li><a href="#hikaku">検索で見つかった範囲</a></li>
+<li><a href="#matome">まとめ</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="junme">何巡目までに、何%がテンパイするか？</h2>
+<p><b>結論：テンパイしているのは、6巡目まで7.6%、8巡目まで16.3%、10巡目まで27.3%、12巡目まで38.8%です。半分に届くのは14巡目で、18巡目まででも68.4%です（20万回の実測）。</b></p>
+<p>「n巡目」は、自分のn回目のツモのあとの打牌で、13枚がテンパイしていることです。配牌のままテンパイは0巡目、最初のツモのあとが1巡目です。テンパイは、役やリーチの有無を問わない「形のうえのテンパイ」で、七対子と国士無双のテンパイも含みます。数字は、その巡目までに1度でもテンパイしている割合（累積）です（2026年11月25日の計測値）。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">巡目</th><th scope="col">全体</th><th scope="col">配牌<br>2シャンテン以下</th><th scope="col">配牌<br>3シャンテン</th><th scope="col">配牌<br>4シャンテン</th><th scope="col">配牌<br>5シャンテン以上</th></tr></thead><tbody><tr><th scope="row">3巡目まで</th><td class="num hi">1.0</td><td class="num">7.2</td><td class="num">0.7</td><td class="num">0.0</td><td class="num">0.0</td></tr><tr><th scope="row">4巡目まで</th><td class="num hi">2.3</td><td class="num">12.7</td><td class="num">2.4</td><td class="num">0.4</td><td class="num">0.0</td></tr><tr><th scope="row">5巡目まで</th><td class="num hi">4.4</td><td class="num">18.9</td><td class="num">5.5</td><td class="num">1.4</td><td class="num">0.2</td></tr><tr><th scope="row">6巡目まで</th><td class="num hi">7.6</td><td class="num">25.4</td><td class="num">9.6</td><td class="num">3.6</td><td class="num">1.0</td></tr><tr><th scope="row">7巡目まで</th><td class="num hi">11.5</td><td class="num">31.9</td><td class="num">14.6</td><td class="num">6.8</td><td class="num">2.7</td></tr><tr><th scope="row">8巡目まで</th><td class="num hi">16.3</td><td class="num">38.6</td><td class="num">20.2</td><td class="num">11.0</td><td class="num">5.4</td></tr><tr><th scope="row">9巡目まで</th><td class="num hi">21.6</td><td class="num">44.7</td><td class="num">26.2</td><td class="num">16.0</td><td class="num">9.0</td></tr><tr><th scope="row">10巡目まで</th><td class="num hi">27.3</td><td class="num">50.7</td><td class="num">32.3</td><td class="num">21.7</td><td class="num">13.5</td></tr><tr><th scope="row">11巡目まで</th><td class="num hi">33.0</td><td class="num">56.0</td><td class="num">38.2</td><td class="num">27.5</td><td class="num">18.8</td></tr><tr><th scope="row">12巡目まで</th><td class="num hi">38.8</td><td class="num">60.9</td><td class="num">44.2</td><td class="num">33.4</td><td class="num">24.6</td></tr><tr><th scope="row">13巡目まで</th><td class="num hi">44.5</td><td class="num">65.6</td><td class="num">49.9</td><td class="num">39.3</td><td class="num">30.6</td></tr><tr><th scope="row">14巡目まで</th><td class="num hi">50.1</td><td class="num">69.8</td><td class="num">55.2</td><td class="num">45.2</td><td class="num">36.8</td></tr><tr><th scope="row">15巡目まで</th><td class="num hi">55.2</td><td class="num">73.2</td><td class="num">60.1</td><td class="num">50.7</td><td class="num">42.6</td></tr><tr><th scope="row">16巡目まで</th><td class="num hi">60.0</td><td class="num">76.2</td><td class="num">64.6</td><td class="num">55.9</td><td class="num">48.2</td></tr><tr><th scope="row">17巡目まで</th><td class="num hi">64.4</td><td class="num">78.9</td><td class="num">68.7</td><td class="num">60.8</td><td class="num">53.3</td></tr><tr><th scope="row">18巡目まで</th><td class="num hi">68.4</td><td class="num">81.5</td><td class="num">72.3</td><td class="num">65.2</td><td class="num">58.2</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計測（20万回、2026年11月25日）。単位は％。表の「全体」列は水色の背景で示しました。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf1t" viewBox="0 0 293 239" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf1t">巡目までにテンパイしている確率（全体、20万回の実測）。6巡目まで7.6%、8巡目まで16.3%、10巡目まで27.3%、12巡目まで38.8%、14巡目まで50.1%、18巡目まで68.4%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">6巡目</text><rect x="70" y="8" width="15" height="18" rx="4" fill="#34e5ff"/><text x="93" y="22">7.6%</text><text x="4" y="55">8巡目</text><rect x="70" y="41" width="33" height="18" rx="4" fill="#34e5ff"/><text x="111" y="55">16.3%</text><text x="4" y="88">10巡目</text><rect x="70" y="74" width="55" height="18" rx="4" fill="#34e5ff"/><text x="133" y="88">27.3%</text><text x="4" y="121">12巡目</text><rect x="70" y="107" width="78" height="18" rx="4" fill="#34e5ff"/><text x="156" y="121">38.8%</text><text x="4" y="154">14巡目</text><rect x="70" y="140" width="100" height="18" rx="4" fill="#34e5ff"/><text x="178" y="154">50.1%</text><text x="4" y="187">16巡目</text><rect x="70" y="173" width="120" height="18" rx="4" fill="#34e5ff"/><text x="198" y="187">60.0%</text><text x="4" y="220">18巡目</text><rect x="70" y="206" width="137" height="18" rx="4" fill="#34e5ff"/><text x="215" y="220">68.4%</text></g></svg></div>
+<figcaption>図1：配牌から受け入れ最大で打ったとき、その巡目までにテンパイしている確率（20万回の実測、2026年11月25日）。50%に届くのは14巡目です。</figcaption></figure>
+<ul>
+<li>5巡目までのテンパイは4.4%で、約23回に1回です。序盤のテンパイは、効率で打ってもまれです。</li>
+<li>1巡ごとに増える割合（その巡目で初めてテンパイした割合）は、11〜13巡目で約5.8%と、いちばん多くなります（計測値）。</li>
+<li>テンパイできた配牌だけで平均すると、テンパイは11.6巡目です。ただし、31.6%は18巡目でもテンパイしないので、これは「テンパイできた場合の平均」です。</li>
+</ul>
+
+<h2 id="haipai">配牌のシャンテン別に見ると</h2>
+<p><b>結論：配牌が2シャンテン以下なら、半分は10巡目までにテンパイします。5シャンテン以上だと、17巡目まで待たないと半分に届きません。</b>配牌の分布そのものは、<a href="/articles/mahjong-haipai-shanten">配牌のシャンテン分布の記事</a>にあります。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">配牌のシャンテン数</th><th scope="col">配牌の割合</th><th scope="col">50%に届く巡目</th><th scope="col">10巡目まで</th><th scope="col">18巡目まで</th><th scope="col">18巡目でも未テンパイ</th></tr></thead><tbody><tr><th scope="row">2シャンテン以下</th><td class="num">9.9%</td><td class="num">10巡目</td><td class="num">50.7%</td><td class="num">81.5%</td><td class="num">18.5%</td></tr><tr><th scope="row">3シャンテン</th><td class="num">36.3%</td><td class="num">14巡目</td><td class="num">32.3%</td><td class="num">72.3%</td><td class="num">27.7%</td></tr><tr><th scope="row">4シャンテン</th><td class="num">39.8%</td><td class="num">15巡目</td><td class="num">21.7%</td><td class="num">65.2%</td><td class="num">34.8%</td></tr><tr><th scope="row">5シャンテン以上</th><td class="num">13.9%</td><td class="num">17巡目</td><td class="num">13.5%</td><td class="num">58.2%</td><td class="num">41.8%</td></tr><tr><th scope="row">全体</th><td class="num">100%</td><td class="num">14巡目</td><td class="num hi">27.3%</td><td class="num hi">68.4%</td><td class="num">31.6%</td></tr></tbody></table></div>
+<p class="muted" style="margin:0 0 10px">出典＝この記事の計測（20万回、2026年11月25日）。配牌の割合は、配牌13枚のシャンテン数（七対子・国士無双を含む最小値）で分けた割合です。</p>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf2t" viewBox="0 0 293 140" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf2t">10巡目までにテンパイしている確率、配牌のシャンテン別。2シャンテン以下は50.7%、3シャンテンは32.3%、4シャンテンは21.7%、5シャンテン以上は13.5%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">2以下</text><rect x="56" y="8" width="101" height="18" rx="4" fill="#34e5ff"/><text x="165" y="22">50.7%</text><text x="4" y="55">3</text><rect x="56" y="41" width="65" height="18" rx="4" fill="#34e5ff"/><text x="129" y="55">32.3%</text><text x="4" y="88">4</text><rect x="56" y="74" width="43" height="18" rx="4" fill="#34e5ff"/><text x="107" y="88">21.7%</text><text x="4" y="121">5以上</text><rect x="56" y="107" width="27" height="18" rx="4" fill="#ff7ad9"/><text x="91" y="121">13.5%</text></g></svg></div>
+<figcaption>図2：配牌のシャンテン数別に見た、10巡目までにテンパイしている確率（20万回の実測、2026年11月25日）。</figcaption></figure>
+<ul>
+<li>配牌のシャンテン数が増えるほど、半分に届く巡目は遅れます（10→14→15→17巡目）。2シャンテン以下と5シャンテン以上では、合計で7巡の差です。</li>
+<li>10巡目までのテンパイは、2シャンテン以下で50.7%、3シャンテンで32.3%、4シャンテンで21.7%、5シャンテン以上で13.5%です。</li>
+<li>5シャンテン以上の配牌は、18巡目でも41.8%がテンパイしません。「配牌が悪いと終わり」ではありませんが、58%の局だけがテンパイに届く、ということです。</li>
+</ul>
+
+<h2 id="agari">テンパイ巡目から、ツモあがり確率へ</h2>
+<p><b>結論：10巡目にテンパイした両面（8枚）は、残り8ツモでツモあがり56.3%です。14巡目にテンパイすると、残り4ツモで39.6%まで下がります。</b>テンパイした巡目から、残りのツモ回数を引きます。</p>
+<p>東家・南家は18ツモ、西家・北家は17ツモです。この記事は18ツモの数え方なので、残りツモは「18−テンパイ巡目」です。ツモあがり確率は、<a href="/articles/mahjong-tsumo-agari-kakuritsu">ツモあがり確率表の記事</a>と同じ式（山に残る牌を、東家はn回のツモに対して4n+53枚として数える）で計算しました。</p>
+<div class="scroll-x"><table class="cmp"><caption class="muted" style="text-align:left;caption-side:top;padding:0 0 6px">← 横にスクロールできます</caption><thead><tr><th scope="col">テンパイした巡目</th><th scope="col">その巡目までのテンパイ率</th><th scope="col">残りツモ</th><th scope="col">両面（8枚）<br>ツモあがり確率</th><th scope="col">4枚待ち<br>ツモあがり確率</th></tr></thead><tbody><tr><th scope="row">6巡目</th><td class="num">7.6%</td><td class="num">12回</td><td class="num">65.1</td><td class="num">40.2</td></tr><tr><th scope="row">8巡目</th><td class="num">16.3%</td><td class="num">10回</td><td class="num">61.3</td><td class="num">37.1</td></tr><tr><th scope="row">10巡目</th><td class="num">27.3%</td><td class="num">8回</td><td class="num">56.3</td><td class="num">33.2</td></tr><tr><th scope="row">12巡目</th><td class="num">38.8%</td><td class="num">6回</td><td class="num">49.4</td><td class="num">28.2</td></tr><tr><th scope="row">14巡目</th><td class="num">50.1%</td><td class="num">4回</td><td class="num">39.6</td><td class="num">21.7</td></tr><tr><th scope="row">16巡目</th><td class="num">60.0%</td><td class="num">2回</td><td class="num">24.7</td><td class="num">12.8</td></tr></tbody></table></div>
+<figure class="hf"><div class="scroll-x"><svg role="img" aria-labelledby="hf3t" viewBox="0 0 293 206" width="100%" style="display:block;max-width:360px;min-width:293px" xmlns="http://www.w3.org/2000/svg"><title id="hf3t">テンパイ巡目別の、両面待ち（8枚）のツモあがり確率。6巡目に65.1%、10巡目に56.3%、14巡目に39.6%、16巡目に24.7%</title>
+<g font-family="sans-serif" font-size="14" fill="#eef2ff"><text x="4" y="22">6巡目</text><rect x="70" y="8" width="98" height="18" rx="4" fill="#34e5ff"/><text x="176" y="22">65.1%</text><text x="4" y="55">8巡目</text><rect x="70" y="41" width="92" height="18" rx="4" fill="#34e5ff"/><text x="170" y="55">61.3%</text><text x="4" y="88">10巡目</text><rect x="70" y="74" width="84" height="18" rx="4" fill="#34e5ff"/><text x="162" y="88">56.3%</text><text x="4" y="121">12巡目</text><rect x="70" y="107" width="74" height="18" rx="4" fill="#34e5ff"/><text x="152" y="121">49.4%</text><text x="4" y="154">14巡目</text><rect x="70" y="140" width="59" height="18" rx="4" fill="#34e5ff"/><text x="137" y="154">39.6%</text><text x="4" y="187">16巡目</text><rect x="70" y="173" width="37" height="18" rx="4" fill="#34e5ff"/><text x="115" y="187">24.7%</text></g></svg></div>
+<figcaption>図3：両面待ち（8枚）でテンパイした巡目別の、ツモあがり確率（東家、残りツモは18−巡目、2026年11月25日の計算値）。</figcaption></figure>
+<p class="muted" style="margin:0 0 10px">出典＝テンパイ率はこの記事の計測、ツモあがり確率は<a href="/articles/mahjong-tsumo-agari-kakuritsu">ツモあがり確率表</a>の式（2026年11月25日の計算値）。ロン・鳴き・他家のあがりは入っていません。</p>
+<ul>
+<li>中央値の14巡目にテンパイすると、残りは4ツモです。両面（8枚）でも、ツモだけであがれるのは39.6%です。</li>
+<li>4枚待ち（嵌張・辺張・シャボ）なら、同じ14巡目で21.7%です。</li>
+<li>だからこそ、実戦では、他家のロンあがりや、鳴きで巡目を縮めることが効きます。この記事の数字は、それを入れない「ひとり打ちの物差し」です。</li>
+</ul>
+
+<h2 id="katachi">形が完成するのは、何巡目か</h2>
+<p><b>結論：形のうえで完成（役を考えない）するのは、10巡目まで2.9%、14巡目まで9.2%、18巡目まででも18.6%です。</b>自分のツモだけで、14枚が完成形になった回の割合です。</p>
+<ul>
+<li>ツモあがりの形ができるのは、18巡目まででも18.6%です。「ひとり打ちで、受け入れ最大で打っても、5回に1回しか完成しない」ということです。</li>
+<li>ここでの完成は、役がなくても数えます。役がないあがりは、実戦ではできません。実際の数字は、これより低くなります。</li>
+<li>テンパイから完成までの確率は、待ちの形で決まります。待ち枚数の数え方は<a href="/articles/mahjong-machi-maisuu">待ちの形ごとの枚数の記事</a>に書きました。</li>
+</ul>
+
+<h2 id="chigai">実戦との違いと、この数字の限界</h2>
+<ul>
+<li>ひとり打ちです。他家の打牌で、ポン・チーはしません。実戦で鳴けば、巡目は縮みます。</li>
+<li>打ち方は、シャンテン数と受け入れ枚数だけで決めています。打点・待ちの良さ・安全度は見ていません。実戦の人は、これを見て、あえて遅く打つことがあります。</li>
+<li>受け入れ枚数は、自分の手牌と自分の捨て牌だけを引いて数えています。他家の捨て牌や、ドラ表示牌は、見えていないものとして数えています。</li>
+<li>役とリーチは考えていません。役がなくても、テンパイに数えます。</li>
+<li>牌山は、公平なシャッフルです。実戦の配牌は、ポン・チーの影響で他家の牌が来ない場面もあります。</li>
+<li>これは、麻雀の仕組みを数字で確かめるための記事で、賭けを勧めるものではありません。</li>
+</ul>
+
+<h2 id="kensan">検算：別の実装・既存記事との一致</h2>
+<ol>
+<li>別の実装と、1,500配牌で完全に一致。雀トレのエンジン（JavaScript）とは別に、Python でシャンテン計算と同じ打ち方を書き直し、同じ山の順を再現して、テンパイした巡目と完成した巡目を比べました。1,500配牌で、不一致は0でした。</li>
+<li>配牌の分布が、既存記事と一致。配牌の2シャンテン以下は9.9%（既存記事10.1%）、3シャンテン36.3%（35.9%）、4シャンテン39.8%（39.9%）、5シャンテン以上13.9%（14.1%）で、10万回の既存記事と、0.4ポイント以内の差でした。</li>
+<li>1ツモ後のテンパイが、既存記事と一致。最初のツモのあとのテンパイは0.08%で、既存記事の0.07%（10万回中74回）と同じ水準です。</li>
+<li>シードを変えた再計測と一致。別の乱数の種で75,000回数え直し、全巡目で累積テンパイ率の差は最大0.57ポイントでした。</li>
+</ol>
+<p>ツモあがり確率は、<a href="/articles/mahjong-tsumo-agari-kakuritsu">ツモあがり確率表</a>の式を使い、東家の3・6・9・12ツモで、同記事の表と同じ値（両面33.0・49.4・59.0・65.1%）になることを確かめました。</p>
+
+<h2 id="hikaku">検索で見つかった範囲</h2>
+<p>2026年11月25日に、「麻雀 テンパイ 何巡目 平均」「配牌から テンパイ 巡目 確率」など4つの語で検索しました。巡目ごとのテンパイ率を数字の表で示した日本語のページは、検索の範囲では見つかりませんでした（網羅的な調査ではありません）。</p>
+<p>形のつくり方は同サイトの<a href="/articles/mahjong-haipai-shanten">配牌のシャンテン分布</a>と<a href="/articles/mahjong-tsumo-agari-kakuritsu">ツモあがり確率表</a>に合わせ、結論・表・限界を並べる型にしました。</p>
+
+<h2 id="matome">まとめ</h2>
+<ul>
+<li>配牌から受け入れ最大で打ったとき、テンパイしているのは、8巡目まで16.3%、10巡目まで27.3%、12巡目まで38.8%。半分は14巡目までです（20万回の実測）。</li>
+<li>18巡目でも31.6%は、テンパイしません。配牌が5シャンテン以上だと、41.8%です。</li>
+<li>10巡目にテンパイした両面は、残り8ツモで56.3%。14巡目なら、残り4ツモで39.6%です。</li>
+<li>検算は、別実装（1,500配牌で不一致0）、既存記事との一致、シード違いの再計測で行いました（2026年11月25日）。</li>
+</ul>
+
+<h2 id="faq">よくある質問</h2>
+<h3>麻雀は、何巡目にテンパイするのが普通ですか？</h3>
+<p>この記事の条件（ひとり打ち・鳴きなし・受け入れ最大で打つ）の20万回の実測では、10巡目までに27.3%、半分は14巡目までです。テンパイできた配牌の平均は11.6巡目でした。実戦は、鳴きや打点の判断が入るので、そのままの数字ではありません。</p>
+<h3>配牌が悪いと、テンパイは何巡目になりますか？</h3>
+<p>配牌が5シャンテン以上だと、10巡目までのテンパイは13.5%、18巡目までで58.2%でした。配牌が2シャンテン以下なら、10巡目までに50.7%です。</p>
+<h3>18巡目まで打っても、テンパイしないことはありますか？</h3>
+<p>あります。20万回のうち31.6%は、18巡目でもテンパイしませんでした。配牌が5シャンテン以上だと41.8%です。</p>
+<h3>この数字は、リーチをかける巡目と同じですか？</h3>
+<p>いいえ。この記事は、役やリーチの有無を見ない「形のうえのテンパイ」の巡目です。リーチは、役がなくてもかけられますが、巡目別のリーチ率は数えていません。</p>
+<h3>テンパイしたあとのあがり確率は、どう分かりますか？</h3>
+<p>テンパイした巡目から残りのツモ回数を出して、<a href="/articles/mahjong-tsumo-agari-kakuritsu">ツモあがり確率の表</a>で引きます。たとえば、10巡目にテンパイした両面（8枚）は、残り8ツモで56.3%です。</p>
+
+<div class="cta">
+<p style="margin:0 0 6px"><b>次の1アクション：何切るドリルで、受け入れ枚数が多い打牌を1問選んでみる。</b></p>
+<p style="margin:0">・1問ずつ答え合わせ → <a href="/drill">何切るドリル</a><br>
+・待ち牌が自動で出る一人麻雀 → <a href="/rules/">麻雀のいろは（れんしゅうタブ）</a></p>
+</div>
+
+<h2>次に読む</h2>
+<a class="next" href="/articles/mahjong-tsumo-agari-kakuritsu"><b>麻雀のツモあがり確率表｜待ち枚数×残りツモ回数</b>テンパイした巡目から、あがる確率を引く表。</a>
+<a class="next" href="/articles/mahjong-haipai-shanten"><b>麻雀の配牌は平均何シャンテン？10万回の配牌を数えた結果</b>配牌13枚のシャンテン数の分布と、1ツモ後の変化。</a>
+<a class="next" href="/articles/mahjong-what-to-discard"><b>麻雀の何切る：迷ったときの基本方針</b>受け入れ枚数を数えて、打牌を選ぶ考え方。</a>
+
+</div>
+<p class="page-updated" data-page-updated style="margin:16px 0 6px;font-size:15px;line-height:1.9;color:var(--sub,#a9a9be);text-align:center">公開：<time datetime="2026-11-25">2026年11月25日</time></p>
+<footer><a href="/">🀄 雀トレ</a><a href="/rules/">麻雀のいろは</a><a href="/articles/">記事一覧</a><a href="/privacy">プライバシーポリシー</a><a href="/disclaimer">免責事項</a><a href="/about">運営者情報</a><a href="/contact">お問い合わせ</a></footer></div></body></html>
