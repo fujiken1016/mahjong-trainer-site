@@ -12,3 +12,5 @@ a{color:var(--cyan)}
 footer{margin-top:34px;font-size:14px;line-height:1.85;color:var(--sub);display:flex;align-items:center;gap:0 14px;flex-wrap:wrap}
 footer a{display:inline-flex;align-items:center;min-height:48px}
 .date{color:var(--sub);font-size:14px;line-height:1.6;margin-top:22px}
+.legal-tiles{display:flex;gap:6px;margin:4px 0 0}
+.legal-tiles img{width:44px;height:auto;aspect-ratio:3/4;background:linear-gradient(#faf7f2,#ebe5da);border:1px solid #d7cfc2;border-radius:8px;box-shadow:0 3px 0 #2b7a52;padding:3px}
